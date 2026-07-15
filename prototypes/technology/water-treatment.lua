@@ -112,7 +112,7 @@ data:extend {{
     categories = {"chemistry", "cryogenics"},
     main_product = "water",
 }}
-add_to_tech("maraxsis-water")
+add_to_tech(data.raw.recipe["ske_h2o"] and "ske_h2o" or "maraxsis-water")
 
 data:extend {{
     type = "item",
