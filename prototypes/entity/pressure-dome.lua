@@ -1,5 +1,5 @@
 local dome = {
-    filename = "__maraxsis__/graphics/entity/pressure-dome/pressure-dome.png",
+    filename = "__maraxsis-classic__/graphics/entity/pressure-dome/pressure-dome.png",
     width = 1344,
     height = 1344,
     scale = 0.935,
@@ -17,7 +17,7 @@ local light_2 = {
 }
 
 local base_shadow = {
-    filename = "__maraxsis__/graphics/entity/pressure-dome/base-shadow.png",
+    filename = "__maraxsis-classic__/graphics/entity/pressure-dome/base-shadow.png",
     width = 1344,
     height = 1344,
     scale = 0.935,
@@ -27,7 +27,7 @@ local base_shadow = {
 }
 
 local cage_shadow = {
-    filename = "__maraxsis__/graphics/entity/pressure-dome/cage-shadow.png",
+    filename = "__maraxsis-classic__/graphics/entity/pressure-dome/cage-shadow.png",
     width = 1344,
     height = 1344,
     scale = 0.935,
@@ -38,7 +38,7 @@ local cage_shadow = {
 data:extend {{
     type = "item",
     name = "maraxsis-pressure-dome",
-    icon = "__maraxsis__/graphics/icons/pressure-dome.png",
+    icon = "__maraxsis-classic__/graphics/icons/pressure-dome.png",
     icon_size = 64,
     place_result = "maraxsis-pressure-dome",
     stack_size = 10,
@@ -80,7 +80,7 @@ data:extend {{
     material_slots_count = 0,
     name = "maraxsis-pressure-dome",
     remove_decoratives = "false",
-    icon = "__maraxsis__/graphics/icons/pressure-dome.png",
+    icon = "__maraxsis-classic__/graphics/icons/pressure-dome.png",
     icon_size = 64,
     flags = {"placeable-player", "player-creation", "not-on-map"},
     max_health = 10000,
@@ -126,7 +126,7 @@ data:extend {maraxsis.merge(data.raw["lamp"]["small-lamp"], {
     hidden_in_factoriopedia = true,
     surface_conditions = maraxsis.surface_conditions(),
     minable = "nil",
-    icon = "__maraxsis__/graphics/icons/pressure-dome.png",
+    icon = "__maraxsis-classic__/graphics/icons/pressure-dome.png",
     icon_size = 64,
     flags = {"placeable-player", "player-creation", "not-on-map", "not-blueprintable"},
     max_health = 10000,
@@ -172,7 +172,7 @@ data:extend {maraxsis.merge(data.raw["constant-combinator"]["constant-combinator
     localised_name = {"entity-name.maraxsis-pressure-dome"},
     localised_description = {"entity-description.maraxsis-pressure-dome"},
     remove_decoratives = "false",
-    icon = "__maraxsis__/graphics/icons/pressure-dome.png",
+    icon = "__maraxsis-classic__/graphics/icons/pressure-dome.png",
     icon_size = 64,
     flags = {"placeable-player", "player-creation", "not-on-map", "not-blueprintable"},
     max_health = 10000,
@@ -264,7 +264,7 @@ data:extend {{
     name = "maraxsis-pressure-dome-collision",
     factoriopedia_alternative = "maraxsis-pressure-dome",
     localised_name = {"entity-name.maraxsis-pressure-dome"},
-    icon = "__maraxsis__/graphics/icons/pressure-dome.png",
+    icon = "__maraxsis-classic__/graphics/icons/pressure-dome.png",
     quality_indicator_scale = 0,
     surface_conditions = maraxsis.surface_conditions(),
     icon_size = 64,
@@ -299,7 +299,7 @@ data:extend {{
 data:extend {{
     type = "sprite",
     name = "maraxsis-flooded-warning",
-    filename = "__maraxsis__/graphics/icons/flooded-warning.png",
+    filename = "__maraxsis-classic__/graphics/icons/flooded-warning.png",
     width = 64,
     height = 64,
     scale = 0.5,

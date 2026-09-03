@@ -12,7 +12,7 @@ data:extend {{
 local coral_variants = {}
 for i = 1, 3 do
     coral_variants[i] = {
-        filename = "__maraxsis__/graphics/icons/coral-" .. i .. ".png",
+        filename = "__maraxsis-classic__/graphics/icons/coral-" .. i .. ".png",
         width = 64,
         height = 64,
         scale = 0.65,
@@ -23,7 +23,7 @@ end
 data:extend {{
     type = "item",
     name = "maraxsis-coral",
-    icon = "__maraxsis__/graphics/icons/coral-1.png",
+    icon = "__maraxsis-classic__/graphics/icons/coral-1.png",
     icon_size = 64,
     pictures = coral_variants,
     stack_size = 200,
@@ -35,7 +35,7 @@ data:extend {{
     type = "resource",
     name = "maraxsis-coral",
     hidden_in_factoriopedia = true,
-    icon = "__maraxsis__/graphics/icons/coral-1.png",
+    icon = "__maraxsis-classic__/graphics/icons/coral-1.png",
     flags = {"placeable-neutral"},
     order = "a-b-x[maraxsis-coral]",
     tree_removal_probability = 0.8,
@@ -82,8 +82,8 @@ data:extend {{
 
 local animations = {}
 for i = 1, 7 do
-    local variant = require("__maraxsis__/graphics/entity/coral/" .. i .. ".lua")
-    variant.filename = "__maraxsis__/graphics/entity/coral/" .. i .. ".png"
+    local variant = require("__maraxsis-classic__/graphics/entity/coral/" .. i .. ".lua")
+    variant.filename = "__maraxsis-classic__/graphics/entity/coral/" .. i .. ".png"
     variant.frame_count = variant.sprite_count
     variant.sprite_count = nil
     variant.flags = {"no-scale"}
@@ -94,7 +94,7 @@ for i = 1, 7 do
         layers = {
             variant,
             {
-                filename = "__maraxsis__/graphics/entity/coral/sh.png",
+                filename = "__maraxsis-classic__/graphics/entity/coral/sh.png",
                 width = 340,
                 height = 126,
                 draw_as_shadow = true,
@@ -111,7 +111,7 @@ data:extend {{
     type = "simple-entity",
     name = "maraxsis-coral-animation",
     flags = {"placeable-neutral", "placeable-off-grid", "not-on-map"},
-    icon = "__maraxsis__/graphics/icons/coral-1.png",
+    icon = "__maraxsis-classic__/graphics/icons/coral-1.png",
     icon_size = 64,
     random_animation_offset = true,
     hidden = true,

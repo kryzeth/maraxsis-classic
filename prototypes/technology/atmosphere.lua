@@ -7,7 +7,7 @@ data:extend {{
     base_flow_rate = data.raw.fluid.steam.base_flow_rate,
     base_color = {1, 1, 1},
     flow_color = {0.5, 0.5, 1},
-    icon = "__maraxsis__/graphics/icons/atmosphere.png",
+    icon = "__maraxsis-classic__/graphics/icons/atmosphere.png",
     icon_size = 64,
     gas_temperature = 25,
 }}
@@ -33,7 +33,7 @@ data:extend {{
 data:extend {{
     type = "technology",
     name = "maraxsis-liquid-atmosphere",
-    icon = "__maraxsis__/graphics/technology/liquid-atmosphere.png",
+    icon = "__maraxsis-classic__/graphics/technology/liquid-atmosphere.png",
     icon_size = 256,
     effects = {
         {
@@ -75,7 +75,7 @@ data:extend {{
     base_flow_rate = data.raw.fluid.steam.base_flow_rate,
     flow_color = {1, 1, 1},
     base_color = {0.5, 0.5, 1},
-    icon = "__maraxsis__/graphics/icons/liquid-atmosphere.png",
+    icon = "__maraxsis-classic__/graphics/icons/liquid-atmosphere.png",
     icon_size = 64,
     gas_temperature = -196,
 }}

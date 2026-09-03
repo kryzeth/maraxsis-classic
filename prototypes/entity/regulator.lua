@@ -29,7 +29,7 @@ regulator.charging_offsets = {
 regulator.integration_patch = {
     layers = {
         {
-            filename = "__maraxsis__/graphics/entity/regulator/regulator.png",
+            filename = "__maraxsis-classic__/graphics/entity/regulator/regulator.png",
             priority = "high",
             width = 1680 / 8,
             height = 2320 / 8,
@@ -41,7 +41,7 @@ regulator.integration_patch = {
             flags = {"no-scale"}
         },
         {
-            filename = "__maraxsis__/graphics/entity/regulator/sh.png",
+            filename = "__maraxsis-classic__/graphics/entity/regulator/sh.png",
             priority = "high",
             width = 400,
             height = 350,
@@ -58,7 +58,7 @@ regulator.integration_patch = {
 regulator.integration_patch_render_layer = "object-under"
 regulator.placeable_by = {item = "maraxsis-pressure-dome", count = 1}
 regulator.minable = nil
-regulator.icon = "__maraxsis__/graphics/icons/regulator.png"
+regulator.icon = "__maraxsis-classic__/graphics/icons/regulator.png"
 regulator.icon_size = 64
 regulator.surface_conditions = maraxsis.surface_conditions()
 regulator.circuit_connector = circuit_connector_definitions["maraxsis-regulator"]
@@ -77,7 +77,7 @@ data:extend {{
     categories = {"maraxsis-regulator"},
     subgroup = "fluid",
     order = "a[fluid]-a[maraxsis-atmosphere]-a[regulator]",
-    icon = "__maraxsis__/graphics/icons/atmosphere.png",
+    icon = "__maraxsis-classic__/graphics/icons/atmosphere.png",
     icon_size = 64,
     localised_name = {"entity-name.maraxsis-regulator"},
 }}

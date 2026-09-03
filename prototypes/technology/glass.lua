@@ -1,7 +1,7 @@
 data:extend {{
     type = "technology",
     name = "maraxsis-glassworking",
-    icon = "__maraxsis__/graphics/technology/glassworking.png",
+    icon = "__maraxsis-classic__/graphics/technology/glassworking.png",
     icon_size = 256,
     effects = {
         {
@@ -36,7 +36,7 @@ data:extend {{
 local limestone_variants = {}
 for i = 1, 3 do
     limestone_variants[i] = {
-        filename = "__maraxsis__/graphics/icons/limestone-" .. i .. ".png",
+        filename = "__maraxsis-classic__/graphics/icons/limestone-" .. i .. ".png",
         width = 64,
         height = 64,
         scale = 1 / 2,
@@ -47,7 +47,7 @@ end
 data:extend {{
     type = "item",
     name = "limestone",
-    icon = "__maraxsis__/graphics/icons/limestone-1.png",
+    icon = "__maraxsis-classic__/graphics/icons/limestone-1.png",
     icon_size = 64,
     pictures = limestone_variants,
     stack_size = 200,
@@ -74,7 +74,7 @@ data:extend {{
 local glass_variants = {}
 for i = 1, 6 do
     glass_variants[i] = {
-        filename = "__maraxsis__/graphics/icons/glass-" .. i .. ".png",
+        filename = "__maraxsis-classic__/graphics/icons/glass-" .. i .. ".png",
         width = 64,
         height = 64,
         scale = 1 / 2,
@@ -85,7 +85,7 @@ end
 data:extend {{
     type = "item",
     name = "maraxsis-glass-panes",
-    icon = "__maraxsis__/graphics/icons/glass-1.png",
+    icon = "__maraxsis-classic__/graphics/icons/glass-1.png",
     pictures = glass_variants,
     icon_size = 64,
     stack_size = 200,
@@ -94,7 +94,7 @@ data:extend {{
 local sand_variants = {}
 for i = 1, 3 do
     sand_variants[i] = {
-        filename = "__maraxsis__/graphics/icons/sand-" .. i .. ".png",
+        filename = "__maraxsis-classic__/graphics/icons/sand-" .. i .. ".png",
         width = 64,
         height = 64,
         scale = 0.575,
@@ -105,7 +105,7 @@ end
 data:extend {{
     type = "item",
     name = maraxsis_constants.SAND_ITEM_NAME,
-    icon = "__maraxsis__/graphics/icons/sand-3.png",
+    icon = "__maraxsis-classic__/graphics/icons/sand-3.png",
     pictures = sand_variants,
     icon_size = 64,
     stack_size = 100,
@@ -116,7 +116,7 @@ data:extend {{
 data:extend {{
     type = "technology",
     name = "maraxsis-glass-productivity",
-    icons = util.technology_icon_constant_recipe_productivity("__maraxsis__/graphics/technology/glass-productivity.png"),
+    icons = util.technology_icon_constant_recipe_productivity("__maraxsis-classic__/graphics/technology/glass-productivity.png"),
     icon_size = 256,
     effects = {
         {
@@ -163,7 +163,7 @@ data:extend {{
         {type = "item", name = "calcite", amount = 1},
         {type = "item", name = "stone",   amount = 1},
     },
-    icon = "__maraxsis__/graphics/icons/limestone-processing.png",
+    icon = "__maraxsis-classic__/graphics/icons/limestone-processing.png",
     icon_size = 64,
     allow_productivity = true,
     categories = {"maraxsis-hydro-plant", "metallurgy"},

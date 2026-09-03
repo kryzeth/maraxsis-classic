@@ -15,7 +15,7 @@ local water = {
     secondary_draw_order = -1,
     collision_mask = {layers = {}},
     render_layer = "light-effect",
-    icon = "__maraxsis__/graphics/tile/water/water-combined.png",
+    icon = "__maraxsis-classic__/graphics/tile/water/water-combined.png",
     icon_size = 32,
     hidden = true,
 }
@@ -31,7 +31,7 @@ water.animations = {
     width = 256,
     line_length = 32,
     variation_count = 1,
-    filename = "__maraxsis__/graphics/tile/water/water-combined.png",
+    filename = "__maraxsis-classic__/graphics/tile/water/water-combined.png",
     frame_count = 32,
     animation_speed = 0.5,
     scale = 4,

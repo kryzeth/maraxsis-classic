@@ -1,6 +1,6 @@
 local submarine_automation = data.raw["technology"]["sp-spidertron-automation"]
 
-submarine_automation.icon = "__maraxsis__/graphics/technology/submarine-automation.png"
+submarine_automation.icon = "__maraxsis-classic__/graphics/technology/submarine-automation.png"
 
 if settings.startup["sp-enable-spiderling"].value then return end -- https://github.com/notnotmelon/maraxsis/issues/212
 

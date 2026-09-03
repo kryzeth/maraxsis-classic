@@ -4,7 +4,7 @@ local sounds = require("__base__.prototypes.entity.sounds")
 data:extend {{
     type = "item",
     name = "maraxsis-oversized-steam-turbine",
-    icon = "__maraxsis__/graphics/icons/oversized-steam-turbine.png",
+    icon = "__maraxsis-classic__/graphics/icons/oversized-steam-turbine.png",
     icon_size = 64,
     place_result = "maraxsis-oversized-steam-turbine",
     stack_size = 5,
@@ -223,7 +223,7 @@ local vertical_frozen_patch = {
 data:extend {{
     type = "fluid",
     name = "maraxsis-supercritical-steam",
-    icon = "__maraxsis__/graphics/icons/supercritical-steam.png",
+    icon = "__maraxsis-classic__/graphics/icons/supercritical-steam.png",
     icon_size = 64,
     default_temperature = 2000,
     max_temperature = 20000,
@@ -252,7 +252,7 @@ data:extend {{
     },
     results = {},
     categories ={ "maraxsis-supercritical-steam"},
-    icon = "__maraxsis__/graphics/icons/oversized-steam-turbine.png",
+    icon = "__maraxsis-classic__/graphics/icons/oversized-steam-turbine.png",
 }}
 
 data:extend {{
@@ -336,7 +336,7 @@ data:extend {{
     type = "fusion-generator",
     name = "maraxsis-oversized-steam-turbine",
     heating_energy = data.raw["generator"]["steam-turbine"].heating_energy,
-    icon = "__maraxsis__/graphics/icons/oversized-steam-turbine.png",
+    icon = "__maraxsis-classic__/graphics/icons/oversized-steam-turbine.png",
     maraxsis_buildability_rules = {water = false, dome = true, coral = false, trench = true, trench_entrance = false, trench_lava = false},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.5, result = "maraxsis-oversized-steam-turbine"},

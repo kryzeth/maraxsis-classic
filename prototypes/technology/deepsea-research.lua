@@ -3,7 +3,7 @@ if mods["Krastorio2-spaced-out"] or mods["Krastorio2"] then return end
 data:extend {{
     type = "technology",
     name = "maraxsis-deepsea-research",
-    icon = "__maraxsis__/graphics/technology/deepsea-research.png",
+    icon = "__maraxsis-classic__/graphics/technology/deepsea-research.png",
     icon_size = 256,
     effects = {},
     prerequisites = {

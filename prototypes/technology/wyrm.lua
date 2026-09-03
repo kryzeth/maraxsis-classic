@@ -1,7 +1,7 @@
 data:extend {{
     type = "technology",
     name = "maraxsis-wyrm-confinement",
-    icon = "__maraxsis__/graphics/technology/wyrm-confinement.png",
+    icon = "__maraxsis-classic__/graphics/technology/wyrm-confinement.png",
     icon_size = 256,
     effects = {
         {
@@ -28,7 +28,7 @@ data:extend {{
 data:extend {{
     type = "item",
     name = "maraxsis-wyrm-confinement-cell",
-    icon = "__maraxsis__/graphics/icons/wyrm-confinement-cell.png",
+    icon = "__maraxsis-classic__/graphics/icons/wyrm-confinement-cell.png",
     icon_size = 64,
     stack_size = 10,
 }}
@@ -36,7 +36,7 @@ data:extend {{
 local wyrm_variants = {}
 for i = 1, 4 do
     wyrm_variants[i] = {
-        filename = "__maraxsis__/graphics/icons/wyrm-specimen-" .. i .. ".png",
+        filename = "__maraxsis-classic__/graphics/icons/wyrm-specimen-" .. i .. ".png",
         width = 64,
         height = 64,
         scale = 1 / 2,
@@ -47,7 +47,7 @@ end
 data:extend {{
     type = "item",
     name = "maraxsis-wyrm-specimen",
-    icon = "__maraxsis__/graphics/icons/wyrm-specimen-2.png",
+    icon = "__maraxsis-classic__/graphics/icons/wyrm-specimen-2.png",
     pictures = wyrm_variants,
     icon_size = 64,
     stack_size = 10,

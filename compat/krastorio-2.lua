@@ -1,9 +1,9 @@
 if not mods["Krastorio2-spaced-out"] and not mods["Krastorio2"] then return end
 
 if not mods["Tech_Cards_For_Modded_Planets"] then
-    data.raw.item["hydraulic-science-pack"].icon = "__maraxsis__/graphics/icons/hydraulic-tech-card.png"
+    data.raw.item["hydraulic-science-pack"].icon = "__maraxsis-classic__/graphics/icons/hydraulic-tech-card.png"
     data.raw.item["hydraulic-science-pack"].localised_name = {"item-name.hydraulic-tech-card"}
-    data.raw.technology["hydraulic-science-pack"].icon = "__maraxsis__/graphics/technology/hydraulic-tech-card.png"
+    data.raw.technology["hydraulic-science-pack"].icon = "__maraxsis-classic__/graphics/technology/hydraulic-tech-card.png"
     data.raw.technology["hydraulic-science-pack"].localised_name = {"item-name.hydraulic-tech-card"}
 end
 
@@ -11,7 +11,7 @@ data:extend {{
     type = "item",
     name = "hydraulic-research-data",
     stack_size = 200,
-    icon = "__maraxsis__/graphics/icons/hydraulic-research-data.png",
+    icon = "__maraxsis-classic__/graphics/icons/hydraulic-research-data.png",
     icon_size = 64,
     subgroup = "science-pack",
     weight = 1000,

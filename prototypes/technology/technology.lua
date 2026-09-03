@@ -1,7 +1,7 @@
 data:extend {{
     type = "technology",
     name = "planet-discovery-maraxsis",
-    icons = util.technology_icon_constant_planet("__maraxsis__/graphics/technology/maraxsis.png"),
+    icons = util.technology_icon_constant_planet("__maraxsis-classic__/graphics/technology/maraxsis.png"),
     icon_size = 256,
     essential = true,
     localised_description = {"space-location-description.maraxsis"},
@@ -58,7 +58,7 @@ data:extend {{
             modifier = 1,
             icons = {
                 {
-                    icon = "__maraxsis__/graphics/icons/cargo-landing-pad-capacity.png",
+                    icon = "__maraxsis-classic__/graphics/icons/cargo-landing-pad-capacity.png",
                     icon_size = 64,
                 }
             }

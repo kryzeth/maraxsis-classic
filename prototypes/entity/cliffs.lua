@@ -1,7 +1,7 @@
 local collision_mask_util = require "__core__/lualib/collision-mask-util"
 
 local cliff = scaled_cliff {
-    mod_name = "__maraxsis__",
+    mod_name = "__maraxsis-classic__",
     name = "cliff-maraxsis",
     map_color = {144, 119, 87},
     suffix = "maraxsis",
@@ -21,7 +21,7 @@ local function recursively_replace_cliff_shadows_to_vulcanus(cliff_orientations)
     if cliff_orientations.draw_as_shadow then
         local filename = cliff_orientations.filename
         if filename:match("%-shadow.png") then
-            cliff_orientations.filename = filename:gsub("__maraxsis__/graphics/terrain/cliffs/maraxsis/cliff%-maraxsis", "__space-age__/graphics/terrain/cliffs/vulcanus/cliff-vulcanus")
+            cliff_orientations.filename = filename:gsub("__maraxsis%-classic__/graphics/terrain/cliffs/maraxsis/cliff%-maraxsis", "__space-age__/graphics/terrain/cliffs/vulcanus/cliff-vulcanus")
         end
         return
     end

@@ -1,7 +1,7 @@
 data:extend {{
     type = "technology",
     name = "maraxsis-depth-charges",
-    icon = "__maraxsis__/graphics/technology/depth-charges.png",
+    icon = "__maraxsis-classic__/graphics/technology/depth-charges.png",
     icon_size = 256,
     effects = {
         {
@@ -72,7 +72,7 @@ data:extend {{
 data:extend {{
     type = "capsule",
     name = "maraxsis-big-cliff-explosives",
-    icon = "__maraxsis__/graphics/icons/big-cliff-explosives.png",
+    icon = "__maraxsis-classic__/graphics/icons/big-cliff-explosives.png",
     icon_size = 64,
     stack_size = 10,
     capsule_action = {

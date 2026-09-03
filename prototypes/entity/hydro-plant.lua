@@ -4,7 +4,7 @@ local sounds = require("__base__/prototypes/entity/sounds")
 data:extend { {
     type = "technology",
     name = "maraxsis-hydro-plant",
-    icon = "__maraxsis__/graphics/technology/hydro-plant.png",
+    icon = "__maraxsis-classic__/graphics/technology/hydro-plant.png",
     icon_size = 256,
     effects = {
         {
@@ -24,7 +24,7 @@ local working_visualisations = {
     {
         always_draw = true,
         animation = {
-            filename = "__maraxsis__/graphics/entity/hydro-plant/hydro-plant.png",
+            filename = "__maraxsis-classic__/graphics/entity/hydro-plant/hydro-plant.png",
             priority = "high",
             width = 2560 / 8,
             height = 2960 / 8,
@@ -39,7 +39,7 @@ local working_visualisations = {
     {
         always_draw = true,
         animation = {
-            filename = "__maraxsis__/graphics/entity/hydro-plant/sh.png",
+            filename = "__maraxsis-classic__/graphics/entity/hydro-plant/sh.png",
             priority = "high",
             width = 600,
             height = 400,
@@ -70,14 +70,14 @@ data:extend { {
 data:extend { {
     type = "assembling-machine",
     name = "maraxsis-hydro-plant",
-    icon = "__maraxsis__/graphics/icons/hydro-plant.png",
+    icon = "__maraxsis-classic__/graphics/icons/hydro-plant.png",
     maraxsis_buildability_rules = { water = true, dome = true, coral = true, trench = true, trench_entrance = false, trench_lava = false },
     icon_size = 64,
     open_sound = table.deepcopy(data.raw["assembling-machine"]["chemical-plant"].open_sound),
     close_sound = table.deepcopy(data.raw["assembling-machine"]["chemical-plant"].close_sound),
     working_sound = {
         sound = {
-            filename = "__maraxsis__/sounds/hydro-plant.ogg",
+            filename = "__maraxsis-classic__/sounds/hydro-plant.ogg",
             volume = 0.50,
         },
         apparent_volume = 1.5,
@@ -189,7 +189,7 @@ data:extend { extra_module_slots }
 data:extend { {
     type = "item",
     name = "maraxsis-hydro-plant",
-    icon = "__maraxsis__/graphics/icons/hydro-plant.png",
+    icon = "__maraxsis-classic__/graphics/icons/hydro-plant.png",
     icon_size = 64,
     place_result = "maraxsis-hydro-plant",
     stack_size = 20,

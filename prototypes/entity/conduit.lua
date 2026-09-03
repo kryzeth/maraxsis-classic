@@ -2,7 +2,7 @@ data:extend {{
     type = "item",
     name = "maraxsis-conduit",
     stack_size = data.raw.item.beacon.stack_size,
-    icon = "__maraxsis__/graphics/icons/conduit.png",
+    icon = "__maraxsis-classic__/graphics/icons/conduit.png",
     icon_size = 64,
     place_result = "maraxsis-conduit",
 }}
@@ -30,7 +30,7 @@ data:extend {{
 data:extend {{
     type = "technology",
     name = "maraxsis-effect-transmission-2",
-    icon = "__maraxsis__/graphics/technology/conduit.png",
+    icon = "__maraxsis-classic__/graphics/technology/conduit.png",
     icon_size = 256,
     effects = {
         {
@@ -71,7 +71,7 @@ data:extend {maraxsis.merge(data.raw.beacon.beacon, {
                 animation = {
                     layers = {
                         {
-                            filename = "__maraxsis__/graphics/entity/conduit/conduit.png",
+                            filename = "__maraxsis-classic__/graphics/entity/conduit/conduit.png",
                             frame_count = 60,
                             line_length = 8,
                             width = 1600 / 8,
@@ -81,7 +81,7 @@ data:extend {maraxsis.merge(data.raw.beacon.beacon, {
                             shift = {0, -0.5},
                         },
                         {
-                            filename = "__maraxsis__/graphics/entity/conduit/sh.png",
+                            filename = "__maraxsis-classic__/graphics/entity/conduit/sh.png",
                             repeat_count = 60,
                             width = 600,
                             height = 400,
@@ -95,7 +95,7 @@ data:extend {maraxsis.merge(data.raw.beacon.beacon, {
             },
             {
                 animation = {
-                    filename = "__maraxsis__/graphics/entity/conduit/emission.png",
+                    filename = "__maraxsis-classic__/graphics/entity/conduit/emission.png",
                     frame_count = 60,
                     line_length = 8,
                     width = 1600 / 8,
@@ -119,7 +119,7 @@ data:extend {maraxsis.merge(data.raw.beacon.beacon, {
     module_slots = 4,
     icons_positioning = {{inventory_index = defines.inventory.beacon_modules, max_icons_per_row = 2, shift = {0, 0.5}}},
     profile = profile,
-    icon = "__maraxsis__/graphics/icons/conduit.png",
+    icon = "__maraxsis-classic__/graphics/icons/conduit.png",
     icon_size = 64,
     supply_area_distance = 16,
     distribution_effectivity = 0.5,

@@ -1,7 +1,7 @@
 data:extend {{
     type = "item",
     name = "hydraulic-science-pack",
-    icon = "__maraxsis__/graphics/icons/hydraulic-science-pack.png",
+    icon = "__maraxsis-classic__/graphics/icons/hydraulic-science-pack.png",
     icon_size = 64,
     subgroup = "science-pack",
     order = "j[hydraulic-science-pack]",
@@ -15,7 +15,7 @@ data:extend {{
 data:extend {{
     type = "technology",
     name = "hydraulic-science-pack",
-    icon = "__maraxsis__/graphics/technology/hydraulic-science-pack.png",
+    icon = "__maraxsis-classic__/graphics/technology/hydraulic-science-pack.png",
     icon_size = 256,
     essential = true,
     effects = {

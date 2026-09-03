@@ -1,7 +1,7 @@
 data:extend {{
     type = "technology",
     name = "maraxsis-nuclear-submarine",
-    icon = "__maraxsis__/graphics/technology/nuclear-submarine.png",
+    icon = "__maraxsis-classic__/graphics/technology/nuclear-submarine.png",
     icon_size = 256,
     effects = {
         {
@@ -75,7 +75,7 @@ local recipes = {
 
 for i = 1, 2 do
     local name = i == 1 and "maraxsis-diesel-submarine" or "maraxsis-nuclear-submarine"
-    local icon = "__maraxsis__/graphics/icons/" .. (i == 1 and "diesel" or "nuclear") .. "-submarine.png"
+    local icon = "__maraxsis-classic__/graphics/icons/" .. (i == 1 and "diesel" or "nuclear") .. "-submarine.png"
 
     if aai_vehicle_exclusions then table.insert(aai_vehicle_exclusions, name) end
 
@@ -112,7 +112,7 @@ for i = 1, 2 do
         draw_as_glow = true,
         ["shift"] = {x = 0 / 64, y = -26 / 64},
         scale = 0.5,
-        filename = "__maraxsis__/graphics/entity/submarine/lamp.png",
+        filename = "__maraxsis-classic__/graphics/entity/submarine/lamp.png",
         height = 282,
         width = 366,
     }
@@ -124,7 +124,7 @@ for i = 1, 2 do
         ["lines_per_file"] = 8,
         ["shift"] = {x = 0 / 64, y = -25.5 / 64},
         scale = 0.5,
-        filename = "__maraxsis__/graphics/entity/submarine/mask.png",
+        filename = "__maraxsis-classic__/graphics/entity/submarine/mask.png",
         ["height"] = 333,
         ["width"] = 372,
         apply_runtime_tint = true,
@@ -137,7 +137,7 @@ for i = 1, 2 do
         ["lines_per_file"] = 8,
         shift = {x = 0 / 64, y = -25.5 / 64},
         scale = 0.5,
-        filename = "__maraxsis__/graphics/entity/submarine/full-body.png",
+        filename = "__maraxsis-classic__/graphics/entity/submarine/full-body.png",
         height = 333,
         width = 372,
     }
@@ -149,7 +149,7 @@ for i = 1, 2 do
         ["lines_per_file"] = 8,
         draw_as_shadow = true,
         scale = 0.9,
-        filename = "__maraxsis__/graphics/entity/submarine/shadow.png",
+        filename = "__maraxsis-classic__/graphics/entity/submarine/shadow.png",
         height = 256,
         width = 256,
         shift = {x = 6, y = 45.5 / 32 + 6},
@@ -181,7 +181,7 @@ for i = 1, 2 do
         fade_out_ticks = 60,
         match_speed_to_activity = true,
         sound = {
-            filename = "__maraxsis__/sounds/submarine.ogg",
+            filename = "__maraxsis-classic__/sounds/submarine.ogg",
             category = "game-effect",
         }
     }
@@ -194,13 +194,13 @@ for i = 1, 2 do
     }
 
     entity.minimap_representation = {
-        filename = "__maraxsis__/graphics/entity/submarine/submarine-map-tag.png",
+        filename = "__maraxsis-classic__/graphics/entity/submarine/submarine-map-tag.png",
         flags = {"icon"},
         tint = submarine_colors[i],
         size = {64, 64}
     }
     entity.selected_minimap_representation = {
-        filename = "__maraxsis__/graphics/entity/submarine/selected-submarine-map-tag.png",
+        filename = "__maraxsis-classic__/graphics/entity/submarine/selected-submarine-map-tag.png",
         flags = {"icon"},
         size = {70, 70}
     }
@@ -421,7 +421,7 @@ data:extend {{
     name = "maraxsis-submerge",
     category = "game-effect",
     priority = 100,
-    filename = "__maraxsis__/sounds/submerge.ogg",
+    filename = "__maraxsis-classic__/sounds/submerge.ogg",
     speed = 0.5
 }}
 

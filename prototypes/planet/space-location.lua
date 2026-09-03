@@ -17,9 +17,9 @@ data:extend {
             pressure = 200000,
             gravity = 20,
         },
-        starmap_icon = "__maraxsis__/graphics/planets/maraxsis-starmap-icon.png",
+        starmap_icon = "__maraxsis-classic__/graphics/planets/maraxsis-starmap-icon.png",
         starmap_icon_size = 512,
-        icon = "__maraxsis__/graphics/planets/maraxsis.png",
+        icon = "__maraxsis-classic__/graphics/planets/maraxsis.png",
         icon_size = 256,
         order = "ce[maraxsis]",
         solar_power_in_space = 150,
@@ -50,7 +50,7 @@ data:extend {
                 radius = 600,
                 planet_surface =
                 {
-                    filename = "__maraxsis__/graphics/planets/maraxsis-surface.png",
+                    filename = "__maraxsis-classic__/graphics/planets/maraxsis-surface.png",
                     width = 1,
                     height = 1,
                     x = 0,
@@ -59,7 +59,7 @@ data:extend {
                 },
                 planet_normal =
                 {
-                    filename = "__maraxsis__/graphics/planets/maraxsis-surface.png",
+                    filename = "__maraxsis-classic__/graphics/planets/maraxsis-surface.png",
                     width = 1,
                     height = 1,
                     x = 1,
@@ -67,7 +67,7 @@ data:extend {
                 },
                 planet_reflectivity =
                 {
-                    filename = "__maraxsis__/graphics/planets/maraxsis-surface.png",
+                    filename = "__maraxsis-classic__/graphics/planets/maraxsis-surface.png",
                     width = 1,
                     height = 1,
                     x = 2,
@@ -108,7 +108,7 @@ data:extend { maraxsis.merge(data.raw.planet.gleba, {
         gravity = 20,
     },
     hidden = true,
-    icon = "__maraxsis__/graphics/technology/maraxsis-trench.png",
+    icon = "__maraxsis-classic__/graphics/technology/maraxsis-trench.png",
     icon_size = 256,
     order = "ce[maraxsis]-[trench]",
     pollutant_type = "nil",

@@ -22,7 +22,7 @@ for _, quality in pairs(data.raw.quality) do
     data:extend {{
         type = "assembling-machine",
         name = "maraxsis-regulator-fluidbox-" .. quality.name,
-        icon = "__maraxsis__/graphics/icons/regulator.png",
+        icon = "__maraxsis-classic__/graphics/icons/regulator.png",
         icon_size = 64,
         flags = {"placeable-neutral", "player-creation", "not-on-map", "no-automated-item-removal", "no-automated-item-insertion"},
         minable = nil,
@@ -42,7 +42,7 @@ for _, quality in pairs(data.raw.quality) do
         fixed_recipe = "maraxsis-regulator",
         working_sound = {
             sound = {
-                filename = "__maraxsis__/sounds/regulator.ogg",
+                filename = "__maraxsis-classic__/sounds/regulator.ogg",
                 volume = 0.3
             },
             max_sounds_per_type = 3,
@@ -89,7 +89,7 @@ for _, quality in pairs(data.raw.quality) do
             animation = {
                 layers = {
                     {
-                        filename = "__maraxsis__/graphics/entity/regulator/regulator.png",
+                        filename = "__maraxsis-classic__/graphics/entity/regulator/regulator.png",
                         priority = "high",
                         width = 1680 / 8,
                         height = 2320 / 8,
@@ -101,7 +101,7 @@ for _, quality in pairs(data.raw.quality) do
                         flags = {"no-scale"}
                     },
                     {
-                        filename = "__maraxsis__/graphics/entity/regulator/sh.png",
+                        filename = "__maraxsis-classic__/graphics/entity/regulator/sh.png",
                         priority = "high",
                         width = 400,
                         height = 350,

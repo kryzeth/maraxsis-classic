@@ -1,7 +1,7 @@
 data:extend {{
     name = "maraxsis-abyssal-diving-gear",
     type = "technology",
-    icons = util.technology_icon_constant_equipment("__maraxsis__/graphics/technology/abyssal-diving-gear.png"),
+    icons = util.technology_icon_constant_equipment("__maraxsis-classic__/graphics/technology/abyssal-diving-gear.png"),
     effects = {
         {
             type = "unlock-recipe",
@@ -52,7 +52,7 @@ data:extend {{
 data:extend {{
     type = "item",
     name = "maraxsis-abyssal-diving-gear",
-    icon = "__maraxsis__/graphics/icons/abyssal-diving-gear.png",
+    icon = "__maraxsis-classic__/graphics/icons/abyssal-diving-gear.png",
     icon_size = 64,
     stack_size = 5,
     place_as_equipment_result = "maraxsis-abyssal-diving-gear",
@@ -78,7 +78,7 @@ data:extend {{
     energy_consumption = "400kW",
     movement_bonus = 0.35,
     sprite = {
-        filename = "__maraxsis__/graphics/equipment/abyssal-diving-gear.png",
+        filename = "__maraxsis-classic__/graphics/equipment/abyssal-diving-gear.png",
         width = 256,
         height = 256,
         priority = "medium"

@@ -30,7 +30,7 @@ end
 for i, v in pairs(fish) do
     local name = "maraxsis-tropical-fish-" .. i
 
-    v.filename = "__maraxsis__/graphics/entity/fish/" .. i .. ".png"
+    v.filename = "__maraxsis-classic__/graphics/entity/fish/" .. i .. ".png"
     v.direction_count = 32
     v.frame_count = 10
     v.animation_speed = 0.4
@@ -50,7 +50,7 @@ for i, v in pairs(fish) do
         type = "unit",
         name = name,
         render_layer = "air-entity-info-icon",
-        icon = "__maraxsis__/graphics/entity/fish/icons/" .. i .. ".png",
+        icon = "__maraxsis-classic__/graphics/entity/fish/icons/" .. i .. ".png",
         icon_size = 64,
         subgroup = "creatures",
         order = "c-" .. i,
@@ -116,7 +116,7 @@ end
 data:extend {{
     type = "technology",
     name = "maraxsis-piscary",
-    icon = "__maraxsis__/graphics/technology/piscary.png",
+    icon = "__maraxsis-classic__/graphics/technology/piscary.png",
     icon_size = 256,
     effects = {},
     prerequisites = {"maraxsis-glassworking"},
@@ -148,7 +148,7 @@ data:extend {{
     categories = {"organic", "smelting"},
     allow_productivity = true,
     main_product = "carbon",
-    icon = "__maraxsis__/graphics/icons/burnt-fish.png",
+    icon = "__maraxsis-classic__/graphics/icons/burnt-fish.png",
     icon_size = 64,
     show_amount_in_title = false,
     auto_recycle = false,
@@ -159,7 +159,7 @@ add_to_tech("maraxsis-carbon")
 local tropical_fish_variants = {}
 for i, v in pairs(fish) do
     tropical_fish_variants[tonumber(i)] = {
-        filename = "__maraxsis__/graphics/entity/fish/icons/" .. i .. ".png",
+        filename = "__maraxsis-classic__/graphics/entity/fish/icons/" .. i .. ".png",
         width = 64,
         height = 64,
         scale = 2 / 3,
@@ -169,7 +169,7 @@ end
 data:extend {{
     type = "capsule",
     name = "maraxsis-tropical-fish",
-    icon = "__maraxsis__/graphics/icons/tropical-fish.png",
+    icon = "__maraxsis-classic__/graphics/icons/tropical-fish.png",
     icon_size = 64,
     pictures = tropical_fish_variants,
     stack_size = data.raw.capsule["raw-fish"].stack_size,
@@ -183,7 +183,7 @@ dmg.amount = dmg.amount * 1.5
 data:extend {{
     type = "recipe",
     name = "maraxsis-nutrients-from-tropical-fish",
-    icon = "__maraxsis__/graphics/icons/nutrients-from-tropical-fish.png",
+    icon = "__maraxsis-classic__/graphics/icons/nutrients-from-tropical-fish.png",
     icon_size = 64,
     enabled = false,
     energy_required = 2,
@@ -208,7 +208,7 @@ add_to_tech("maraxsis-nutrients-from-tropical-fish")
 local microplastics_variants = {}
 for i = 1, 3 do
     microplastics_variants[i] = {
-        filename = "__maraxsis__/graphics/icons/microplastics-" .. i .. ".png",
+        filename = "__maraxsis-classic__/graphics/icons/microplastics-" .. i .. ".png",
         width = 64,
         height = 64,
         scale = 1 / 2,
@@ -219,7 +219,7 @@ end
 data:extend {{
     type = "item",
     name = "maraxsis-microplastics",
-    icon = "__maraxsis__/graphics/icons/microplastics-1.png",
+    icon = "__maraxsis-classic__/graphics/icons/microplastics-1.png",
     icon_size = 64,
     pictures = microplastics_variants,
     stack_size = data.raw.item["plastic-bar"].stack_size / 2,
@@ -228,7 +228,7 @@ data:extend {{
 data:extend {{
     type = "recipe",
     name = "maraxsis-microplastics",
-    icon = "__maraxsis__/graphics/icons/fish-rendering.png",
+    icon = "__maraxsis-classic__/graphics/icons/fish-rendering.png",
     icon_size = 64,
     enabled = false,
     energy_required = 2,
@@ -253,7 +253,7 @@ add_to_tech("maraxsis-microplastics")
 data:extend {{
     type = "recipe",
     name = "maraxsis-smelt-microplastics",
-    icon = "__maraxsis__/graphics/icons/microplastics-to-plastic.png",
+    icon = "__maraxsis-classic__/graphics/icons/microplastics-to-plastic.png",
     icon_size = 64,
     enabled = false,
     energy_required = data.raw.recipe["iron-plate"].energy_required,

@@ -1,13 +1,13 @@
 data:extend {{
     type = "technology",
     name = "maraxsis-project-seadragon",
-    icon = "__maraxsis__/graphics/technology/project-seadragon.png",
+    icon = "__maraxsis-classic__/graphics/technology/project-seadragon.png",
     icon_size = 256,
     effects = {
         {
             type = "nothing",
             use_icon_overlay_constant = true,
-            icon = "__maraxsis__/graphics/technology/project-seadragon.png",
+            icon = "__maraxsis-classic__/graphics/technology/project-seadragon.png",
             icon_size = 256,
             effect_description = {"modifier-description.maraxsis-project-seadragon"}
         },
@@ -67,7 +67,7 @@ data:extend {{
 local super_sealant_substance_variants = {}
 for i = 1, 3 do
     super_sealant_substance_variants[i] = {
-        filename = "__maraxsis__/graphics/icons/super-sealant-substance-" .. i .. ".png",
+        filename = "__maraxsis-classic__/graphics/icons/super-sealant-substance-" .. i .. ".png",
         width = 64,
         height = 64,
         scale = 1 / 2,
@@ -78,7 +78,7 @@ end
 data:extend {{
     type = "item",
     name = "maraxsis-super-sealant-substance",
-    icon = "__maraxsis__/graphics/icons/super-sealant-substance-1.png",
+    icon = "__maraxsis-classic__/graphics/icons/super-sealant-substance-1.png",
     icon_size = 64,
     stack_size = data.raw.item["rocket-fuel"].stack_size,
     weight = data.raw.item["rocket-fuel"].weight,

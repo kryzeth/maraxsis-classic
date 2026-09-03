@@ -5,7 +5,7 @@ data:extend {{
     track_type = "hero-track",
     sound = {
         volume = 0.7,
-        filename = "__maraxsis__/sounds/music/Hero Track [SB].ogg"
+        filename = "__maraxsis-classic__/sounds/music/Hero Track [SB].ogg"
     }
 }}
 
@@ -17,7 +17,7 @@ data:extend {{
     weight = 10,
     sound = {
         volume = 0.7,
-        filename = "__maraxsis__/sounds/music/Bubbles [SB].ogg"
+        filename = "__maraxsis-classic__/sounds/music/Bubbles [SB].ogg"
     }
 }}
 
@@ -29,7 +29,7 @@ data:extend {{
     weight = 10,
     sound = {
         volume = 0.7,
-        filename = "__maraxsis__/sounds/music/Current [SB].ogg"
+        filename = "__maraxsis-classic__/sounds/music/Current [SB].ogg"
     }
 }}
 
@@ -41,7 +41,7 @@ data:extend {{
     weight = 10,
     sound = {
         volume = 0.7,
-        filename = "__maraxsis__/sounds/music/Heartbeat [SB].ogg"
+        filename = "__maraxsis-classic__/sounds/music/Heartbeat [SB].ogg"
     }
 }}
 
@@ -53,7 +53,7 @@ data:extend {{
     weight = 10,
     sound = {
         volume = 0.7,
-        filename = "__maraxsis__/sounds/music/Mermaids [SB].ogg"
+        filename = "__maraxsis-classic__/sounds/music/Mermaids [SB].ogg"
     }
 }}
 
@@ -65,7 +65,7 @@ data:extend {{
     weight = 10,
     sound = {
         volume = 0.7,
-        filename = "__maraxsis__/sounds/music/Seabed [SB].ogg"
+        filename = "__maraxsis-classic__/sounds/music/Seabed [SB].ogg"
     }
 }}
 
@@ -77,7 +77,7 @@ data:extend {{
     weight = 12,
     sound = {
         volume = 0.7,
-        filename = "__maraxsis__/sounds/music/Deepdark EX [T].ogg"
+        filename = "__maraxsis-classic__/sounds/music/Deepdark EX [T].ogg"
     }
 }}
 
@@ -89,7 +89,7 @@ data:extend {{
     weight = 20,
     sound = {
         volume = 0.7,
-        filename = "__maraxsis__/sounds/music/Submarine [T].ogg"
+        filename = "__maraxsis-classic__/sounds/music/Submarine [T].ogg"
     }
 }}
 
@@ -101,20 +101,20 @@ data:extend {{
     weight = 20,
     sound = {
         volume = 0.7,
-        filename = "__maraxsis__/sounds/music/Trench [T].ogg"
+        filename = "__maraxsis-classic__/sounds/music/Trench [T].ogg"
     }
 }}
 
 data.raw.planet["maraxsis-trench"].persistent_ambient_sounds.wind = {
     sound = {
-        filename = "__maraxsis__/sounds/trench-ambiance.ogg",
+        filename = "__maraxsis-classic__/sounds/trench-ambiance.ogg",
         volume = 0.2
     },
 }
 
 data.raw.planet["maraxsis"].persistent_ambient_sounds.wind = {
     sound = {
-        filename = "__maraxsis__/sounds/maraxsis-ambiance.ogg",
+        filename = "__maraxsis-classic__/sounds/maraxsis-ambiance.ogg",
         volume = 0.8,
         speed = 0.5
     },

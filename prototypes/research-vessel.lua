@@ -76,11 +76,11 @@ local function pressurize(science_pack_name)
         name = fill_name,
         icons = {
             {
-                icon = "__maraxsis__/graphics/icons/research-vessel.png",
+                icon = "__maraxsis-classic__/graphics/icons/research-vessel.png",
                 icon_size = 64,
             },
             {
-                icon = "__maraxsis__/graphics/icons/research-vessel-mask.png",
+                icon = "__maraxsis-classic__/graphics/icons/research-vessel-mask.png",
                 tint = science_pack_color(science_pack),
                 icon_size = 64,
             }
@@ -123,11 +123,11 @@ local function pressurize(science_pack_name)
         factoriopedia_alternative = "maraxsis-empty-research-vessel",
         icons = generate_recipe_icons({
             {
-                icon = "__maraxsis__/graphics/icons/research-vessel.png",
+                icon = "__maraxsis-classic__/graphics/icons/research-vessel.png",
                 icon_size = 64,
             },
             {
-                icon = "__maraxsis__/graphics/icons/research-vessel-mask.png",
+                icon = "__maraxsis-classic__/graphics/icons/research-vessel-mask.png",
                 tint = science_pack_color(science_pack),
                 icon_size = 64,
             }
@@ -155,11 +155,11 @@ local function pressurize(science_pack_name)
         unlock_results = false,
         icons = generate_recipe_icons({
             {
-                icon = "__maraxsis__/graphics/icons/research-vessel-tipped.png",
+                icon = "__maraxsis-classic__/graphics/icons/research-vessel-tipped.png",
                 icon_size = 64,
             },
             {
-                icon = "__maraxsis__/graphics/icons/research-vessel-tipped-mask.png",
+                icon = "__maraxsis-classic__/graphics/icons/research-vessel-tipped-mask.png",
                 tint = science_pack_color(science_pack),
                 icon_size = 64,
             }

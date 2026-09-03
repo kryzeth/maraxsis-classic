@@ -10,7 +10,7 @@ data:extend {{
     results = {
         {type = "item", name = "uranium-ore", amount = 1, independent_probability = 0.01},
     },
-    icon = "__maraxsis__/graphics/icons/stone-centrifuging.png",
+    icon = "__maraxsis-classic__/graphics/icons/stone-centrifuging.png",
     icon_size = 64,
     main_product = "uranium-ore",
     auto_recycle = false,
@@ -25,7 +25,7 @@ data:extend {{
 data:extend {{
     type = "technology",
     name = "maraxsis-stone-centrifuging",
-    icon = "__maraxsis__/graphics/technology/stone-centrifuging.png",
+    icon = "__maraxsis-classic__/graphics/technology/stone-centrifuging.png",
     icon_size = 256,
     effects = {
         {

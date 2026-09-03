@@ -19,7 +19,7 @@ data:extend { {
 data:extend { {
     type = "ammo",
     name = "maraxsis-fat-man",
-    icon = "__maraxsis__/graphics/icons/fat-man.png",
+    icon = "__maraxsis-classic__/graphics/icons/fat-man.png",
     icon_size = 64,
     ammo_category = "artillery-shell",
     ammo_type = {

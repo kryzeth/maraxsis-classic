@@ -8,7 +8,7 @@ end
 data:extend {{
     type = "fluid",
     name = "maraxsis-saline-water",
-    icon = "__maraxsis__/graphics/icons/saline-water.png",
+    icon = "__maraxsis-classic__/graphics/icons/saline-water.png",
     icon_size = 64,
     base_flow_rate = data.raw.fluid.water.base_flow_rate,
     default_temperature = data.raw.fluid["water"].default_temperature,
@@ -23,7 +23,7 @@ data:extend {{
 data:extend {{
     type = "fluid",
     name = "maraxsis-brackish-water",
-    icon = "__maraxsis__/graphics/icons/brackish-water.png",
+    icon = "__maraxsis-classic__/graphics/icons/brackish-water.png",
     icon_size = 64,
     base_flow_rate = data.raw.fluid.water.base_flow_rate,
     default_temperature = data.raw.fluid["water"].default_temperature,
@@ -38,7 +38,7 @@ data:extend {{
 data:extend {{
     type = "fluid",
     name = "oxygen",
-    icon = "__maraxsis__/graphics/icons/oxygen.png",
+    icon = "__maraxsis-classic__/graphics/icons/oxygen.png",
     icon_size = 64,
     base_flow_rate = data.raw.fluid.steam.base_flow_rate,
     default_temperature = data.raw.fluid["water"].default_temperature,
@@ -53,7 +53,7 @@ data:extend {{
 data:extend {{
     type = "fluid",
     name = "hydrogen",
-    icon = "__maraxsis__/graphics/icons/hydrogen.png",
+    icon = "__maraxsis-classic__/graphics/icons/hydrogen.png",
     icon_size = 64,
     base_flow_rate = data.raw.fluid.steam.base_flow_rate,
     default_temperature = data.raw.fluid["water"].default_temperature,
@@ -84,7 +84,7 @@ data:extend {{
         {type = "fluid", name = "hydrogen", amount = 200},
     },
     categories = {"maraxsis-hydro-plant", "chemistry"},
-    icon = "__maraxsis__/graphics/icons/saline-electrolysis.png",
+    icon = "__maraxsis-classic__/graphics/icons/saline-electrolysis.png",
     icon_size = 64,
     auto_recycle = false,
     allow_productivity = true,
@@ -96,7 +96,7 @@ add_to_tech(electrolysis_recipe_name)
 data:extend {{
     type = "recipe",
     name = "maraxsis-water",
-    icon = "__maraxsis__/graphics/icons/maraxsis-water.png",
+    icon = "__maraxsis-classic__/graphics/icons/maraxsis-water.png",
     icon_size = 64,
     enabled = false,
     energy_required = 2,
@@ -116,7 +116,7 @@ add_to_tech("maraxsis-water")
 data:extend {{
     type = "item",
     name = "maraxsis-saturated-salt-filter",
-    icon = "__maraxsis__/graphics/icons/saturated-salt-filter.png",
+    icon = "__maraxsis-classic__/graphics/icons/saturated-salt-filter.png",
     icon_size = 64,
     stack_size = 10,
 }}
@@ -144,7 +144,7 @@ add_to_tech("maraxsis-brackish-water")
 local salt_variants = {}
 for i = 1, 3 do
     salt_variants[i] = {
-        filename = "__maraxsis__/graphics/icons/salt-" .. i .. ".png",
+        filename = "__maraxsis-classic__/graphics/icons/salt-" .. i .. ".png",
         width = 64,
         height = 64,
         scale = 1 / 2,
@@ -155,7 +155,7 @@ end
 data:extend {{
     type = "item",
     name = "salt",
-    icon = "__maraxsis__/graphics/icons/salt-2.png",
+    icon = "__maraxsis-classic__/graphics/icons/salt-2.png",
     pictures = salt_variants,
     icon_size = 64,
     stack_size = 200,
@@ -164,7 +164,7 @@ data:extend {{
 data:extend {{
     type = "item",
     name = "maraxsis-salt-filter",
-    icon = "__maraxsis__/graphics/icons/salt-filter.png",
+    icon = "__maraxsis-classic__/graphics/icons/salt-filter.png",
     icon_size = 64,
     stack_size = 50,
 }}
@@ -204,7 +204,7 @@ data:extend {{
     categories = {"maraxsis-hydro-plant", "chemistry"},
     main_product = "maraxsis-salt-filter",
     allow_productivity = false,
-    icon = "__maraxsis__/graphics/icons/salt-filter-cleaning.png",
+    icon = "__maraxsis-classic__/graphics/icons/salt-filter-cleaning.png",
     icon_size = 64,
     allow_decomposition = false,
     auto_recycle = false,
@@ -223,7 +223,7 @@ data:extend {{
     results = {
         {type = "item", name = "rocket-fuel", amount = 1},
     },
-    icon = "__maraxsis__/graphics/icons/hydrolox-rocket-fuel.png",
+    icon = "__maraxsis-classic__/graphics/icons/hydrolox-rocket-fuel.png",
     icon_size = 64,
     allow_productivity = true,
     categories = {"maraxsis-hydro-plant"},

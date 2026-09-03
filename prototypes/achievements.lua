@@ -3,7 +3,7 @@ data:extend{{
     name = "research-with-hydraulics",
     order = "e[research]-a[research-with]-i[hydraulics]",
     science_pack = "hydraulic-science-pack",
-    icon = "__maraxsis__/graphics/achievement/research-with-hydraulics.png",
+    icon = "__maraxsis-classic__/graphics/achievement/research-with-hydraulics.png",
     icon_size = 128
 }}
 
@@ -12,6 +12,6 @@ data:extend{{
     name = "visit-maraxsis",
     order = "a[progress]-g[visit-planet]-k[maraxsis]",
     surface = "maraxsis",
-    icon = "__maraxsis__/graphics/achievement/visit-maraxsis.png",
+    icon = "__maraxsis-classic__/graphics/achievement/visit-maraxsis.png",
     icon_size = 128,
 }}
