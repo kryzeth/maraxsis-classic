@@ -3,7 +3,7 @@ local function opposite_direction(dir)
 end
 
 maraxsis.on_event(maraxsis.events.on_init(), function()
-    storage.trench_ducts = {}
+    storage.trench_ducts = storage.trench_ducts or {}
 end)
 
 maraxsis.on_event(maraxsis.events.on_built(), function(event)
