@@ -1,4 +1,5 @@
 local events = {}
+local init_only_events = {}
 
 ---Drop-in replacement for script.on_event however it supports multiple handlers per event. You can also use 'on_built' 'on_destroyed' and 'on_init' as shortcuts for multiple events.
 ---@param event defines.events|defines.events[]|string
@@ -14,6 +15,13 @@ end
 maraxsis.on_nth_tick = function(event, f)
 	events[event] = events[event] or {}
 	table.insert(events[event], f)
+end
+
+--- Registers a handler that runs only on the real script.on_init event.
+--- Unlike maraxsis.events.on_init(), this does not run on configuration changes.
+---@param f function
+maraxsis.on_init_only = function(f)
+	table.insert(init_only_events, f)
 end
 
 local function one_function_from_many(functions)
@@ -35,19 +43,39 @@ end
 local finalized = false
 maraxsis.finalize_events = function()
 	if finalized then error("Events already finalized") end
+	local init_only_f
+	if #init_only_events > 0 then
+		init_only_f = one_function_from_many(init_only_events)
+	end
+	local init_registered = false
 	local i = 0
 	for event, functions in pairs(events) do
 		local f = one_function_from_many(functions)
 		if type(event) == "number" then
 			script.on_nth_tick(event, f)
 		elseif event == maraxsis.events.on_init() then
-			script.on_init(f)
-			script.on_configuration_changed(f)
+			local normal_init_f = f
+			if init_only_f then
+				script.on_init(function()
+					normal_init_f()
+					init_only_f()
+				end)
+			else
+				script.on_init(normal_init_f)
+			end
+			script.on_configuration_changed(normal_init_f)
+			init_registered = true
 		else
 			script.on_event(tonumber(event) or event, f)
 		end
 		i = i + 1
 	end
+	-- Support init-only callbacks even if nothing registered the normal
+	-- Maraxsis init/configuration-changed combined event.
+	if init_only_f and not init_registered then
+		script.on_init(init_only_f)
+	end
+
 	finalized = true
 	log("Finalized " .. i .. " events for " .. script.mod_name)
 end

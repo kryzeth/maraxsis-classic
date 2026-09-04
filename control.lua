@@ -18,6 +18,8 @@ require "scripts.sonar"
 require "scripts.sand-extractor"
 require "scripts.hydro-plant"
 require "scripts.salt-reactor"
+-- migrate from old Maraxsis
+require "scripts.migration"
 
 require "compat.call-plumber"
 
