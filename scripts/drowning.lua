@@ -1,3 +1,6 @@
+local pressure_dome_helpers = require "scripts.pressure-dome-helpers"
+local is_point_in_polygon = pressure_dome_helpers.is_point_in_polygon
+
 local FULL_BREATH_NUM_TICKS = 10 * 60 * 60 -- ten minutes before you start drowning
 local TRENCH_LUNG_REDUCTION = 40 -- trench kills you 40x faster
 local BREATH_REGENERATION_FACTOR = 40 -- while in an air bubble, you regen air 40x faster than you would lose it
