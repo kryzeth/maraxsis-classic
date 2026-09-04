@@ -200,28 +200,6 @@ local function count_points_in_dome(pressure_dome_data, entity)
     return count
 end
 
-local function intersects_with_2x2_box(entity, box_location)
-    local corners = get_four_corners(entity)
-
-    local box_x, box_y = box_location.x, box_location.y
-    local box_left_top = {x = box_x - 1, y = box_y - 1}
-    local box_right_bottom = {x = box_x + 1, y = box_y + 1}
-
-    for _, corner in pairs(corners) do
-        local x, y = corner.x, corner.y
-
-        if x >= box_left_top.x
-            and x <= box_right_bottom.x
-            and y >= box_left_top.y
-            and y <= box_right_bottom.y
-        then
-            return true
-        end
-    end
-
-    return false
-end
-
 local function update_combinator(pressure_dome_data)
     local combinator = pressure_dome_data.combinator
 
@@ -340,7 +318,6 @@ pressure_dome_helpers.mobile_entities = mobile_entities
 
 pressure_dome_helpers.is_point_in_polygon = is_point_in_polygon
 pressure_dome_helpers.count_points_in_dome = count_points_in_dome
-pressure_dome_helpers.intersects_with_2x2_box = intersects_with_2x2_box
 pressure_dome_helpers.create_dome_light = create_dome_light
 pressure_dome_helpers.update_combinator = update_combinator
 pressure_dome_helpers.update_dome_minable_flag = update_dome_minable_flag

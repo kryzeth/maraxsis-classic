@@ -5,7 +5,6 @@ local DOME_POLYGON = pressure_dome_helpers.DOME_POLYGON
 local mobile_entities = pressure_dome_helpers.mobile_entities
 local is_point_in_polygon = pressure_dome_helpers.is_point_in_polygon
 local count_points_in_dome = pressure_dome_helpers.count_points_in_dome
-local intersects_with_2x2_box = pressure_dome_helpers.intersects_with_2x2_box
 local create_dome_light = pressure_dome_helpers.create_dome_light
 local update_combinator = pressure_dome_helpers.update_combinator
 local update_dome_minable_flag = pressure_dome_helpers.update_dome_minable_flag
