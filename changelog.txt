@@ -1,4 +1,26 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.1
+Date: September 2026
+  Changes:
+    - Forked v1.33.0 from original Maraxsis mod. Renamed to maraxsis-classic.
+    - Added several new on_init exclusive functions to handle initial migration from the original mod.
+    - Made Quality optional (backported from future versions of Maraxsis)
+      Molten salt recipe only references quality when quality mod is enabled.
+    - Added migration script to convert filled omega-3 barrels into empty barrels.
+    - Added migration script to convert fish oil items into the hydraulic science packs that originally generated them.
+    - Added data stage migration mode setting for downgrading from later versions of old Maraxsis (v1.33.2+) 
+      Adds geothermal generator item/entity/recipe and its sulfur recipe as legacy prototypes.
+      The item form can only be recycled into its original ingredients, and cannot be placed.
+    - Added runtime migration scripting for downgrading from later versions of old Maraxsis (v1.33.2+).
+      Geothermal generator entities spill their contents and drops themselves as item form.
+      Any nearby inserters targetting them will be marked for deconstruction, so they do not drop items into lava.
+    - [1.33.6 backport] Adjusted orbit of Maraxsis so it no longer shares an orbit with Nauvis.
+  Bugfixes:
+    - Fixed trench duct storage table being unnecessarily reset on config changed.
+    - [1.33.2 backport] Fixed Hydro Plant recipe categories making bootstrap impossible.
+    - [1.33.3 backport] Fixed softlock where you could get stuck inside the regulator with no way to mine the dome.
+    - [1.33.7 backport] Maraxsis liquid atmosphere decompression no longer counted in the stats menu or affected by productivity.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.0
 Date: 2026-07-06
   Features:
