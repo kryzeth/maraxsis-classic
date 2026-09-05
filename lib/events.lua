@@ -1,5 +1,6 @@
 local events = {}
 local init_only_events = {}
+local configuration_changed_only_events = {}
 
 ---Drop-in replacement for script.on_event however it supports multiple handlers per event. You can also use 'on_built' 'on_destroyed' and 'on_init' as shortcuts for multiple events.
 ---@param event defines.events|defines.events[]|string
@@ -22,6 +23,13 @@ end
 ---@param f function
 maraxsis.on_init_only = function(f)
 	table.insert(init_only_events, f)
+end
+
+--- Registers a handler that runs only on script.on_configuration_changed.
+--- Unlike maraxsis.events.on_init(), this does not run on script.on_init.
+---@param f function
+maraxsis.on_configuration_changed_only = function(f)
+	table.insert(configuration_changed_only_events, f)
 end
 
 local function one_function_from_many(functions)
@@ -47,6 +55,10 @@ maraxsis.finalize_events = function()
 	if #init_only_events > 0 then
 		init_only_f = one_function_from_many(init_only_events)
 	end
+	local configuration_changed_only_f
+	if #configuration_changed_only_events > 0 then
+		configuration_changed_only_f = one_function_from_many(configuration_changed_only_events)
+	end
 	local init_registered = false
 	local i = 0
 	for event, functions in pairs(events) do
@@ -63,7 +75,14 @@ maraxsis.finalize_events = function()
 			else
 				script.on_init(normal_init_f)
 			end
-			script.on_configuration_changed(normal_init_f)
+			if configuration_changed_only_f then
+				script.on_configuration_changed(function(event)
+					normal_init_f(event)
+					configuration_changed_only_f(event)
+				end)
+			else
+				script.on_configuration_changed(normal_init_f)
+			end
 			init_registered = true
 		else
 			script.on_event(tonumber(event) or event, f)
@@ -74,6 +93,10 @@ maraxsis.finalize_events = function()
 	-- Maraxsis init/configuration-changed combined event.
 	if init_only_f and not init_registered then
 		script.on_init(init_only_f)
+	end
+	-- Same deal with configuration-changed-only callbacks.
+	if configuration_changed_only_f and not init_registered then
+		script.on_configuration_changed(configuration_changed_only_f)
 	end
 
 	finalized = true
