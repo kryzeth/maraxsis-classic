@@ -15,6 +15,8 @@ local collision_mask_util = require("collision-mask-util")
 require "prototypes.research-vessel"
 require "prototypes.collision-mask"
 require "prototypes.swimming"
+-- recycling recipes for migration mode
+require "prototypes.migration.recycling"
 
 require "compat.5-dim"
 require "compat.alien-biomes"

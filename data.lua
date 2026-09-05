@@ -40,6 +40,8 @@ require "prototypes.technology.stone-centrifuging"
 require "prototypes.technology.research-vessel"
 require "prototypes.technology.deepsea-research"
 require "prototypes.recipe.deepsea-research"
+-- prototype migration scripts for downgrading from future versions of old Maraxsis
+require "prototypes.migration.geothermal-generator"
 
 require "prototypes.circuit-connector-definitions"
 require "prototypes.tiles"
