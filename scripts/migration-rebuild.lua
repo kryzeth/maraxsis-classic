@@ -131,6 +131,7 @@ end
 local function rebuild_fishing_towers()
     local rebuilt = 0
     local missing = 0
+    local rerendered = 0
 
     for _, surface in pairs(game.surfaces) do
         for _, tower in pairs(surface.find_entities_filtered {
@@ -149,11 +150,25 @@ local function rebuild_fishing_towers()
                 missing = missing + 1
             end
         end
+        for _, plant in pairs(surface.find_entities_filtered {
+            name = "maraxsis-fishing-plant"
+        }) do
+            rendering.draw_animation {
+                animation = "maraxsis-fishing-plant-animation",
+                target = plant,
+                surface = plant.surface_index,
+                render_layer = "lower-object",
+                animation_speed = 0.5,
+            }
+
+            rerendered = rerendered + 1
+        end
     end
 
     log("Maraxsis Classic migration: rebuilt " .. rebuilt
         .. " fishing tower registrations; " .. missing
-        .. " missing spawners")
+        .. " missing spawners; rerendered " .. rerendered
+        .. " fishing plants")
 end
 
 -- simply locate all exhaust ducts and add to storage
