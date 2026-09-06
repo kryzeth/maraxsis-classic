@@ -9,7 +9,6 @@ data:extend {{
     prerequisites = {
         "maraxsis-research-vessel",
         "maraxsis-stone-centrifuging",
-        "maraxsis-liquid-atmosphere",
         "maraxsis-effect-transmission-2",
     },
     unit = {
