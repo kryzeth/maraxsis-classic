@@ -12,9 +12,15 @@ data:extend { {
 local automation_science = table.deepcopy(data.raw.recipe["automation-science-pack"])
 local logistic_science = table.deepcopy(data.raw.recipe["logistic-science-pack"])
 local military_science = table.deepcopy(data.raw.recipe["military-science-pack"])
+local workshop_science  -- optional workshop science placement in slot 4
 local chemical_science = table.deepcopy(data.raw.recipe["chemical-science-pack"])
 local production_science = table.deepcopy(data.raw.recipe["production-science-pack"])
 local utility_science = table.deepcopy(data.raw.recipe["utility-science-pack"])
+local science_packs = {automation_science, logistic_science, military_science, chemical_science, production_science, utility_science}
+if mods["workshop-science"] then
+    workshop_science = table.deepcopy(data.raw.recipe["workshop-science-pack"])
+    table.insert(science_packs, 4, workshop_science)
+end
 
 local function update_recipe_icon(recipe, fluid)
     local science_pack = data.raw.item[recipe.name]
@@ -42,14 +48,12 @@ table.insert(chemical_science.ingredients, { type = "fluid", name = "water", amo
 table.insert(production_science.ingredients, { type = "fluid", name = "oxygen", amount = 100 })
 table.insert(utility_science.ingredients, { type = "fluid", name = "hydrogen", amount = 200 })
 
-for _, recipe in pairs {
-    automation_science,
-    logistic_science,
-    military_science,
-    chemical_science,
-    production_science,
-    utility_science,
-} do
+if workshop_science then
+    update_recipe_icon(workshop_science, "lava")
+    table.insert(workshop_science.ingredients, { type = "fluid", name = "lava", amount = 100 })
+end
+
+for _, recipe in ipairs(science_packs) do
     recipe.localised_name = { "item-name." .. recipe.name }
     recipe.name = "maraxsis-deepsea-research-" .. recipe.name
     recipe.categories = { "maraxsis-hydro-plant" }
@@ -62,10 +66,10 @@ for _, recipe in pairs {
         max = 400000,
     } }
     recipe.results[1].amount = recipe.results[1].amount * 2
-    if mods["quality"] then -- only apply min quality with Quality mod enabled
+    if mods["quality"] then -- only apply min quality buff with Quality mod enabled
         recipe.results[1].quality_min = recipe.results[1].quality_min or "uncommon"
     end
     effects[#effects + 1] = { type = "unlock-recipe", recipe = recipe.name }
 end
 
-data:extend { automation_science, logistic_science, military_science, chemical_science, production_science, utility_science }
+data:extend(science_packs)
