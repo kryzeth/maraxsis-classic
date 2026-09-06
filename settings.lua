@@ -22,4 +22,13 @@ data:extend {
         default_value = true,
         order = "c"
     },
+    {
+        type = "bool-setting",
+        name = "maraxsis-runtime-entity-replacement",
+        setting_type = "startup",
+        default_value = true,
+        order = "a",
+        hidden = true,
+        forced_value = true,
+    }
 }

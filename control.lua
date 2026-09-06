@@ -16,7 +16,6 @@ require "scripts.fishing-tower"
 require "scripts.drowning"
 require "scripts.sonar"
 require "scripts.sand-extractor"
-require "scripts.hydro-plant"
 require "scripts.salt-reactor"
 -- migrate from old Maraxsis (v1.33.0 and below)
 -- also rebuilds storage table from any versions of Maraxsis

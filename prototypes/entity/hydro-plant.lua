@@ -189,6 +189,25 @@ extra_module_slots.placeable_by = { { item = "maraxsis-hydro-plant", count = 1 }
 extra_module_slots.flags = { "placeable-player", "player-creation", "not-in-made-in" }
 data:extend { extra_module_slots }
 
+-- Previously, Maraxsis had a script that replaced the Hydro Plant with its
+-- extra-module-slot variant in the trench and on space platforms.
+-- This feature has been rolled into PlanetsLib.
+for surface_name in pairs(maraxsis_constants.MARAXSIS_TRENCH_SURFACES) do
+    PlanetsLib.assign_entity_replacement(
+        surface_name,
+        "maraxsis-hydro-plant",
+        extra_module_slots.name,
+        "maraxsis-runtime-entity-replacement"
+    )
+end
+
+PlanetsLib.assign_entity_replacement(
+    "space-platform",
+    "maraxsis-hydro-plant",
+    extra_module_slots.name,
+    "maraxsis-runtime-entity-replacement"
+)
+
 data:extend { {
     type = "item",
     name = "maraxsis-hydro-plant",
