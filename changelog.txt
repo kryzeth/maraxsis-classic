@@ -2,9 +2,9 @@
 Version: 1.33.1
 Date: September 2026
   Changes:
-    - Forked v1.33.0 from original Maraxsis mod. Renamed to maraxsis-classic.
+    - Forked v1.33.0 from original Maraxsis mod. Renamed to Maraxsis Classic (maraxsis-classic internally).
     - Added several new on_init exclusive functions to handle initial migration from the original mod.
-    - Made Quality optional (backported from future versions of Maraxsis)
+    - Made Quality optional (backported from later versions of old Maraxsis)
       Molten salt recipe only references quality when quality mod is enabled.
     - Added migration script to convert filled omega-3 barrels into empty barrels.
     - Added migration script to convert fish oil items into the hydraulic science packs that originally generated them.
@@ -14,12 +14,20 @@ Date: September 2026
     - Added runtime migration scripting for downgrading from later versions of old Maraxsis (v1.33.2+).
       Geothermal generator entities spill their contents and drops themselves as item form.
       Any nearby inserters targetting them will be marked for deconstruction, so they do not drop items into lava.
+    - Removed the little planet icon from the Maraxsis Trench icon, to improve visual clarity of the Trench icon.
+    - [1.33.1 backport] Enabled mirroring on Hydro Plant.
+    - [1.33.2-3 backport] Replaced Hydro Plant entity replacement script with improved PlanetsLib implementation, and bumped minimum version of PlanetsLib.
     - [1.33.6 backport] Adjusted orbit of Maraxsis so it no longer shares an orbit with Nauvis.
+    - [1.33.11 backport] Removed decal collision-layer, reusing the base game doodad layer instead.
+    - [1.34.0 backport] Added Recommended dependency to Asteroid Belt mod.
+      NotNotMelon originally intended this behavior for v1.34.0 of old Maraxsis, but couldn't be retained due to circular dependency loop.
   Bugfixes:
     - Fixed trench duct storage table being unnecessarily reset on config changed.
     - [1.33.2 backport] Fixed Hydro Plant recipe categories making bootstrap impossible.
     - [1.33.3 backport] Fixed softlock where you could get stuck inside the regulator with no way to mine the dome.
     - [1.33.7 backport] Maraxsis liquid atmosphere decompression no longer counted in the stats menu or affected by productivity.
+  Compatibility:
+    - [1.33.10 backport] Exposed the research vessel pressurize function. Requested by Jtmzac for use with Preserve Spoilable Science Packs.
 ---------------------------------------------------------------------------------------------------
 Version: 1.33.0
 Date: 2026-07-06
