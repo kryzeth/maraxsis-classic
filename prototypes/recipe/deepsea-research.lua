@@ -60,11 +60,7 @@ for _, recipe in ipairs(science_packs) do
     recipe.subgroup = "maraxsis-deepsea-research"
     recipe.enabled = false
     recipe.auto_recycle = false
-    recipe.surface_conditions = { {
-        property = "pressure",
-        min = 400000,
-        max = 400000,
-    } }
+    recipe.surface_conditions = maraxsis.trench_surface_conditions()
     recipe.results[1].amount = recipe.results[1].amount * 2
     if mods["quality"] then -- only apply min quality buff with Quality mod enabled
         recipe.results[1].quality_min = recipe.results[1].quality_min or "uncommon"
