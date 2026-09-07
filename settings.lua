@@ -17,10 +17,17 @@ data:extend {
     },
     {
         type = "bool-setting",
-        name = "maraxsis-migration-mode",
+        name = "maraxsis-fish-rocket",
         setting_type = "startup",
         default_value = true,
         order = "c"
+    },
+    {
+        type = "bool-setting",
+        name = "maraxsis-migration-mode",
+        setting_type = "startup",
+        default_value = true,
+        order = "d"
     },
     {
         type = "bool-setting",
