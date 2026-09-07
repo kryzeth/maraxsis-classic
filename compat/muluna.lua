@@ -22,3 +22,18 @@ for surface in pairs(maraxsis_constants.MARAXSIS_SURFACES) do
         "muluna-big-rocket-silo"
     )
 end
+
+-- Adapted from Muluna's data-updates (hopefully should no longer require dependency)
+-- Modifies values of gas fluids in Maraxsis entities to follow Factorio 2.0's convention of
+--  gas fluid units having 1/10 the matter of liquid fluid units (as in water vs. steam)
+for name, regulator in pairs(data.raw["assembling-machine"]) do
+    if name:find("^maraxsis%-regulator%-fluidbox%-") then
+        regulator.energy_source.fluid_box.volume =
+            regulator.energy_source.fluid_box.volume * 10
+    end
+end
+
+-- Additional data stage changes adapted from Muluna's prototypes/atmosphere
+-- This should hopefully no longer require an optional dependency
+data.raw["recipe"]["maraxsis-atmosphere"].results[1].amount = 1000
+data.raw["recipe"]["maraxsis-atmosphere"].energy_required = 1
