@@ -109,4 +109,4 @@ Maraxsis would not be possible without the help of these amazing, fantastic, inc
  - Fishing tower logic - [LordMiguel](https://mods.factorio.com/mod/quality-trees)
  - Rocket silo logic - [Powerscooter](https://mods.factorio.com/mod/Alternative_Rocket_Sprite_Extension), [LoupAndSnoop](https://mods.factorio.com/mod/rubia)
 
-[More details in Credits.md](https://github.com/notnotmelon/maraxsis/blob/main/Credits.md)
+[More details in Credits.md](https://github.com/kryzeth/maraxsis-classic/blob/main/CREDITS.md)
