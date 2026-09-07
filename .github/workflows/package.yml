@@ -150,7 +150,7 @@ jobs:
           echo "Verified ${ARCHIVE}"
           unzip -l "${archive_path}" | tail -n 5
 
-      - name: Create or update branch prerelease
+      - name: Create or update branch release
         if: ${{ github.ref != 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
         shell: bash
         env:
@@ -173,9 +173,9 @@ jobs:
 
           gh release create "${BRANCH_TAG}" "${ARCHIVE}" "${CHECKSUM}" \
             --target "${GITHUB_SHA}" \
-            --prerelease \
+            --latest=false \
             --title "${MOD_TITLE} ${VERSION} - ${BRANCH_NAME} (${SHORT_SHA})" \
-            --notes "Automatic test build from branch \`${BRANCH_NAME}\` at commit \`${GITHUB_SHA}\`. This is not a stable release."
+            --notes "Automatic build from branch \`${BRANCH_NAME}\` at commit \`${GITHUB_SHA}\`."
 
       - name: Create immutable GitHub release
         if: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
