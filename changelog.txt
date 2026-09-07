@@ -39,6 +39,7 @@ Date: September 7, 2026
     - [unreleased backport] Added 3 module slots to Fishing Tower. Slot count scales with quality (when Quality mod is enabled).
     - [unreleased backport] Improved entity description for submarines, describing the automated submerge behavior.
     - [unreleased backport] Added Project Seadragon as prereq tech for SSEdge discovery, and added Hydraulic Science Pack to tech cost.
+    - [unreleased backport] Reduced size of smoke particles from Oversized Steam Turbine.
   Minor Features:
     - Added compatibility with Workshop Science for deepsea science pack production, requiring 100 lava, similar to deepsea military science.
     - [1.34.33 backport] Reimplemented Maraxsis fish rocket, as a toggleable startup setting (for those who hate whimsy).
