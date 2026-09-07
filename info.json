@@ -9,7 +9,7 @@
   "dependencies": [
     "base >= 2.1.13",
     "space-age >= 2.1.13",
-    "? quality >= 2.1.13",
+    "+ quality >= 2.1.13",
     "PlanetsLib >= 1.21.0",
     "SpidertronPatrols >= 2.7.0",
     "FluidMustFlow >= 1.5.0",

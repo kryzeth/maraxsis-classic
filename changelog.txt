@@ -4,8 +4,9 @@ Date: September 7, 2026
   Changes:
     - Forked v1.33.0 from original Maraxsis mod. Renamed to Maraxsis Classic (maraxsis-classic internally).
     - Added several new on_init exclusive functions to handle initial migration from the original mod.
-    - Made Quality optional (backported from some later versions of old Maraxsis)
-      Molten salt recipe only references quality when Quality mod is enabled.
+    - Made Quality optional (backported from some later versions of old Maraxsis), though technically marked as Recommended.
+      This doesn't make a difference because Space Age also has it Recommended, and will enable Quality mod by default regardless.
+    - Molten salt recipe only references quality when Quality mod is enabled.
     - Added migration script to convert filled omega-3 barrels into empty barrels.
     - Added migration script to convert fish oil items into the common-quality Hydraulic Science Packs that originally generated them.
     - Added data stage migration mode setting for downgrading from later versions of old Maraxsis (v1.33.2+) 
