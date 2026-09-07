@@ -13,7 +13,7 @@ Date: September 7, 2026
       The item form can only be recycled into its original ingredients, and cannot be placed.
     - Added runtime migration scripting for downgrading from later versions of old Maraxsis (v1.33.2+).
       Geothermal generator entities spill their contents and drops themselves as item form.
-      Any nearby inserters targetting them will be marked for deconstruction, so they do not drop items into lava.
+      Any nearby inserters targeting them will be marked for deconstruction, so they do not drop items into lava.
     - Removed the little planet icon from the Maraxsis Trench icon, to improve visual clarity of the Trench icon.
     - Moved deepsea science pack generation back to data-updates to catch science pack recipe changes (and for Workshop Science compatibility).
     - [1.33.1 backport] Enabled mirroring on Hydro Plant.
