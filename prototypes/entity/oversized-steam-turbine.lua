@@ -251,6 +251,7 @@ data:extend {{
         {type = "fluid", name = "water", amount = 1}
     },
     results = {},
+    auto_recycle = false,
     categories ={ "maraxsis-supercritical-steam"},
     icon = "__maraxsis-classic__/graphics/icons/oversized-steam-turbine.png",
 }}
