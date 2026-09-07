@@ -125,6 +125,11 @@ data:extend {{
         item = "maraxsis-pressure-dome"
     },
     order = "ed[piscary]",
+    -- update description to include quality-fish description only with Quality mod enabled
+    localised_description = mods["quality"] and {
+        "", {"technology-description.maraxsis-piscary"},
+        " ", {"description.quality-fish"},
+    } or {"technology-description.maraxsis-piscary"},
 }}
 
 local function add_to_tech(recipe)

@@ -5,6 +5,11 @@ data:extend {{
     icon_size = 64,
     stack_size = 100,
     plant_result = "maraxsis-fishing-plant",
+    -- update description to include quality-fish description only with Quality mod enabled
+    localised_description = mods["quality"] and {
+        "", {"item-description.maraxsis-fish-food"},
+        " ", {"description.quality-fish"},
+    } or {"item-description.maraxsis-fish-food"},
 }}
 
 data:extend {{
@@ -105,13 +110,22 @@ fishing_tower.radius_visualisation_picture = {
     height = 6,
     priority = "extra-high-no-scale"
 }
+-- update description to include quality-fish description only with Quality mod enabled
+fishing_tower.localised_description = mods["quality"] and {
+    "", {"entity-description.maraxsis-fishing-tower"},
+    " ", {"description.quality-fish"},
+} or {"entity-description.maraxsis-fishing-tower"}
 data:extend {fishing_tower}
 
 data:extend {{
     name = "maraxsis-fishing-plant",
     type = "plant",
     localised_name = {"item-name.maraxsis-fish-food"},
-    localised_description = {"item-description.maraxsis-fish-food"},
+    -- update description to include quality-fish description only with Quality mod enabled
+    localised_description = mods["quality"] and {
+        "", {"item-description.maraxsis-fish-food"},
+        " ", {"description.quality-fish"},
+    } or {"item-description.maraxsis-fish-food"},
     growth_ticks = 12000,
     agricultural_tower_tint = {
         primary = defines.color.darkseagreen,
