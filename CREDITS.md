@@ -1,4 +1,11 @@
 ### Credits
+#### Maraxsis Soundtrack
+
+- **Creators**: [fluidnatalie](https://mods.factorio.com/user/FluidNatalie)
+- **Source**: [Bandcamp](https://anagramofme.bandcamp.com/album/ost-maraxsis)
+- **License**: [MIT](https://opensource.org/license/MIT) (Commissioned)
+- **Changes**: No.
+
 #### Unused Renders
 
 - **Creators**: [malcolmriley](https://github.com/malcolmriley)
