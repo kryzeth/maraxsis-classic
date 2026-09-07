@@ -1,11 +1,10 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.33.1
-Date: 2026-09-07
+Version: 1.33.2
+Date: September 7, 2026
+  Info:
+    - Prevented GitHub Actions from modifying changelog.txt and info.json
   Bugfixes:
-    - Fixed softlock where you could get stuck inside the regulator with no way to mine the dome.
-    - Maraxsis liquid atmosphere decompression is no longer counted in the stats menu or effected by productivity.
-  Changes:
-    - Edited maraxsis' orbit so that it no longer shares an orbit with nauvis.
+    - Fixed incorrect changelog entry.
 ---------------------------------------------------------------------------------------------------
 Version: 1.33.1
 Date: September 7, 2026
