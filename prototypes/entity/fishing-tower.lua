@@ -110,6 +110,9 @@ fishing_tower.radius_visualisation_picture = {
     height = 6,
     priority = "extra-high-no-scale"
 }
+fishing_tower.module_slots = 3
+fishing_tower.quality_affects_module_slots = true
+fishing_tower.allowed_effects = {"speed", "productivity", "consumption", "pollution", "quality"}
 -- update description to include quality-fish description only with Quality mod enabled
 fishing_tower.localised_description = mods["quality"] and {
     "", {"entity-description.maraxsis-fishing-tower"},
