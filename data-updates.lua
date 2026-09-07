@@ -19,6 +19,7 @@ require "compat.aircraft-space-age"
 require "compat.corrundum"
 require "compat.muluna"
 require "compat.aai-programmable-structures"
+require "compat.science-tab"
 
 local function try_add_fuel_value(fluid, value)
     fluid = data.raw.fluid[fluid]
