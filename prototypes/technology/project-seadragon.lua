@@ -128,7 +128,6 @@ for surface in pairs(maraxsis_constants.MARAXSIS_SURFACES) do
             disabled_when_recipe_not_researched = true,
             placeable_by = {{item = "rocket-silo", count = 1}},
             flags = {"placeable-player", "player-creation", "not-in-made-in"},
-            logistic_trash_inventory_size = 1,
             hidden = true,
             hidden_in_factoriopedia = true,
         },
