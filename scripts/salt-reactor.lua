@@ -33,7 +33,39 @@ local SUPERCRITICAL_STEAM_ALLOW_LIST = table.invert {
     "maraxsis-trench-duct-lower",
     "maraxsis-oversized-steam-turbine",
     "maraxsis-salt-reactor",
+    "maraxsis-hydro-plant-extra-module-slots",
+    "infinity-pipe",
 }
+
+local function explode(entity)
+    if SUPERCRITICAL_STEAM_ALLOW_LIST[entity.name] then
+        return false
+    end
+
+    if entity.get_fluid_count("maraxsis-supercritical-steam") == 0 then
+        return false
+    end
+
+    local position = entity.position
+    local force = entity.force_index
+    local name = entity.name
+    local type = entity.type
+    local surface = entity.surface
+    entity.die()
+
+    for _, ghost in pairs(
+        surface.find_entities_filtered {
+            position = position,
+            ghost_type = type,
+            ghost_name = name,
+            force = force
+        }
+    ) do
+        ghost.destroy()
+    end
+
+    return true
+end
 
 maraxsis.on_nth_tick(597, function()
     for unit_number, duct_exhaust in pairs(storage.duct_exhausts) do
@@ -42,39 +74,56 @@ maraxsis.on_nth_tick(597, function()
             goto continue
         end
 
-        local fluid = duct_exhaust.get_fluid(1)
-        if not fluid or fluid.name ~= "maraxsis-supercritical-steam" then
+        if duct_exhaust.get_fluid_count("maraxsis-supercritical-steam") == 0 then
             goto continue
         end
 
+        local found = false
         for _, neighbours in pairs(duct_exhaust.fluidbox_neighbours) do
             for _, neighbour in pairs(neighbours) do
-                if not SUPERCRITICAL_STEAM_ALLOW_LIST[neighbour.name] then
-                    for i = 1, neighbour.fluids_count do
-                        if neighbour.get_fluid(i).name == "maraxsis-supercritical-steam" then
-                            neighbour.clear_fluid(i, "maraxsis-supercritical-steam")
-                        end
-                    end
-
-                    local position = neighbour.position
-                    local force = neighbour.force_index
-                    local name = neighbour.name
-                    local type = neighbour.type
-                    neighbour.die()
-                    for _, ghost in pairs(duct_exhaust.surface.find_entities_filtered{
-                        position = position,
-                        ghost_type = type,
-                        ghost_name = name,
-                        force = force
-                    }) do
-                        ghost.destroy()
-                    end
+                if explode(neighbour) then
+                    found = true
                 end
             end
         end
 
+        assert(duct_exhaust.valid)
+
+        if found then
+            for _, neighbour in pairs(duct_exhaust.surface.find_entities_filtered {
+                type = {
+                    "pipe",
+                    "pump",
+                    "storage-tank",
+                    "pipe-to-ground",
+                    "assembling-machine",
+                    "furnace",
+                    "generator",
+                    "boiler"
+                },
+                force = duct_exhaust.force_index
+            }) do
+                explode(neighbour)
+            end
+            return
+        end
+
         ::continue::
     end
+end)
+
+local function add_to_duct_exhaust_list(entity)
+    if not entity or not entity.valid then return end
+
+    if entity.name == "duct-exhaust"
+        or entity.name == "maraxsis-hydro-plant-extra-module-slots"
+    then
+        storage.duct_exhausts[entity.unit_number] = entity
+    end
+end
+
+maraxsis.on_event("PlanetsLib-on-entity-replaced", function(event)
+    add_to_duct_exhaust_list(event.new_entity)
 end)
 
 maraxsis.on_nth_tick(3, function()
@@ -153,6 +202,8 @@ maraxsis.on_event(maraxsis.events.on_built(), function(event)
     local entity = event.entity
     if not entity.valid then return end
 
+    add_to_duct_exhaust_list(entity)
+
     if entity.name == "maraxsis-salt-reactor" then
         local animation = rendering.draw_animation {
             animation = "maraxsis-salt-reactor-animation",
@@ -189,8 +240,6 @@ maraxsis.on_event(maraxsis.events.on_built(), function(event)
         assembler.add_fluid_box_linked_connection(0, entity, 0)
         assembler.add_fluid_box_linked_connection(1, entity, 1)
         storage.oversized_steam_turbines[entity.unit_number] = assembler
-    elseif entity.name == "duct-exhaust" then
-        storage.duct_exhausts[entity.unit_number] = entity
     end
 end)
 
