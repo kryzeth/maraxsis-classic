@@ -82,3 +82,10 @@
 - **Source**: [Pixabay](https://pixabay.com)
 - **License**: [Pixabay Content License](https://pixabay.com/service/license-summary/)
 - **Changes**: No
+
+#### Fishing Tower Logic
+
+- **Creators**: LordMiguel
+- **Source**: [Quality Trees](https://mods.factorio.com/mod/quality-trees)
+- **License**: [MIT](https://opensource.org/license/MIT)
+- **Changes**: Yes. Adapted for use in the fishing tower.
