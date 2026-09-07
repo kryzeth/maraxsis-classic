@@ -1,0 +1,178 @@
+﻿name: Publish to Factorio Mod Portal
+
+on:
+  workflow_run:
+    workflows:
+      - Build and release Factorio mod
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: factorio-mod-portal-${{ github.event.workflow_run.head_sha || github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish stable release
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main' &&
+       (github.event.workflow_run.event == 'push' ||
+        github.event.workflow_run.event == 'workflow_dispatch'))
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out released source
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || 'main' }}
+
+      - name: Read release metadata
+        id: meta
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          name="$(jq -er '.name' info.json)"
+          version="$(jq -er '.version' info.json)"
+          package="${name}_${version}"
+
+          {
+            echo "name=${name}"
+            echo "version=${version}"
+            echo "archive=${package}.zip"
+            echo "tag=v${version}"
+          } >> "${GITHUB_OUTPUT}"
+
+      - name: Download exact GitHub release ZIP
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.meta.outputs.tag }}
+          ARCHIVE: ${{ steps.meta.outputs.archive }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p dist
+          gh release download "${TAG}" \
+            --pattern "${ARCHIVE}" \
+            --dir dist
+
+          test -f "dist/${ARCHIVE}"
+
+      - name: Verify Mod Portal archive
+        shell: bash
+        env:
+          MOD_NAME: ${{ steps.meta.outputs.name }}
+          MOD_VERSION: ${{ steps.meta.outputs.version }}
+          ARCHIVE: ${{ steps.meta.outputs.archive }}
+        run: |
+          set -euo pipefail
+
+          archive_path="dist/${ARCHIVE}"
+          package="${MOD_NAME}_${MOD_VERSION}"
+
+          mapfile -t roots < <(
+            unzip -Z1 "${archive_path}" \
+              | sed '/^$/d' \
+              | cut -d/ -f1 \
+              | sort -u
+          )
+
+          if [[ "${#roots[@]}" -ne 1 || "${roots[0]}" != "${package}" ]]; then
+            echo "::error::Archive must contain exactly one top-level folder named ${package}."
+            exit 1
+          fi
+
+          embedded_name="$(
+            unzip -p "${archive_path}" "${package}/info.json" |
+              jq -er '.name'
+          )"
+
+          embedded_version="$(
+            unzip -p "${archive_path}" "${package}/info.json" |
+              jq -er '.version'
+          )"
+
+          if [[ "${embedded_name}" != "${MOD_NAME}" || "${embedded_version}" != "${MOD_VERSION}" ]]; then
+            echo "::error::Release ZIP metadata does not match repository metadata."
+            exit 1
+          fi
+
+      - name: Publish release to Factorio Mod Portal
+        shell: bash
+        env:
+          FACTORIO_TOKEN: ${{ secrets.FACTORIO_TOKEN }}
+          MOD_NAME: ${{ steps.meta.outputs.name }}
+          MOD_VERSION: ${{ steps.meta.outputs.version }}
+          ARCHIVE: ${{ steps.meta.outputs.archive }}
+          MOD_SOURCE_URL: https://github.com/kryzeth/maraxsis-classic
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${FACTORIO_TOKEN}" ]]; then
+            echo "::error::Repository secret FACTORIO_TOKEN is not configured."
+            exit 1
+          fi
+
+          archive_path="dist/${ARCHIVE}"
+          portal_response="$(mktemp)"
+          trap 'rm -f "${portal_response}"' EXIT
+
+          status="$(
+            curl --silent --show-error \
+              --output "${portal_response}" \
+              --write-out '%{http_code}' \
+              "https://mods.factorio.com/api/mods/${MOD_NAME}/full"
+          )"
+
+          case "${status}" in
+            200)
+              if jq -e --arg version "${MOD_VERSION}" \
+                '.releases[]? | select(.version == $version)' \
+                "${portal_response}" >/dev/null; then
+                echo "${MOD_NAME} ${MOD_VERSION} already exists on the Factorio Mod Portal; nothing to upload."
+                exit 0
+              fi
+
+              init_endpoint="https://mods.factorio.com/api/v2/mods/releases/init_upload"
+              ;;
+
+            404)
+              echo "::error::${MOD_NAME} does not exist on the Factorio Mod Portal."
+              echo "::error::This workflow is intended to publish new releases of the existing Maraxsis Classic mod."
+              exit 1
+              ;;
+
+            *)
+              echo "::error::Unexpected Mod Portal response (${status}) while checking ${MOD_NAME}."
+              cat "${portal_response}" >&2
+              exit 1
+              ;;
+          esac
+
+          init_response="$(
+            curl --fail --silent --show-error \
+              -H "Authorization: Bearer ${FACTORIO_TOKEN}" \
+              -F "mod=${MOD_NAME}" \
+              "${init_endpoint}"
+          )"
+
+          upload_url="$(printf '%s' "${init_response}" | jq -er '.upload_url')"
+
+          upload_response="$(
+            curl --fail --silent --show-error \
+              -F "file=@${archive_path}" \
+              "${upload_url}"
+          )"
+
+          printf '%s\n' "${upload_response}" |
+            jq . 2>/dev/null ||
+            printf '%s\n' "${upload_response}"
+
+          echo "Published ${MOD_NAME} ${MOD_VERSION} to the Factorio Mod Portal."
