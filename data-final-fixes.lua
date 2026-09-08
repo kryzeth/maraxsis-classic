@@ -160,3 +160,10 @@ if not mods.pystellarexpedition then
         )
     end
 end
+
+if data.raw["explosion"]["nuke-effects-nauvis"] then
+    PlanetsLib.restrict_surface_conditions(
+        data.raw["explosion"]["nuke-effects-nauvis"],
+        {property = "pressure", max = 50000}
+    )
+end

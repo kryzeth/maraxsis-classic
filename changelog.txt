@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.32.0
+Date: September 7, 2026
+  Changes:
+    - Forked v1.31.9 from original Maraxsis mod. Renamed to Maraxsis Classic (maraxsis-classic internally).
+    - Added several new on_init exclusive functions to handle initial migration from the original mod.
+    - Removed the little planet icon from the Maraxsis Trench icon, to improve visual clarity of the Trench icon.
+    - [1.33.11 backport] Removed decal collision-layer, reusing the base game doodad layer instead.
+    - [1.34.24 backport] Disabled recycling on several recipes that should not have it enabled.
+    - [unreleased backport] Improved entity description for submarines, describing the automated submerge behavior.
+    - [unreleased backport] Reduced size of smoke particles from Oversized Steam Turbine.
+  Bugfixes:
+    - Fixed trench duct storage table being unnecessarily reset on config changed.
+    - [1.33.3 backport] Fixed softlock where you could get stuck inside the regulator with no way to mine the dome.
+    - [1.33.7 backport] Maraxsis liquid atmosphere decompression no longer counted in the stats menu or affected by productivity.
+    - [1.34.47 backport] Several fixes to Sand Extractor. Respects player build range. Blocked on artifical tiles, including Pressure Dome.
+      Included in production graph's Build tab. Extraction direction auto-adjusts based on adjacent belts/containers.
+    - [unreleased backport] Fixed nuclear-ground tiles from being created when launching nukes on Maraxsis.
+    - [unreleased backport] No longer overrides pre-existing fuel values on barreled fuels.
+---------------------------------------------------------------------------------------------------
 Version: 1.31.9
 Date: 2026-06-28
   Compatibility:

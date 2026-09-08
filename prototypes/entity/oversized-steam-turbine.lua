@@ -251,6 +251,7 @@ data:extend {{
         {type = "fluid", name = "water", amount = 1}
     },
     results = {},
+    auto_recycle = false,
     category = "maraxsis-supercritical-steam",
     icon = "__maraxsis-classic__/graphics/icons/oversized-steam-turbine.png",
 }}
@@ -269,7 +270,7 @@ data:extend {{
                 south_position = {0.0, -1.0},
                 east_position = {0.75, -0.75},
                 west_position = {0.75, -0.75},
-                frequency = 18000,
+                frequency = 6000,
                 starting_vertical_speed = 0.08,
                 starting_frame_deviation = 60
             },
@@ -279,7 +280,7 @@ data:extend {{
                 south_position = {0.0, -1.0 + 2},
                 east_position = {0.75 + 2, -0.75},
                 west_position = {0.75 + 2, -0.75},
-                frequency = 18000,
+                frequency = 6000,
                 starting_vertical_speed = 0.08,
                 starting_frame_deviation = 60
             },
@@ -289,7 +290,7 @@ data:extend {{
                 south_position = {0.0, -1.0 - 2},
                 east_position = {0.75 - 2, -0.75},
                 west_position = {0.75 - 2, -0.75},
-                frequency = 18000,
+                frequency = 6000,
                 starting_vertical_speed = 0.08,
                 starting_frame_deviation = 60
             }

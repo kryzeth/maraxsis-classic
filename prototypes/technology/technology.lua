@@ -14,7 +14,7 @@ data:extend {{
         {
             type = "unlock-space-location",
             space_location = "maraxsis-trench",
-            use_icon_overlay_constant = true
+            use_icon_overlay_constant = false
         },
         {
             type = "unlock-recipe",
