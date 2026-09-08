@@ -65,7 +65,7 @@ data:extend {maraxsis_chimney}
 data:extend {{
     type                       = "simple-entity",
     name                       = "maraxsis-mollusk-husk",
-    icon                       = "__maraxsis__/graphics/icons/mollusk-husk.png",
+    icon                       = "__maraxsis-classic__/graphics/icons/mollusk-husk.png",
     icon_size                  = 64,
     flags                      = {"placeable-neutral", "placeable-off-grid"},
     minable                    = {
@@ -83,21 +83,21 @@ data:extend {{
     order                      = "j-d[mollusk-husk]",
     pictures                   = {
         {
-            filename = "__maraxsis__/graphics/entity/mollusk-husk/mollusk-husk-1.png",
+            filename = "__maraxsis-classic__/graphics/entity/mollusk-husk/mollusk-husk-1.png",
             width = 163,
             height = 96,
             flags = {"no-scale"},
             scale = 0.75,
         },
         {
-            filename = "__maraxsis__/graphics/entity/mollusk-husk/mollusk-husk-2.png",
+            filename = "__maraxsis-classic__/graphics/entity/mollusk-husk/mollusk-husk-2.png",
             width = 163,
             height = 109,
             flags = {"no-scale"},
             scale = 0.75,
         },
         {
-            filename = "__maraxsis__/graphics/entity/mollusk-husk/mollusk-husk-3.png",
+            filename = "__maraxsis-classic__/graphics/entity/mollusk-husk/mollusk-husk-3.png",
             width = 129,
             height = 96,
             flags = {"no-scale"},
@@ -105,7 +105,7 @@ data:extend {{
             shift = {-0.5, 0}
         },
         {
-            filename = "__maraxsis__/graphics/entity/mollusk-husk/mollusk-husk-4.png",
+            filename = "__maraxsis-classic__/graphics/entity/mollusk-husk/mollusk-husk-4.png",
             width = 154,
             height = 85,
             flags = {"no-scale"},

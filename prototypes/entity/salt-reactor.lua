@@ -4,7 +4,7 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 data:extend {{
     type = "animation",
     name = "maraxsis-salt-reactor-animation",
-    filename = "__maraxsis__/graphics/entity/salt-reactor/salt-reactor.png",
+    filename = "__maraxsis-classic__/graphics/entity/salt-reactor/salt-reactor.png",
     priority = "high",
     width = 3200 / 8,
     height = 3200 / 8,
@@ -18,7 +18,7 @@ data:extend {{
 data:extend {{
     type = "animation",
     name = "maraxsis-salt-reactor-animation-glow",
-    filename = "__maraxsis__/graphics/entity/salt-reactor/salt-reactor-emission.png",
+    filename = "__maraxsis-classic__/graphics/entity/salt-reactor/salt-reactor-emission.png",
     priority = "high",
     width = 3200 / 8,
     height = 3200 / 8,
@@ -34,7 +34,7 @@ data:extend {{
 data:extend {{
     type = "fusion-reactor",
     name = "maraxsis-salt-reactor",
-    icon = "__maraxsis__/graphics/icons/salt-reactor.png",
+    icon = "__maraxsis-classic__/graphics/icons/salt-reactor.png",
     maraxsis_buildability_rules = {water = false, dome = true, coral = false, trench = true, trench_entrance = false, trench_lava = false},
     heating_energy = data.raw["generator"]["steam-turbine"].heating_energy,
     icon_size = 64,
@@ -45,7 +45,7 @@ data:extend {{
     dying_explosion = "medium-explosion",
     working_sound = {
         sound = {
-            filename = "__maraxsis__/sounds/salt-reactor.ogg",
+            filename = "__maraxsis-classic__/sounds/salt-reactor.ogg",
             volume = 1,
         },
         apparent_volume = 1.5,
@@ -71,7 +71,7 @@ data:extend {{
         structure = {
             layers = {
                 {
-                    filename = "__maraxsis__/graphics/entity/salt-reactor/salt-reactor.png",
+                    filename = "__maraxsis-classic__/graphics/entity/salt-reactor/salt-reactor.png",
                     priority = "high",
                     width = 3200 / 8,
                     height = 3200 / 8,
@@ -82,7 +82,7 @@ data:extend {{
                     scale = 0.5,
                 },
                 {
-                    filename = "__maraxsis__/graphics/entity/salt-reactor/salt-reactor-sh.png",
+                    filename = "__maraxsis-classic__/graphics/entity/salt-reactor/salt-reactor-sh.png",
                     priority = "high",
                     width = 800,
                     height = 600,
@@ -163,7 +163,7 @@ data:extend {{
 data:extend {{
     type = "fluid",
     name = "molten-salt",
-    icon = "__maraxsis__/graphics/icons/molten-salt.png",
+    icon = "__maraxsis-classic__/graphics/icons/molten-salt.png",
     icon_size = 64,
     default_temperature = 800,
     max_temperature = 1500,
@@ -195,7 +195,7 @@ data:extend {{
 data:extend {{
     type = "item",
     name = "msr-fuel-cell",
-    icon = "__maraxsis__/graphics/icons/msr-fuel-cell.png",
+    icon = "__maraxsis-classic__/graphics/icons/msr-fuel-cell.png",
     inventory_move_sound = item_sounds.reactor_inventory_move,
     pick_sound = item_sounds.reactor_inventory_pickup,
     drop_sound = item_sounds.reactor_inventory_move,
@@ -245,7 +245,7 @@ data:extend {{
 data:extend {{
     type = "item",
     name = "maraxsis-salt-reactor",
-    icon = "__maraxsis__/graphics/icons/salt-reactor.png",
+    icon = "__maraxsis-classic__/graphics/icons/salt-reactor.png",
     icon_size = 64,
     place_result = "maraxsis-salt-reactor",
     stack_size = 1,
@@ -254,7 +254,7 @@ data:extend {{
 data:extend {{
     type = "technology",
     name = "maraxsis-salt-reactor",
-    icon = "__maraxsis__/graphics/technology/salt-reactor.png",
+    icon = "__maraxsis-classic__/graphics/technology/salt-reactor.png",
     icon_size = 256,
     effects = {
         {

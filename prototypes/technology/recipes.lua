@@ -16,7 +16,7 @@ data:extend {{
         min = 400000,
         max = 400000,
     }},
-    icon = "__maraxsis__/graphics/icons/geothermal-sulfur.png",
+    icon = "__maraxsis-classic__/graphics/icons/geothermal-sulfur.png",
     icon_size = 64,
     allow_productivity = true,
 }}
@@ -37,7 +37,7 @@ data:extend {{
     subgroup = "fluid-recipes",
     order = "b[fluid-chemistry]-c[petroleum-gas-cracking]",
     enabled = false,
-    icon = "__maraxsis__/graphics/icons/petroleum-gas-cracking.png",
+    icon = "__maraxsis-classic__/graphics/icons/petroleum-gas-cracking.png",
     icon_size = 64,
     auto_recycle = false,
     allow_decomposition = false,

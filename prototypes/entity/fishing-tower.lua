@@ -2,7 +2,7 @@ if not mods.pystellarexpedition then
     data:extend {{
         type = "item",
         name = "maraxsis-fish-food",
-        icon = "__maraxsis__/graphics/icons/fish-food.png",
+        icon = "__maraxsis-classic__/graphics/icons/fish-food.png",
         icon_size = 64,
         stack_size = 100,
         plant_result = "maraxsis-fishing-plant",
@@ -32,7 +32,7 @@ end
 data:extend {{
     type = "item",
     name = "maraxsis-fishing-tower",
-    icon = "__maraxsis__/graphics/icons/fishing-tower.png",
+    icon = "__maraxsis-classic__/graphics/icons/fishing-tower.png",
     icon_size = 64,
     stack_size = data.raw.item["agricultural-tower"].stack_size,
     place_result = "maraxsis-fishing-tower"
@@ -82,7 +82,7 @@ local fishing_tower = table.deepcopy(data.raw["agricultural-tower"]["agricultura
 
 fishing_tower.name = "maraxsis-fishing-tower"
 fishing_tower.minable = {mining_time = 0.5, result = "maraxsis-fishing-tower"}
-fishing_tower.icon = "__maraxsis__/graphics/icons/fishing-tower.png"
+fishing_tower.icon = "__maraxsis-classic__/graphics/icons/fishing-tower.png"
 fishing_tower.icon_size = 64
 fishing_tower.max_health = 500
 fishing_tower.surface_conditions = {{
@@ -102,7 +102,7 @@ fishing_tower.emissions_per_second = nil
 fishing_tower.accepted_seeds = {"maraxsis-fish-food"}
 fishing_tower.energy_source.emissions_per_minute = nil
 fishing_tower.radius_visualisation_picture = {
-    filename = "__maraxsis__/graphics/entity/fishing-tower/radius-visualization.png",
+    filename = "__maraxsis-classic__/graphics/entity/fishing-tower/radius-visualization.png",
     width = 6,
     height = 6,
     priority = "extra-high-no-scale"
@@ -200,7 +200,7 @@ data:extend {{
     selection_box = {{-2, -2}, {2, 2}},
     graphics_set = {},
     result_units = result_units,
-    icon = "__maraxsis__/graphics/icons/fishing-tower.png",
+    icon = "__maraxsis-classic__/graphics/icons/fishing-tower.png",
     icon_size = 64,
     hidden = true,
     selectable_in_game = false,

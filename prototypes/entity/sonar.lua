@@ -1,7 +1,7 @@
 data:extend {{
     type = "technology",
     name = "maraxsis-sonar",
-    icon = "__maraxsis__/graphics/technology/sonar.png",
+    icon = "__maraxsis-classic__/graphics/technology/sonar.png",
     icon_size = 256,
     effects = {
         {
@@ -32,7 +32,7 @@ data:extend {{
 data:extend {{
     type = "item",
     name = "maraxsis-sonar",
-    icon = "__maraxsis__/graphics/icons/sonar.png",
+    icon = "__maraxsis-classic__/graphics/icons/sonar.png",
     icon_size = 64,
     stack_size = 10,
     place_result = "maraxsis-sonar",
@@ -57,7 +57,7 @@ data:extend {{
 data:extend {maraxsis.merge(data.raw.radar.radar, {
     type = "radar",
     name = "maraxsis-sonar",
-    icon = "__maraxsis__/graphics/icons/sonar.png",
+    icon = "__maraxsis-classic__/graphics/icons/sonar.png",
     icon_size = 64,
     localised_description = {"technology-description.maraxsis-sonar"},
     flags = {"placeable-player", "player-creation"},
@@ -91,7 +91,7 @@ data:extend {maraxsis.merge(data.raw.radar.radar, {
     pictures = {
         layers = {
             {
-                filename = "__maraxsis__/graphics/entity/sonar/sonar.png",
+                filename = "__maraxsis-classic__/graphics/entity/sonar/sonar.png",
                 width = 320,
                 height = 384,
                 apply_projection = false,
@@ -101,7 +101,7 @@ data:extend {maraxsis.merge(data.raw.radar.radar, {
                 shift = util.by_pixel(0, -30 - 16),
             },
             {
-                filename = "__maraxsis__/graphics/entity/sonar/sonar-shadow.png",
+                filename = "__maraxsis-classic__/graphics/entity/sonar/sonar-shadow.png",
                 width = 384,
                 height = 192,
                 scale = 0.65,
@@ -115,7 +115,7 @@ data:extend {maraxsis.merge(data.raw.radar.radar, {
     working_sound = {
         sound = {
             {
-                filename = "__maraxsis__/sounds/sonar.ogg",
+                filename = "__maraxsis-classic__/sounds/sonar.ogg",
                 speed = 0.5,
                 volume = 1
             }
@@ -162,7 +162,7 @@ data:extend {maraxsis.merge(data.raw.lamp["small-lamp"], {
     collision_box = {},
     localised_name = {"entity-name.maraxsis-sonar"},
     localised_description = {"entity-description.maraxsis-sonar"},
-    icon = "__maraxsis__/graphics/icons/sonar.png",
+    icon = "__maraxsis-classic__/graphics/icons/sonar.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
     minable = "nil",

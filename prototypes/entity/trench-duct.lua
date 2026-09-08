@@ -10,7 +10,7 @@ data.raw.technology["ducts"].prerequisites = {"sp-spidertron-automation", "plane
 data:extend {{
     type = "item",
     name = "maraxsis-trench-duct",
-    icon = "__maraxsis__/graphics/icons/trench-duct.png",
+    icon = "__maraxsis-classic__/graphics/icons/trench-duct.png",
     stack_size = 5,
     place_result = "maraxsis-trench-duct",
     subgroup = "ducts",
@@ -58,7 +58,7 @@ end
 data:extend {{
     type = "storage-tank",
     name = "maraxsis-trench-duct",
-    icon = "__maraxsis__/graphics/icons/trench-duct.png",
+    icon = "__maraxsis-classic__/graphics/icons/trench-duct.png",
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.8, result = "maraxsis-trench-duct"},
     fast_replaceable_group = "ducts",
@@ -72,28 +72,28 @@ data:extend {{
     integration_patch_render_layer = "under-tiles",
     integration_patch = {
         north = {
-            filename = "__maraxsis__/graphics/entity/trench-duct/trench-duct.png",
+            filename = "__maraxsis-classic__/graphics/entity/trench-duct/trench-duct.png",
             width = 128,
             height = 561,
             scale = 0.5,
             shift = {-0.05, 4}
         },
         east = {
-            filename = "__maraxsis__/graphics/entity/trench-duct/trench-duct.png",
+            filename = "__maraxsis-classic__/graphics/entity/trench-duct/trench-duct.png",
             width = 128,
             height = 561,
             scale = 0.5,
             shift = {0, 4.3}
         },
         south = {
-            filename = "__maraxsis__/graphics/entity/trench-duct/trench-duct.png",
+            filename = "__maraxsis-classic__/graphics/entity/trench-duct/trench-duct.png",
             width = 128,
             height = 561,
             scale = 0.5,
             shift = {0, 4.3}
         },
         west = {
-            filename = "__maraxsis__/graphics/entity/trench-duct/trench-duct.png",
+            filename = "__maraxsis-classic__/graphics/entity/trench-duct/trench-duct.png",
             width = 128,
             height = 561,
             scale = 0.5,
@@ -215,7 +215,7 @@ data:extend {{
 data:extend {{
     type = "storage-tank",
     name = "maraxsis-trench-duct-lower",
-    icon = "__maraxsis__/graphics/icons/trench-duct.png",
+    icon = "__maraxsis-classic__/graphics/icons/trench-duct.png",
     hidden = true,
     factoriopedia_alternative = "maraxsis-trench-duct",
     localised_name = {"entity-name.maraxsis-trench-duct"},

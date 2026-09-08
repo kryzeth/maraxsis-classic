@@ -1,7 +1,7 @@
 local bubbles = table.deepcopy(data.raw["trivial-smoke"]["smoke-fast"])
 bubbles.name = "maraxsis-bubbles"
 bubbles.animation = {
-    filename = "__maraxsis__/graphics/entity/bubbles/bubbles.png",
+    filename = "__maraxsis-classic__/graphics/entity/bubbles/bubbles.png",
     priority = "high",
     width = 64,
     height = 64,

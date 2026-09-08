@@ -1,7 +1,7 @@
 data:extend {{
     type = "technology",
     name = "maraxsis-research-vessel",
-    icon = "__maraxsis__/graphics/technology/research-vessel.png",
+    icon = "__maraxsis-classic__/graphics/technology/research-vessel.png",
     icon_size = 256,
     effects = {
         {
@@ -24,7 +24,7 @@ data:extend {{
 data:extend {{
     type = "item",
     name = "maraxsis-empty-research-vessel",
-    icon = "__maraxsis__/graphics/icons/research-vessel-tipped.png",
+    icon = "__maraxsis-classic__/graphics/icons/research-vessel-tipped.png",
     icon_size = 64,
     stack_size = 20,
     weight = 1000000 / 100,

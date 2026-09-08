@@ -1,7 +1,7 @@
 data:extend {{
     type = "technology",
     name = "maraxsis-promethium-productivity",
-    icons = util.technology_icon_constant_recipe_productivity("__maraxsis__/graphics/technology/promethium-productivity.png"),
+    icons = util.technology_icon_constant_recipe_productivity("__maraxsis-classic__/graphics/technology/promethium-productivity.png"),
     icon_size = 256,
     effects = {
         {
