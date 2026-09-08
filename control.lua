@@ -21,6 +21,9 @@ if not script.active_mods.pystellarexpedition then require "scripts.sand-extract
 if not script.active_mods.pystellarexpedition then require "scripts.hydro-plant" end
 if not script.active_mods.pystellarexpedition then require "scripts.salt-reactor" end
 
+-- rebuild runtime storage after migrating from original Maraxsis
+require "scripts.migration-rebuild"
+
 require "compat.call-plumber"
 
 maraxsis.finalize_events()
