@@ -1,7 +1,7 @@
 {
   "name": "maraxsis-classic",
   "author": "notnotmelon, Kryzeth",
-  "version": "1.33.2",
+  "version": "1.33.3",
   "factorio_version": "2.1",
   "title": "Maraxsis Classic",
   "description": "Stable version of classic Maraxsis, as close to the 2.0 version with fixes from the 2.1 experimental version.\nDive into the uncharted waters of Maraxsis, a world where the sea covers everything. Utilize submarines to explore, craft advanced fluids inside the hydro plant, build pressure domes, and master the challenges of deep-sea logistics.",
@@ -13,7 +13,7 @@
     "PlanetsLib >= 1.21.0",
     "SpidertronPatrols >= 2.7.0",
     "FluidMustFlow >= 1.5.0",
-    "+ AsteroidBelt >= 1.2.11",
+    "+ kry_asteroid_belt",
     "(?) tenebris",
     "(?) tenebris-prime",
     "(?) SchallTransportGroup",

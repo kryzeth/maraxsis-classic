@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.3
+Date: September 8, 2026
+  Changes:
+    - Replaced AsteroidBelt with Better Asteroid Belt as Recommended dependency.
+      This should solve any dependency loops between Maraxsis Classic, Asteroid Belt, and Muluna.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.2
 Date: September 7, 2026
   Info:
