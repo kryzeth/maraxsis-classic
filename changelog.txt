@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.4
+Date: September 9, 2026
+  Bugfixes:
+    - Accidentally used underscores instead of hyphens in the new asteroid belt Recommended dependency.
+    - Removed some Muluna compatibility code that was apparently no longer needed.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.3
 Date: September 8, 2026
   Changes:
@@ -18,7 +24,7 @@ Date: September 7, 2026
     - Forked v1.33.0 from original Maraxsis mod. Renamed to Maraxsis Classic (maraxsis-classic internally).
     - Added several new on_init exclusive functions to handle initial migration from the original mod.
     - Made Quality optional (backported from some later versions of old Maraxsis), though technically marked as Recommended.
-      This doesn't make a difference because Space Age also has it Recommended, and will enable Quality mod by default regardless.
+      This doesn't make a difference because Space Age also has it Recommended, and will always enable Quality mod by default.
     - Molten salt recipe only references quality when Quality mod is enabled.
     - Added migration script to convert filled omega-3 barrels into empty barrels.
     - Added migration script to convert fish oil items into the common-quality Hydraulic Science Packs that originally generated them.
