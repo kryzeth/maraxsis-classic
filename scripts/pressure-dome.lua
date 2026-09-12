@@ -100,24 +100,54 @@ maraxsis.on_event(maraxsis.events.on_built(), function(event)
     end
 end)
 
+--- Lays dome floor at the given positions, saving what was underneath.
+---
+--- We need to save the tile under the dome floor tile to know what to restore
+--- if/when the dome is mined.
+--- @param args {surface: LuaSurface, positions: TilePosition[]}
+local function lay_dome_floor(args)
+    local surface, positions = args.surface, args.positions
+    local below = {}
+    -- `unplace_tiles` skips restoring on space platforms, so we can skip
+    -- saving here too.
+    if not surface.platform then
+        for i, position in pairs(positions) do
+            local top = surface.get_tile(position).name
+            if top ~= PRESSURE_DOME_TILE then
+                below[i] = {top = top, hidden = surface.get_hidden_tile(position)}
+            end
+        end
+    end
+
+    local tiles = {}
+    for i, position in pairs(positions) do
+        tiles[i] = {name = PRESSURE_DOME_TILE, position = position}
+    end
+    surface.set_tiles(tiles, true, false, true, false)
+
+    for i, stack in pairs(below) do
+        surface.set_hidden_tile(positions[i], stack.top)
+        surface.set_double_hidden_tile(positions[i], stack.hidden)
+    end
+end
+
 local function place_tiles(pressure_dome_data)
     local surface = pressure_dome_data.surface
     if not surface.valid then return end
     local position = pressure_dome_data.position
     local x, y = position.x, position.y
 
-    local tiles = {}
+    local positions = {}
 
     for xx = -math.floor(octagon_size), math.floor(octagon_size) do
         for yy = -math.floor(octagon_size), math.floor(octagon_size) do
             if is_point_in_polygon(xx + 0.5, yy) then
-                local x, y = x + xx, y + yy
-                tiles[#tiles + 1] = {name = PRESSURE_DOME_TILE, position = {x, y}}
+                positions[#positions + 1] = {x + xx, y + yy}
             end
         end
     end
 
-    surface.set_tiles(tiles, true, false, true, false)
+    lay_dome_floor {surface = surface, positions = positions}
 end
 
 local DEFAULT_MARAXSIS_TILE = "sand-3-underwater"
@@ -143,16 +173,25 @@ local function unplace_tiles(pressure_dome_data)
     }
 
     local tiles = {}
+    local restore_hidden = {}
 
     for _, tile in pairs(tiles_in_square) do
         local tile_position = tile.position
         local xx, yy = tile_position.x, tile_position.y
         if is_point_in_polygon(xx - x + 0.5, yy - y) then
             tiles[#tiles + 1] = {name = tile_to_unplace or tile.hidden_tile or DEFAULT_MARAXSIS_TILE, position = {xx, yy}}
+            restore_hidden[#tiles] = tile.double_hidden_tile
         end
     end
 
     surface.set_tiles(tiles, true, false, true, false)
+
+    if not tile_to_unplace then
+        for i, tile in pairs(tiles) do
+            surface.set_hidden_tile(tile.position, restore_hidden[i])
+            surface.set_double_hidden_tile(tile.position, nil)
+        end
+    end
     if not surface.platform then
         surface.destroy_decoratives {
             area = area,
@@ -754,18 +793,21 @@ maraxsis.on_nth_tick(73, function()
     end
 end)
 
--- https://github.com/notnotmelon/maraxsis/issues/34
+--- Tiles that are "unminable" don't remember what's under them. We need that to
+--- restore whatever was under a Pressure Dome when it's mined. For this reason,
+--- pressure dome tiles are technically mineable with a mining time of 2^63. If
+--- it's actually mined for whatever reason, this handler un-mines it.
 maraxsis.on_event(maraxsis.events.on_mined_tile(), function(event)
-    local dome_tiles_to_rebuild = {}
+    local positions = {}
     for _, tile in pairs(event.tiles) do
         local name = tile.old_tile.name
         if name == PRESSURE_DOME_TILE then
-            dome_tiles_to_rebuild[#dome_tiles_to_rebuild + 1] = {position = tile.position, name = name}
+            positions[#positions + 1] = tile.position
         end
     end
-    if not dome_tiles_to_rebuild[1] then return end
+    if not positions[1] then return end
     local surface = game.get_surface(event.surface_index)
-    surface.set_tiles(dome_tiles_to_rebuild, true, false, false, false)
+    lay_dome_floor {surface = surface, positions = positions}
 end)
 
 maraxsis.on_nth_tick(5, function(event)
