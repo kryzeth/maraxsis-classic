@@ -38,6 +38,7 @@ end
 waterifiy("lava-hot", {maraxsis_lava_collision_mask})
 data.raw.tile["lava-hot-underwater"].collision_mask.layers.rail = nil
 data.raw.tile["lava-hot-underwater"].map_color = maraxsis.color_combine(data.raw.tile["lava-hot"].map_color, data.raw.tile["deepwater"].map_color, 0.6)
+data.raw.tile["lava-hot-underwater"].allows_being_covered = true
 waterifiy("volcanic-cracks-hot", {maraxsis_underwater_collision_mask})
 waterifiy("volcanic-cracks-warm", {maraxsis_underwater_collision_mask})
 waterifiy("volcanic-folds", {maraxsis_underwater_collision_mask})
@@ -132,3 +133,22 @@ local tile = maraxsis.merge(data.raw.tile["space-platform-foundation"], {
 })
 tile.variants.transition = table.deepcopy(data.raw.tile["concrete"].variants.transition)
 data:extend {tile}
+
+--- We replace foundation placed on maraxsis with this.
+data:extend {maraxsis.merge(data.raw.tile["foundation"], {
+    name = "maraxsis-trench-foundation",
+    localised_name = {"tile-name.foundation"},
+    is_foundation = true,
+    minable = {mining_time = 0.5, result = "foundation"},
+    placeable_by = {item = "foundation", count = 1},
+    -- This can only be in the trench since lava is only in the trench.
+    collision_mask = {layers = {ground_tile = true, [maraxsis_underwater_collision_mask] = true}},
+    hidden_in_factoriopedia = true,
+    factoriopedia_alternative = "foundation",
+    -- The game only saves 3 layers. This needs to stay uncoverable to prevent
+    -- this case where you'd have >3:
+    -- [lava, foundation, stone|concrete|etc, pressure dome]
+    allows_being_covered = false,
+})}
+
+table.insert(data.raw.item["foundation"].place_as_tile.tile_condition, "lava-hot-underwater")
