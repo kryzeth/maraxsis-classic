@@ -48,6 +48,10 @@ waterifiy("sand-2", {maraxsis_underwater_collision_mask})
 waterifiy("sand-1", {maraxsis_underwater_collision_mask})
 waterifiy("lowland-cream-red", {maraxsis_coral_collision_mask})
 waterifiy("lowland-red-vein-2", {maraxsis_coral_collision_mask})
+waterifiy("nuclear-ground", {maraxsis_underwater_collision_mask})
+data.raw.tile["nuclear-ground-underwater"].localised_name = {"tile-name.nuclear-ground"}
+data.raw.tile["nuclear-ground-underwater"].hidden_in_factoriopedia = true
+data.raw.tile["nuclear-ground-underwater"].factoriopedia_alternative = "nuclear-ground"
 
 data.raw.tile["lowland-cream-red-underwater"].map_color = defines.color.orange
 data.raw.tile["lowland-cream-red-underwater"].searchable = true

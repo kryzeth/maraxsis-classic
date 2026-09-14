@@ -47,6 +47,7 @@ end
 require "prototypes.circuit-connector-definitions"
 require "prototypes.tiles"
 require "prototypes.planet.space-location"
+require "prototypes.nuke-effects"
 require "prototypes.achievements"
 require "prototypes.custom-input"
 require "prototypes.music"
