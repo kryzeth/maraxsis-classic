@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.5
+Date: September 13, 2026
+  Info:
+    - Slightly updated wording in the description, both in-game and on the mod portal.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.4
 Date: September 13, 2026
   Bugfixes:
