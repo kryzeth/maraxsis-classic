@@ -133,6 +133,8 @@ if collision_mask_util.masks_collide(sand_mask, hydro_plant_mask) then
     )
 end
 
+--- Prevent Nauvis nuke effects on Maraxsis (keyed by pressure, so all planets
+--- with sufficient pressure).
 if data.raw["explosion"]["nuke-effects-nauvis"] then
     PlanetsLib.restrict_surface_conditions(
         data.raw["explosion"]["nuke-effects-nauvis"],

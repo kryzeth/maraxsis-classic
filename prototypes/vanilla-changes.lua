@@ -87,22 +87,6 @@ insert_hydro_plant(data.raw.recipe["ice-melting"])
 insert_hydro_plant(data.raw.recipe["advanced-thruster-fuel"])
 insert_hydro_plant(data.raw.recipe["advanced-thruster-oxidizer"])
 
--- https://github.com/notnotmelon/maraxsis/issues/23
-for _, projectile in pairs(data.raw.projectile) do
-    local _, target_effects = pcall(function() return projectile.action.action_delivery.target_effects end)
-    if not target_effects or type(target_effects) ~= "table" then goto continue end
-    for _, effect in pairs(target_effects) do
-        if type(effect) == "table" and effect.type == "set-tile" then
-            effect.tile_collision_mask = effect.tile_collision_mask or {layers = {}}
-            effect.tile_collision_mask.layers[maraxsis_underwater_collision_mask] = true
-            effect.tile_collision_mask.layers[maraxsis_coral_collision_mask] = true
-            effect.tile_collision_mask.layers[maraxsis_lava_collision_mask] = true
-            effect.tile_collision_mask.layers[maraxsis_dome_collision_mask] = true
-        end
-    end
-    ::continue::
-end
-
 -- fix equipment grids for the abyssal diving gear
 local tank = data.raw.car.tank
 if tank.equipment_grid == "medium-equipment-grid" then

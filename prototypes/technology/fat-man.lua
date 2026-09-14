@@ -80,13 +80,6 @@ data:extend { {
             type = "instant",
             target_effects = {
                 {
-                    type = "set-tile",
-                    tile_name = "nuclear-ground",
-                    radius = 12,
-                    apply_projection = true,
-                    tile_collision_mask = { layers = { water_tile = true } }
-                },
-                {
                     type = "destroy-cliffs",
                     radius = 9,
                     explosion = "explosion"
@@ -313,3 +306,17 @@ data:extend { {
     },
     height_from_ground = 280 / 64
 } }
+
+--- Copy the explosion effects over from the standard nuke.
+local function copy_nuke_effects_from_rocket(projectile)
+    local target_effects = projectile.action.action_delivery.target_effects
+    local index = maraxsis.index_after_destroy_cliffs(target_effects)
+    for _, effect in ipairs(data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects) do
+        if effect.type == "create-entity" and effect.entity_name:starts_with("nuke-effects-") then
+            table.insert(target_effects, index, table.deepcopy(effect))
+            index = index + 1
+        end
+    end
+end
+
+copy_nuke_effects_from_rocket(data.raw["artillery-projectile"]["maraxsis-nuclear-artillery-projectile"])
