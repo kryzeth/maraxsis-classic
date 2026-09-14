@@ -136,11 +136,21 @@ data:extend {{
     ]]
 }}
 
+--- Lava rivers.
 data:extend {{
     type = "noise-expression",
     name = "maraxsis_hot_lava",
     expression = [[
-        maraxsis_trench_wall * (maraxsis_lava_master_master > 0) * maraxsis_lava_tile(1)
+        maraxsis_lava_biome * maraxsis_lava_tile(1)
+    ]]
+}}
+
+--- The large patches of the trench where lava rivers can form.
+data:extend {{
+    type = "noise-expression",
+    name = "maraxsis_lava_biome",
+    expression = [[
+        maraxsis_trench_wall * (maraxsis_lava_master_master > 0)
     ]]
 }}
 
