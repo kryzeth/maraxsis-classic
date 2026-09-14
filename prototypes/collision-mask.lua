@@ -202,6 +202,7 @@ for _, decorative in pairs {
     "light-mud-decal",
     "vulcanus-dune-decal",
     "pink-lichen-decal",
+    "nuclear-ground-patch", -- the dust nukes scatter, which would otherwise float over the trench entrance
 } do
     decorative = data.raw["optimized-decorative"][decorative]
     if not decorative then error("decorative not found " .. decorative) end
