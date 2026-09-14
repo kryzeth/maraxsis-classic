@@ -1,6 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.33.5
-Date: September 13, 2026
+Date: September 14, 2026
+  Features:
+    - [1.36.0 backport] The Fat Man produces lava on Vulcanus and ocean on Aquilo, same as regular nukes.
+    - [1.36.0 backport] Nukes produce new nuclear seabed tile, with the same buildability rules.
+    - [1.36.0 backport] Nukes produces lava when used in lava biomes in the trench.
   Info:
     - Slightly updated wording in the description, both in-game and on the mod portal.
 ---------------------------------------------------------------------------------------------------
