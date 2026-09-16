@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.6
+Date: September 15, 2026
+  Bugfixes:
+    - [1.36.2 backport] No longer modifies fuel values on oil products.
+      Barreled fluids now have their fuel values updated directly, without modifying the fluid itself.
+  Info:
+    - Updated thumbnail image to more easily differentiate Classic from the original mod.
+      Thumbnail image still subject to change.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.5
 Date: September 14, 2026
   Features:
