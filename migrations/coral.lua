@@ -9,6 +9,15 @@ local function coral_created(event)
     local position = coral.position
     local force_index = coral.force_index
 
+    -- move registration up, in case coral was already defined via storage migration
+    local registration_number = script.register_on_object_destroyed(coral)
+    local existing_animations = storage.coral_animations[registration_number]
+
+    -- only generate new coral animations if they did not already exist
+    if existing_animations and existing_animations[1] and existing_animations[1].valid
+        and existing_animations[2] and existing_animations[2].valid
+    then return end
+
     local coral_animation = {0, 0}
     for i = 1, 2 do
         local new_coral = surface.create_entity {
@@ -39,7 +48,6 @@ local function coral_created(event)
         }
     }
 
-    local registration_number = script.register_on_object_destroyed(coral)
     storage.coral_animations[registration_number] = coral_animation
 end
 

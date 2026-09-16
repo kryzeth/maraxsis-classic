@@ -3,6 +3,9 @@ _G.maraxsis = {}
 _G.maraxsis_constants = prototypes.mod_data["maraxsis-constants"].data
 require "lib.lib"
 
+-- migrate storage cleanly between Classic and Modern branches
+require "scripts.storage-migration"
+
 require "scripts.map-gen.maraxsis"
 require "scripts.map-gen.maraxsis-trench"
 require "scripts.submarine"
