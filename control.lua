@@ -19,12 +19,9 @@ require "scripts.drowning"
 require "scripts.sonar"
 require "scripts.sand-extractor"
 require "scripts.salt-reactor"
--- migrate from old Maraxsis (v1.33.0 and below)
--- also rebuilds storage table from any versions of Maraxsis
-require "scripts.migration-rebuild"
--- migrate from experimental versions of Maraxsis (v1.33.2+)
--- handles entities/items that did not exist in v1.33.0
-require "scripts.migration-downgrade"
+-- used for downgrading from modern/experimental versions of Maraxsis (v1.33.2+)
+-- handles items and entities that did not exist in v1.33.0
+require "scripts.downgrade"
 
 require "compat.call-plumber"
 
