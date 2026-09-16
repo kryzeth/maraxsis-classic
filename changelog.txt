@@ -1,8 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.33.7
 Date: September 16, 2026
-  Bugfixes:
-    - TODO
+  Features:
+    - Enabled migration support in both directions between Modern and Classic.
   Info:
     - Slightly tweaked the thumbnail image, improved in-game quality.
 ---------------------------------------------------------------------------------------------------
