@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.8
+Date: September 17, 2026
+  Bugfixes:
+    - Undid all modifications to global 'table' table, relying on localized table modifications instead.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.7
 Date: September 16, 2026
   Features:
