@@ -1,3 +1,5 @@
+local table = require("lib.table")
+
 for _, lab in pairs(data.raw.lab) do
     for _, input in pairs(lab.inputs or {}) do
         if input == "cryogenic-science-pack" then

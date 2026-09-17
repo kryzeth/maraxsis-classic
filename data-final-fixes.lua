@@ -1,3 +1,5 @@
+local table = require("lib.table")
+
 function table_contains(tbl, x)
     if not tbl then
         return false

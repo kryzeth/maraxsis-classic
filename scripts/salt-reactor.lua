@@ -1,3 +1,5 @@
+local table = require("lib.table")
+
 maraxsis.on_event(maraxsis.events.on_init(), function()
     storage.salt_reactors = storage.salt_reactors or {}
     storage.oversized_steam_turbines = storage.oversized_steam_turbines or {}

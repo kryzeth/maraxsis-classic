@@ -1,3 +1,4 @@
+local table = require("lib.table")
 local mining_drill_prototypes = prototypes.get_entity_filtered {
     {filter = "type", type = "mining-drill"}
 }

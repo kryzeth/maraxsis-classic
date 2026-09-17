@@ -1,3 +1,5 @@
+local table = require("lib.table")
+
 local dome = {
     filename = "__maraxsis-classic__/graphics/entity/pressure-dome/pressure-dome.png",
     width = 1344,

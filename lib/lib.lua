@@ -1,4 +1,3 @@
-require "table"
 require "string"
 require "defines"
 require "color"

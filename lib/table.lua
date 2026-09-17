@@ -1,11 +1,17 @@
--- Adds new functions to the builtin table class.
+-- Localized modifications to the built-in table library.
+local Table = {}
+
+-- Import pre-existing table functions without modifying global table.
+for k, v in pairs(table) do
+    Table[k] = v
+end
 
 ---Returns a new table with the results of calling a provided function on every element in the table.
 ---@param tbl table
 ---@param f fun(v: any, k: any, ...: any): any
 ---@param ... any
 ---@return table
-table.map = function(tbl, f, ...)
+Table.map = function(tbl, f, ...)
     local result = {}
     for k, v in pairs(tbl) do result[k] = f(v, k, ...) end
     return result
@@ -16,7 +22,7 @@ end
 ---@param f fun(v: any, k: any, ...: any): boolean
 ---@param ... any
 ---@return table
-table.filter = function(tbl, f, ...)
+Table.filter = function(tbl, f, ...)
     local result = {}
     local is_array = #tbl > 0
     local is_function = type(f) == "function"
@@ -41,7 +47,7 @@ end
 ---@param f fun(v: any, k: any, ...: any): boolean
 ---@param ... any
 ---@return table
-table.delete_if = function(tbl, f, ...)
+Table.delete_if = function(tbl, f, ...)
     local result = {}
     local is_array = #tbl > 0
     local is_function = type(f) == "function"
@@ -67,7 +73,7 @@ end
 ---@param ... any
 ---@return any, any
 ---@overload fun(tbl: table, v: any): any, any
-table.find = function(tbl, f, ...)
+Table.find = function(tbl, f, ...)
     if type(f) == "function" then
         for k, v in pairs(tbl) do if f(v, k, ...) then return v, k end end
     else
@@ -82,8 +88,8 @@ end
 ---@param ... any
 ---@return boolean
 ---@overload fun(tbl: table, v: any): boolean
-table.any = function(tbl, f, ...)
-    return table.find(tbl, f, ...) ~= nil
+Table.any = function(tbl, f, ...)
+    return Table.find(tbl, f, ...) ~= nil
 end
 
 ---Returns true if all elements in the table pass the test implemented by the provided function.
@@ -92,7 +98,7 @@ end
 ---@param ... any
 ---@return boolean
 ---@overload fun(tbl: table, v: any): boolean
-table.all = function(tbl, f, ...)
+Table.all = function(tbl, f, ...)
     if type(f) == "function" then
         for k, v in pairs(tbl) do if not f(v, k, ...) then return false end end
     else
@@ -104,14 +110,14 @@ end
 ---Returns a boolean indicating whether the table has size 0.
 ---@param tbl table
 ---@return boolean
-table.is_empty = function(tbl)
+Table.is_empty = function(tbl)
     return next(tbl) == nil
 end
 
 ---Returns an array of the table's keys.
 ---@param tbl table
 ---@return any[]
-table.keys = function(tbl)
+Table.keys = function(tbl)
     local keys = {}
     for k, _ in pairs(tbl) do keys[#keys + 1] = k end
     return keys
@@ -120,7 +126,7 @@ end
 ---Returns an array of the table's values.
 ---@param tbl table
 ---@return any[]
-table.values = function(tbl)
+Table.values = function(tbl)
     local values = {}
     for _, v in pairs(tbl) do table.insert(values, v) end
     return values
@@ -129,7 +135,7 @@ end
 ---Returns the first element of the table.
 ---@param tbl table
 ---@return any
-table.first = function(tbl)
+Table.first = function(tbl)
     local _, v = next(tbl)
     return v
 end
@@ -137,7 +143,7 @@ end
 ---Returns the last element of the table.
 ---@param tbl table
 ---@return any
-table.last = function(tbl)
+Table.last = function(tbl)
     local result
     for _, v in pairs(tbl) do result = v end
     return result
@@ -146,7 +152,7 @@ end
 ---Returns the last element of the array.
 ---@param tbl any[]
 ---@return any
-table.array_last = function(tbl)
+Table.array_last = function(tbl)
     local size = #tbl
     if size == 0 then return nil end
     return tbl[size]
@@ -155,7 +161,7 @@ end
 ---Returns a new table with keys and values swapped.
 ---@param tbl table
 ---@return table
-table.invert = function(tbl)
+Table.invert = function(tbl)
     local result = {}
     for k, v in pairs(tbl) do result[v] = k end
     return result
@@ -164,7 +170,7 @@ end
 ---Returns a new table by merging the provided tables. If a key exists in multiple tables, the value from the last table is used.
 ---@param ... table
 ---@return table
-table.merge = function(...)
+Table.merge = function(...)
     local result = {}
     for _, tbl in pairs {...} do
         for k, v in pairs(tbl) do result[k] = v end
@@ -175,7 +181,7 @@ end
 ---Returns a new array by merging the provided tables. The values are appended in the order they are provided.
 ---@param ... table
 ---@return any[]
-table.array_combine = function(...)
+Table.array_combine = function(...)
     local result = {}
     for _, tbl in pairs {...} do
         for _, v in pairs(tbl) do result[#result + 1] = v end
@@ -186,7 +192,7 @@ end
 ---Reverses an array in-place and returns it.
 ---@param tbl any[]
 ---@return any[]
-table.reverse = function(tbl)
+Table.reverse = function(tbl)
     for i = 1, #tbl / 2 do
         tbl[i], tbl[#tbl - i + 1] = tbl[#tbl - i + 1], tbl[i]
     end
@@ -227,7 +233,7 @@ end
 ---Returns a new array with duplicates removed.
 ---@param tbl any[]
 ---@return any[]
-table.dedupe = function(tbl)
+Table.dedupe = function(tbl)
     local seen = {}
     local result = {}
     for _, v in pairs(tbl) do
@@ -238,3 +244,5 @@ table.dedupe = function(tbl)
     end
     return result
 end
+
+return Table
