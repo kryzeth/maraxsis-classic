@@ -37,6 +37,7 @@ local SUBMARINE_FUEL_SOURCES = {
     ["maraxsis-nuclear-submarine"] = {"nuclear", "nuclear-fuel", "maraxsis-salt-reactor"},
 }
 
+--- Entity types that can be flooded.
 local DOME_DISABLEABLE_TYPES = {
     ["assembling-machine"] = true,
     ["furnace"] = true,
@@ -51,13 +52,10 @@ local DOME_DISABLEABLE_TYPES = {
     ["boiler"] = true,
 }
 
+--- Entities that need a pressure dome but are immune to flooding. These work
+--- in an un-atmosphere'd dome.
 local DOME_EXCLUDED_FROM_DISABLE = {
-    ["chemical-plant"] = true,
-    ["maraxsis-hydro-plant"] = true,
-    ["maraxsis-hydro-plant-extra-module-slots"] = true,
-    ["maraxsis-conduit"] = true,
     ["maraxsis-oversized-steam-turbine"] = true,
-    ["maraxsis-a-breath-of-fresh-air"] = true,
 }
 
 local SAND_ITEM_NAME = "sand"
@@ -88,5 +86,6 @@ data:extend {{
         TRENCH_ENTRANCE_ELEVATION = TRENCH_ENTRANCE_ELEVATION,
         TROPICAL_FISH_NAMES = TROPICAL_FISH_NAMES,
         SAND_ITEM_NAME = SAND_ITEM_NAME,
+        NEEDS_DOME = {}, -- populated by prototypes/collision-mask.lua
     }
 }}

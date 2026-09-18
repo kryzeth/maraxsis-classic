@@ -30,11 +30,9 @@ local cant_be_placed_in_a_dome = {water = true, dome = false, coral = true, tren
 local cant_be_placed_anywhere = {water = false, dome = false, coral = false, trench = false, trench_entrance = false, trench_lava = false}
 
 local default_maraxsis_buildability_rules = {
-    ["accumulator"] = cant_be_placed_on_water,
     ["lab"] = cant_be_placed_on_water,
     ["assembling-machine"] = cant_be_placed_on_water,
     ["boiler"] = cant_be_placed_on_water,
-    ["burner-generator"] = cant_be_placed_on_water,
     ["fire"] = cant_be_placed_on_water,
     ["furnace"] = cant_be_placed_on_water,
     ["beacon"] = cant_be_placed_on_water,
@@ -43,7 +41,6 @@ local default_maraxsis_buildability_rules = {
     ["reactor"] = cant_be_placed_on_water,
     ["simple-entity-with-force"] = cant_be_placed_on_water,
     ["simple-entity-with-owner"] = cant_be_placed_on_water,
-    ["heat-pipe"] = cant_be_placed_on_water,
     ["fusion-reactor"] = cant_be_placed_on_water,
     ["fusion-generator"] = cant_be_placed_on_water,
 
@@ -159,7 +156,13 @@ for prototype in pairs(defines.prototypes.entity) do
         end
 
         if rules.water == false then
-            blacklist_via_tile_buildability_rule(entity, maraxsis_underwater_collision_mask)
+            local needs_dome = rules.dome and maraxsis_constants.DOME_DISABLEABLE_TYPES[entity.type]
+            if needs_dome then
+                -- only set this when `true` so the table is as small as it can be
+                maraxsis_constants.NEEDS_DOME[entity.name] = true
+            else
+                blacklist_via_tile_buildability_rule(entity, maraxsis_underwater_collision_mask)
+            end
         end
 
         if rules.dome == false then
