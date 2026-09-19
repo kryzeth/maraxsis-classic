@@ -198,16 +198,25 @@ data:extend {{
     }
 }}
 
-for i = 1, table_size(maraxsis_constants.TROPICAL_FISH_NAMES) do
+local SPECIES = table_size(maraxsis_constants.TROPICAL_FISH_NAMES)
+--- Chance per tile of a fish spawning in coral.
+local FISH_IN_CORAL = 0.003 / SPECIES
+--- Chance per tile of a fish spawning anywhere else. 2000x smaller than
+--- FISH_IN_CORAL so it's way more rare but not unheard of to see a random fish
+--- out on the sea bed.
+local FISH_IN_OPEN_WATER = 0.0000015 / SPECIES
+
+for i = 1, SPECIES do
     data:extend {{
         type = "noise-expression",
         name = "maraxsis_tropical_fish_" .. i,
-        expression = "rand > 0.99999",
+        expression = "rand > 1 - (" .. FISH_IN_CORAL .. " * in_coral + " .. FISH_IN_OPEN_WATER .. " * (1 - in_coral))",
         local_expressions = {
             wx = "maraxsis_wx(x, y) + " .. i * 97,
             wy = "maraxsis_wy(x, y) + " .. i * 61,
             seed = "map_seed + " .. i * 100,
-            rand = "1 - random_penalty{x = wx, y = wy, seed = seed, source = 1, amplitude = 1}"
+            rand = "1 - random_penalty{x = wx, y = wy, seed = seed, source = 1, amplitude = 1}",
+            in_coral = "maraxsis_coral_reef(x, y) > 0.45",
         }
     }}
 end
