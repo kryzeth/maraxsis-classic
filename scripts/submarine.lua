@@ -5,8 +5,10 @@ local function trench_generation_sanity_check()
     local trench = game.surfaces["maraxsis-trench"]
     local maraxsis = game.surfaces["maraxsis"]
     if trench and maraxsis then
+        local seed = maraxsis.map_gen_settings.seed
         local mgs = trench.map_gen_settings
-        mgs.seed = maraxsis.map_gen_settings.seed
+        if mgs.seed == seed then return end
+        mgs.seed = seed
         trench.map_gen_settings = mgs
     end
 end
