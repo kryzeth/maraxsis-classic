@@ -1,5 +1,5 @@
 local events = {}
-
+local rro = require("__PlanetsLib__.lib.remove-replace-object")
 ---Drop-in replacement for script.on_event however it supports multiple handlers per event. You can also use 'on_built' 'on_destroyed' and 'on_init' as shortcuts for multiple events.
 ---@param event defines.events|defines.events[]|string
 ---@param f function
@@ -44,7 +44,18 @@ maraxsis.finalize_events = function()
 			script.on_init(f)
 			script.on_configuration_changed(f)
 		else
-			script.on_event(tonumber(event) or event, f)
+			local filter = nil
+
+			if rro.contains(maraxsis.events.on_destroyed(),tonumber(event) or event) then
+				filter = {
+					--{mode="and",filter = "type",type="simple-entity",invert=true},
+					--{mode="and",filter = "type",type="tree",invert=true},
+					--{mode="and",filter = "type",type="plant",invert=true},
+					{mode="and",filter = "type",type="asteroid",invert=true}}
+				--error(serpent.block(filter))
+			end
+			
+			script.on_event(tonumber(event) or event, f,filter)
 		end
 		i = i + 1
 	end
