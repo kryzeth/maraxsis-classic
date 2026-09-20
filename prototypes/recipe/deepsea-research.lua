@@ -17,7 +17,8 @@ local chemical_science = table.deepcopy(data.raw.recipe["chemical-science-pack"]
 local production_science = table.deepcopy(data.raw.recipe["production-science-pack"])
 local utility_science = table.deepcopy(data.raw.recipe["utility-science-pack"])
 local science_packs = {automation_science, logistic_science, military_science, chemical_science, production_science, utility_science}
-if mods["workshop-science"] then
+if data.raw.recipe["workshop-science-pack"] then
+    -- insert workshop science at index 4
     workshop_science = table.deepcopy(data.raw.recipe["workshop-science-pack"])
     table.insert(science_packs, 4, workshop_science)
 end

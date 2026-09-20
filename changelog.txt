@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.9
+Date: September 20, 2026
+  Features:
+    - [1.38.0 Backport] Machines that need a pressure dome can now be built on the seabed, where they are flooded.
+      Domes can be mined with machines inside; those machines flood until a new dome is built over them.
+      Retroactively applies to already-built pressure domes.
+  Changes:
+    - Due to pressure dome changes, accumulators and heat pipes now work on the seabed.
+  Optimizations:
+    - [1.38.0 Backport] All events that involve entity destruction now filter out asteroid destroy events.
+      Should improve performance on large saves.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.8
 Date: September 17, 2026
   Bugfixes:
