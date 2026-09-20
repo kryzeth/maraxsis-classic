@@ -2,15 +2,7 @@ local TRENCH_MOVEMENT_FACTOR = maraxsis_constants.TRENCH_MOVEMENT_FACTOR
 local SUBMARINES = maraxsis_constants.SUBMARINES
 
 local function trench_generation_sanity_check()
-    local trench = game.surfaces["maraxsis-trench"]
-    local maraxsis = game.surfaces["maraxsis"]
-    if trench and maraxsis then
-        local seed = maraxsis.map_gen_settings.seed
-        local mgs = trench.map_gen_settings
-        if mgs.seed == seed then return end
-        mgs.seed = seed
-        trench.map_gen_settings = mgs
-    end
+    maraxsis.sync_trench_map_seed()
 end
 
 maraxsis.on_event(maraxsis.events.on_init(), function()

@@ -1,6 +1,7 @@
 maraxsis.on_event(maraxsis.events.on_init(), function()
     game.planets["maraxsis"].reset_map_gen_settings()
     game.planets["maraxsis-trench"].reset_map_gen_settings()
+    maraxsis.sync_trench_map_seed()
 end)
 
 maraxsis.on_event(maraxsis.events.on_init(), function()
