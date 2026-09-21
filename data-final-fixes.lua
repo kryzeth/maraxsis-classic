@@ -104,24 +104,10 @@ do
     fuel_category.localised_name = {"fuel-category-name.chemical"}
     data:extend {fuel_category}
 
-    data.raw.item["rocket-fuel"].fuel_category = "rocket-fuel"
-    data.raw.item["nuclear-fuel"].fuel_category = "nuclear-fuel"
+    PlanetsLib.rro.soft_insert(data.raw.item["rocket-fuel"].fuel_categories,"rocket-fuel")
+    PlanetsLib.rro.soft_insert(data.raw.item["nuclear-fuel"].fuel_categories, "nuclear-fuel")
 
-    for entity_type in pairs(defines.prototypes.entity) do
-        for _, entity in pairs(data.raw[entity_type] or {}) do
-            local burner = entity.burner or entity.energy_source
-            if not burner then goto continue end
-            if burner.type ~= "burner" then goto continue end
-
-            burner.fuel_categories = burner.fuel_categories or {"chemical"}
-            if table.find(burner.fuel_categories, "chemical") then
-                table.insert(burner.fuel_categories, "rocket-fuel")
-                table.insert(burner.fuel_categories, "nuclear-fuel")
-            end
-
-            ::continue::
-        end
-    end
+    
 end
 
 local sand_mask = collision_mask_util.get_mask(data.raw.tile["sand-1-underwater"])
