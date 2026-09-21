@@ -54,7 +54,7 @@ local function get_gui(player)
     frame.style.padding = 0
     frame.style.bottom_margin = 96
 
-    local height = 10
+    local height = 12
     local oxygen = frame.add {
         type = "progressbar",
         value = 1,
@@ -64,15 +64,30 @@ local function get_gui(player)
     oxygen.style.bar_width = height
     oxygen.style.height = height
     oxygen.style.width = 180
-    oxygen.style.color = {0.85, 0.2, 0.2}
+    oxygen.style.color = {0.2, 0.2, 0.85}
     oxygen.style.top_padding = -3
+    
 
     return screen.oxygen_meter
 end
 
+local function calc_color(bar_fill)
+    if bar_fill == 1 then
+        return {0.2, 0.2, 0.85}
+    else
+        return {0.85-0.65*bar_fill, 0.2+0.65*bar_fill, 0.2}
+    end
+    
+end
+
+
 local function update_gui(player)
     local breath = storage.breath[player.index] or FULL_BREATH_NUM_TICKS
-    get_gui(player).frame.oxygen.value = breath / FULL_BREATH_NUM_TICKS
+    local bar_fill = breath / FULL_BREATH_NUM_TICKS
+    get_gui(player).frame.oxygen.value = bar_fill
+    
+    get_gui(player).frame.oxygen.style.color = calc_color(bar_fill)
+    
     get_gui(player).frame.oxygen.caption = stringify_oxygen_stats(player)
 end
 
