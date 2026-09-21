@@ -1,3 +1,4 @@
+local rro = require("__PlanetsLib__.lib.remove-replace-object")
 local function transfer_equipment_grid(old_armor, new_armor)
     local old_armor_grid = old_armor.grid
     local new_armor_grid = new_armor.grid
@@ -143,25 +144,92 @@ maraxsis.on_event(defines.events.on_player_cursor_stack_changed, function(event)
     transfer_armor_item(player, cursor_stack, target_stack_name)
 end)
 
--- https://github.com/notnotmelon/maraxsis/issues/255
-maraxsis.on_event("factory-open-outside-surface-to-remote-view", function(event)
-    local player = game.get_player(event.player_index)
+local function get_other_surface(surface)
+    if surface.name == "maraxsis" then 
+        return "maraxsis-trench"
+    elseif surface.name == "maraxsis-trench" then
+        return "maraxsis"
+    else
+        return nil
+    end
+
+end
+
+local function switch_surface(player)
+    
     if player.selected then return end
+    if player.controller_type ~= defines.controllers.remote then return end
     local surface = player.surface
-    if surface.name ~= "maraxsis" then return end
+    local to_surface = get_other_surface(surface)
     
-    local cursor_position = event.cursor_position
-    local tile = surface.get_tile(cursor_position)
+    if not to_surface then
+        return
+    end
+    
+    --if not tile.valid then return end
+    --if tile.name ~= "maraxsis-trench-entrance" then return end
 
-    if not tile.valid then return end
-    if tile.name ~= "maraxsis-trench-entrance" then return end
-
-    local trench = game.planets["maraxsis-trench"].surface
+    local trench = game.planets[to_surface].surface
     if not trench then return end
-    
+    local old_zoom = player.zoom
     player.set_controller {
-        position = cursor_position,
+        position = player.position,
         surface = trench,
         type = defines.controllers.remote,
+        zoom = player.zoom,
     }
+    player.zoom=old_zoom
+end
+-- https://github.com/notnotmelon/maraxsis/issues/255 <- Rest in peace :(
+maraxsis.on_event("factory-open-outside-surface-to-remote-view", function(event)
+    local player = game.get_player(event.player_index)
+    switch_surface(player)
 end)
+
+local switch_surface_button_name = "maraxsis-switch-surface-button"
+local switch_surface_button_pattern =  "maraxsis%-switch%-surface%-button"
+
+
+maraxsis.on_event({defines.events.on_player_controller_changed,defines.events.on_player_changed_surface},function(event)
+    local player = game.players[event.player_index]
+    local top = player.gui.top
+    local surface = player.surface
+    if not rro.contains({"maraxsis","maraxsis-trench"},surface.name) then 
+        if top[switch_surface_button_name] then
+            top[switch_surface_button_name].destroy()
+        end
+        return
+
+    end
+    if player.controller_type == defines.controllers.remote then
+        if top[switch_surface_button_name] then
+            top[switch_surface_button_name].destroy()
+        end
+        local other_surface_prototype = game.planets[get_other_surface(surface)].prototype
+        if not game.planets[get_other_surface(surface)].surface then return end
+        local width = maraxsis.get_gui_locale(player.locale).switch_surface_button_width
+        local switch_surface_button = top.add{
+            type="button",
+            name = switch_surface_button_name,
+            caption = {"gui.maraxsis-change-surfaces",other_surface_prototype.localised_name,other_surface_prototype.name},
+            tooltip = {"gui-tooltip.maraxsis-change-surfaces"},
+        }
+        
+        switch_surface_button.style.minimal_width = width
+        switch_surface_button.style.maximal_width = width
+    else
+        if top[switch_surface_button_name] then
+            top[switch_surface_button_name].destroy()
+        end
+        
+    end
+
+end)
+
+_G.gui_events[defines.events.on_gui_click][switch_surface_button_pattern] = function(event)
+    local player = game.get_player(event.player_index)
+    switch_surface(player)
+
+
+
+end

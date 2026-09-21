@@ -6,6 +6,8 @@ require "lib.lib"
 -- migrate storage cleanly between Classic and Modern branches
 require "scripts.storage-migration"
 
+require "locale.gui-locale"
+
 require "scripts.map-gen.maraxsis"
 require "scripts.map-gen.maraxsis-trench"
 require "scripts.submarine"
