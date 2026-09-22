@@ -201,7 +201,7 @@ data:extend {{
     pick_sound = item_sounds.reactor_inventory_pickup,
     drop_sound = item_sounds.reactor_inventory_move,
     fuel_value = "40GJ",
-    fuel_category = "maraxsis-salt-reactor",
+    fuel_categories = {"maraxsis-salt-reactor"},
     stack_size = 50,
     default_import_location = "maraxsis",
     weight = 20*kg
