@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.10
+Date: September 22, 2026
+  Changes:
+    - [1.39.2 Backport] Improved the oxygen meter. Slightly raised the thickness of the bar to make the label fit better.
+      When the bar is fully filled, the bar is blue. As your oxygen drains, the bar's color starts green and slowly turns red.
+  Bugfixes:
+    - [1.39.3 Backport] Updated to use fuel_categories instead of fuel_category.
+      Bumped minimum version of base game to v2.1.20, when the new changes were introduced.
+    - [1.39.0 Backport] Fixed crash that would occur when a dome's regulator cannot be placed.
+  Optimizations:
+    - [1.39.4 Backport] Reduced the spawn rate of wild tropical fish and focused their spawning in reefs. 
+    - [1.38.1 Backport] Only rewrite the trench map seed when it is wrong.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.9
 Date: September 20, 2026
   Features:
