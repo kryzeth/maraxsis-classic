@@ -51,7 +51,12 @@ maraxsis.finalize_events = function()
 					--{mode="and",filter = "type",type="simple-entity",invert=true},
 					--{mode="and",filter = "type",type="tree",invert=true},
 					--{mode="and",filter = "type",type="plant",invert=true},
-					{mode="and",filter = "type",type="asteroid",invert=true}}
+					{mode="and",filter = "type",type="asteroid",invert=true},
+					{mode="and",filter = "type",type="unit",invert=true},
+					{mode="and",filter = "type",type="segmented-unit",invert=true},
+					{mode="and",filter = "type",type="spider-unit",invert=true},
+				
+				}
 				--error(serpent.block(filter))
 			end
 			
