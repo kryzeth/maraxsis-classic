@@ -159,6 +159,13 @@ data:extend {{
         width = 1,
     },
     hidden = true,
+    --- This makes the tower show green preview squares when hovering over
+    --- coral, indicating we'll plant fish food there.
+    autoplace = {
+        tile_restriction = {"lowland-cream-red-underwater", "lowland-red-vein-2-underwater"},
+        probability_expression = "0",
+        richness_expression = "0",
+    },
     -- ambient_sounds todo
     created_effect = {
         type = "direct",
