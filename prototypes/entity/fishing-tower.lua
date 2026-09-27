@@ -139,7 +139,6 @@ data:extend {{
             [maraxsis_dome_collision_mask] = true,
             [maraxsis_underwater_collision_mask] = true,
             [maraxsis_lava_collision_mask] = true,
-            [maraxsis_trench_entrance_collision_mask] = true
         }
     },
     collision_box = {{-0.8, -0.8}, {0.8, 0.8}},
