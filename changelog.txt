@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.11
+Date: September 29, 2026
+  Optimizations:
+    - [1.38.8 Backport] Improved performance of domes in multiplayer and when no players are looking at surfaces with domes on them.
+    - [1.38.9 Backport] Dome opacity change on focus now updates every tick. The associated scripts now run with an overall reduced performance cost, especially as player count and dome count increases.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.10
 Date: September 22, 2026
   Changes:
