@@ -1117,25 +1117,43 @@ maraxsis.on_event(maraxsis.events.on_mined_tile(), function(event)
     lay_dome_floor {surface = surface, positions = positions}
 end)
 
+--Changes opacity of domes player is focusing on.
 maraxsis.on_nth_tick(5, function(event)
     for _, pressure_dome_data in pairs(storage.pressure_domes) do
-        local dome_sprite = pressure_dome_data.entity
         local surface = pressure_dome_data.surface
+        local players_on_surface = {}
+        local has_players_on_surface = false
+        for index, player in pairs(game.connected_players) do
+            if player.surface == surface then
+                players_on_surface[index] = player
+                has_players_on_surface = true
+            end
+        end
+
+        if not has_players_on_surface then goto continue end
+
+        local dome_sprite = pressure_dome_data.entity
+        
         if not dome_sprite.valid or not surface.valid then goto continue end
+
+        
+
+        
+        
 
         local opacity = pressure_dome_data.opacity or 255
         local dome_position = pressure_dome_data.position
         local x, y = dome_position.x, dome_position.y
 
         local any_player_inside = false
-        for _, player in pairs(game.connected_players) do
+        for _, player in pairs(players_on_surface) do
             local player_position = player.position
             if player.surface == surface and is_point_in_polygon(player_position.x - x, player_position.y - y) then
                 any_player_inside = true
                 break
             end
         end
-
+     
         if any_player_inside then
             opacity = math.max(opacity - 16, 60)
         else
