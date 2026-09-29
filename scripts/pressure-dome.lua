@@ -19,6 +19,7 @@ maraxsis.on_event(maraxsis.events.on_init(), function()
     end
 
     storage.pressure_domes = storage.pressure_domes or {}
+    storage.pressure_domes_transparent = storage.pressure_domes_transparent or {} --Subset of pressure domes in some stage of transparent due to player interaction
 end)
 
 -- By Pedro Gimeno, donated to the public domain
@@ -1118,8 +1119,8 @@ maraxsis.on_event(maraxsis.events.on_mined_tile(), function(event)
 end)
 
 --Changes opacity of domes player is focusing on.
-maraxsis.on_nth_tick(5, function(event)
-    for _, pressure_dome_data in pairs(storage.pressure_domes) do
+maraxsis.on_nth_tick(15, function(event)
+    for i, pressure_dome_data in pairs(storage.pressure_domes) do
         local surface = pressure_dome_data.surface
         local players_on_surface = {}
         local has_players_on_surface = false
@@ -1132,9 +1133,7 @@ maraxsis.on_nth_tick(5, function(event)
 
         if not has_players_on_surface then goto continue end
 
-        local dome_sprite = pressure_dome_data.entity
         
-        if not dome_sprite.valid or not surface.valid then goto continue end
 
         
 
@@ -1155,15 +1154,55 @@ maraxsis.on_nth_tick(5, function(event)
         end
      
         if any_player_inside then
-            opacity = math.max(opacity - 16, 60)
-        else
-            opacity = math.min(opacity + 16, 255)
+            if opacity > 60 then
+                storage.pressure_domes_transparent[i] = {
+                    any_player_inside = true, 
+                }
+            end
+            --opacity = math.max(opacity - 16, 60)
+            
+        elseif opacity < 255 then
+            --opacity = math.min(opacity + 16, 255)
+            storage.pressure_domes_transparent[i] = {
+                any_player_inside = false, 
+            }
         end
 
-        if opacity ~= pressure_dome_data.opacity then
-            dome_sprite.color = {opacity, opacity, opacity, opacity}
-            pressure_dome_data.opacity = opacity
-        end
+        
         ::continue::
     end
+end)
+
+maraxsis.on_event(defines.events.on_tick, function(event)
+    for pressure_dome_index,transparancy_data in pairs(storage.pressure_domes_transparent) do
+        local pressure_dome_data = storage.pressure_domes[pressure_dome_index]
+        if not pressure_dome_data then 
+            storage.pressure_domes_transparent[pressure_dome_index] = nil
+            goto continue
+        end
+        local opacity = pressure_dome_data.opacity or 255
+        if transparancy_data.any_player_inside then
+            if opacity > 60 then
+                opacity = math.max(opacity - 4, 60)
+            else
+                storage.pressure_domes_transparent[pressure_dome_index] = nil
+                goto continue
+            end
+            
+        elseif opacity < 255 then
+            opacity = math.min(opacity + 4, 255)
+        else
+            storage.pressure_domes_transparent[pressure_dome_index] = nil
+            goto continue
+        end
+        local dome_sprite = pressure_dome_data.entity
+        
+        if not dome_sprite.valid or not pressure_dome_data.surface.valid then goto continue end
+        --if opacity ~= pressure_dome_data.opacity then
+            dome_sprite.color = {opacity, opacity, opacity, opacity}
+            pressure_dome_data.opacity = opacity
+        --end
+        ::continue::
+    end
+
 end)
