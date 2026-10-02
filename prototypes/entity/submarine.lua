@@ -217,7 +217,7 @@ for i = 1, 2 do
             {
                 name = "maraxsis-submarine-bubbles",
                 deviation = {0.35, 0.35},
-                frequency = 150,
+                frequency = 1500,
                 position = {0, 0},
                 slow_down_factor = 1,
                 starting_frame = 3,

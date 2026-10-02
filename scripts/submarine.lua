@@ -191,8 +191,8 @@ end)
 local function teleport_submarine(submarine, target_position, target_surface,has_player)
     local grid = submarine.grid
     if has_player then
-        for i = 1,32 do
-        local theta = i*(2/32)*math.pi
+        for i = 1,64 do
+        local theta = i*(2/64)*math.pi
         local x = target_position.x + 2*math.cos(theta)
         local y = target_position.y + 2*math.sin(theta)
         target_surface.create_trivial_smoke{
@@ -200,8 +200,8 @@ local function teleport_submarine(submarine, target_position, target_surface,has
             position = {x=x,y=y}
         }
         end
-        for i = 1,48 do
-            local theta = i*(2/48)*math.pi
+        for i = 1,96 do
+            local theta = i*(2/96)*math.pi
             local x = target_position.x + 2.5*math.cos(theta)
             local y = target_position.y + 2.5*math.sin(theta)
             target_surface.create_trivial_smoke{
@@ -209,8 +209,8 @@ local function teleport_submarine(submarine, target_position, target_surface,has
                 position = {x=x,y=y}
             }
         end
-        for i = 1,64 do
-            local theta = i*(2/64)*math.pi
+        for i = 1,129 do
+            local theta = i*(2/128)*math.pi
             local x = target_position.x + 3*math.cos(theta)
             local y = target_position.y + 3*math.sin(theta)
             target_surface.create_trivial_smoke{

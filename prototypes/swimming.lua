@@ -48,7 +48,7 @@ for _, character in pairs(data.raw.character) do
                 {
                     name = "maraxsis-swimming-bubbles",
                     deviation = {0.35, 0.35},
-                    frequency = 0.6,
+                    frequency = 6,
                     position = {0, 0},
                 }
             }
