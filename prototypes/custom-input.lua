@@ -38,6 +38,6 @@ data:extend {{
 data:extend {{
     type = "custom-input",
     name = "factory-open-outside-surface-to-remote-view",
-    key_sequence = "SHIFT + mouse-button-2",
+    key_sequence = "COMMAND + mouse-button-2",
     controller_key_sequence = "controller-leftstick"
 }}
