@@ -169,7 +169,7 @@ data:extend {{
     },
     results = {
       { type = "item", name = "kr-singularity-research-data", amount = 5 },
-      { type = "item", name = "kr-charged-matter-stabilizer", amount = 1, independent_probability = 0.9 },
+      { type = "item", name = "kr-matter-stabilizer", amount = 1, independent_probability = 0.9, ignored_by_productivity = 1 },
     },
     main_product = "kr-singularity-research-data",
     allow_productivity = true,
