@@ -7,9 +7,7 @@ data:extend {{
     icon_size = 256,
     effects = {},
     prerequisites = {
-        "maraxsis-research-vessel",
-        "maraxsis-stone-centrifuging",
-        "maraxsis-effect-transmission-2",
+        "maraxsis-project-seadragon",
     },
     unit = {
         count = 2000,
