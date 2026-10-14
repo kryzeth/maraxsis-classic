@@ -14,9 +14,10 @@ end
 
 local collision_mask_util = require("collision-mask-util")
 
-require "prototypes.research-vessel"
 require "prototypes.collision-mask"
 require "prototypes.swimming"
+-- prototype migration scripts for upgrading from older versions of Maraxsis
+require "prototypes.migration.research-vessel"
 -- recycling recipes for migration mode
 require "prototypes.migration.recycling"
 
