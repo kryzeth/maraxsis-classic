@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.14
+Date: October 15, 2026
+  Compatibility:
+    - [1.39.21 backport] Raised required Factorio version to 2.1.22 and fixed error on load related to fluid_box changes.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.13
 Date: October 13, 2026
   Changes:
