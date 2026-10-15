@@ -55,7 +55,7 @@ for _, quality in pairs(data.raw.quality) do
             burns_fluid = false,
             scale_fluid_usage = false,
             destroy_non_fuel_fluid = false,
-            maximum_temperature = 0,
+            maximum_temperature = nil,
             fluid_box = {
                 production_type = "input",
                 pipe_picture = require("__space-age__.prototypes.entity.electromagnetic-plant-pictures").pipe_pictures,
