@@ -92,10 +92,15 @@ local function slightly_shrink_collision_box(collision_box)
     local right_bottom = collision_box.right_bottom or collision_box[2]
     local x2, y2 = right_bottom.x or right_bottom[1], right_bottom.y or right_bottom[2]
 
+    -- Pull the edge in by 0.1 tiles, towards the entity's center. Handles negative
+    -- coordinates too, otherwise the rule area would only cover one quadrant of
+    -- the entity (the collision box is centered on the origin).
     local function slightly_shrink(val)
-        local nearest_half_tile = math.ceil(val * 2) / 2
-        val = math.min(val, nearest_half_tile - 0.1)
-        return math.max(0, val)
+        local magnitude = math.abs(val)
+        local nearest_half_tile = math.ceil(magnitude * 2) / 2
+        magnitude = math.max(0, math.min(magnitude, nearest_half_tile - 0.1))
+        if val < 0 then return -magnitude end
+        return magnitude
     end
 
     return {
