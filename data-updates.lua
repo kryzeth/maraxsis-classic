@@ -84,16 +84,24 @@ data:extend {{
     group = "intermediate-products",
 }}
 
-for recipe, category in pairs {
+for recipe_name, category in pairs {
     ["empty-maraxsis-atmosphere-barrel"] = "chemistry",
     ["maraxsis-atmosphere-barrel"] = "chemistry",
     ["empty-maraxsis-liquid-atmosphere-barrel"] = "cryogenics",
     ["maraxsis-liquid-atmosphere-barrel"] = "cryogenics",
 } do
-    local recipe = data.raw.recipe[recipe]
+    local recipe = data.raw.recipe[recipe_name]
     recipe.hidden_in_factoriopedia = false
     recipe.categories = {category}
     recipe.subgroup = "maraxsis-atmosphere-barreling"
+
+    -- Barrelling must never be boosted by productivity. Some mods, such as
+    -- K2SO, add machines with innate productivity bonuses (e.g. the advanced
+    -- chemical plant). Machine productivity ignores `allow_productivity`, so
+    -- without an explicit limit these recipes would create free barrels and
+    -- fluid out of nowhere. https://github.com/FluidNatalie/maraxsis/issues/32
+    recipe.allow_productivity = false
+    recipe.maximum_productivity = 0
 end
 data.raw.recipe["empty-maraxsis-atmosphere-barrel"].results[1].temperature = 25
 
