@@ -20,7 +20,7 @@ require "prototypes.entity.offshore-pump"
 require "prototypes.entity.salt-reactor"
 require "prototypes.entity.hydro-plant"
 require "prototypes.entity.sonar"
-require "prototypes.entity.sand-extractor"
+require "prototypes.recipe.sand-extraction"
 require "prototypes.entity.conduit"
 require "prototypes.entity.oversized-steam-turbine"
 
