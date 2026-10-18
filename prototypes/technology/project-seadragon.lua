@@ -24,7 +24,7 @@ data:extend {{
             recipe = "maraxsis-petroleum-gas-cracking"
         } or nil,
     },
-    prerequisites = {"hydraulic-science-pack", "coal-liquefaction"},
+    prerequisites = {"hydraulic-science-pack"},
     unit = {
         count = 500,
         ingredients = {
