@@ -52,8 +52,8 @@ local default_maraxsis_buildability_rules = {
     ["mining-drill"] = cant_be_placed_in_a_dome,
 
     ["rocket-silo"] = {water = true, dome = false, coral = true, trench = false, trench_entrance = false, trench_lava = false},
-    ["cargo-landing-pad"] = {water = true, dome = false, coral = true, trench = false, trench_entrance = false, trench_lava = false},
-    ["cargo-bay"] = {water = true, dome = false, coral = true, trench = false, trench_entrance = false, trench_lava = false},
+    ["cargo-landing-pad"] = {water = true, dome = true, coral = true, trench = false, trench_entrance = false, trench_lava = false},
+    ["cargo-bay"] = {water = true, dome = true, coral = true, trench = false, trench_entrance = false, trench_lava = false},
     ["electric-energy-interface"] = {water = true, dome = false, coral = true, trench = false, trench_entrance = false, trench_lava = false}, -- chances are this is a wind turbine
 
     ["artillery-turret"] = cant_be_placed_anywhere,
