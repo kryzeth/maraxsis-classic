@@ -18,7 +18,7 @@ local collision_mask_util = require("collision-mask-util")
 -- them the same buildability rules as the old "-sand-extractor" prototypes (buildable
 -- in water and on coral, but not in domes or trenches) and lock them to normal quality.
 -- This must run before prototypes.collision-mask (required below) reads these rules.
-for drill_name in pairs(maraxsis_constants.MARAXSIS_SAND_EXTRACTORS) do
+for drill_name in pairs(PlanetsLib.constants.ground_diggers["maraxsis"].diggers) do
     local ground_digger = data.raw["assembling-machine"][drill_name .. "-ground-digger"]
     if ground_digger then
         ground_digger.maraxsis_buildability_rules = {water = true, dome = false, coral = true, trench = false, trench_entrance = false, trench_lava = false}
@@ -48,7 +48,7 @@ if not data.raw["mining-drill"]["electric-mining-drill"].next_upgrade then
     end
 end
 
-for extractor in pairs(maraxsis_constants.MARAXSIS_SAND_EXTRACTORS) do
+for extractor,extractor_data in pairs(PlanetsLib.constants.ground_diggers["maraxsis"].diggers) do
     local mask = collision_mask_util.get_mask(data.raw["mining-drill"][extractor])
     mask.layers[maraxsis_dome_collision_mask] = true
 

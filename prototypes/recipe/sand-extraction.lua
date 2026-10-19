@@ -28,6 +28,8 @@ data:extend {{
 -- diggers that extract sand. PlanetsLib shares one "<drill>-ground-digger" prototype per
 -- drill across every planet that enables the feature, assigns the recipe when a digger
 -- is built, and applies mining drill productivity to that recipe automatically.
-PlanetsLib.enable_ground_diggers("maraxsis", "maraxsis-sand-extraction", {
-    drills = maraxsis_constants.MARAXSIS_SAND_EXTRACTORS,
-})
+PlanetsLib.enable_ground_diggers("maraxsis", "maraxsis-sand-extraction", {blacklist = {
+        ["seafloor-drill"] = true,
+        ["surface-drill"] = true,
+    }})
+

@@ -27,10 +27,6 @@ local MARAXSIS_TRENCH_SURFACES = { -- all surfaces with trench water mechanics
     ["maraxsis-trench-factory-floor"] = true,
 }
 
-local MARAXSIS_SAND_EXTRACTORS = {
-    ["electric-mining-drill"] = true,
-    ["big-mining-drill"] = true,
-}
 
 local SUBMARINE_FUEL_SOURCES = {
     ["maraxsis-diesel-submarine"] = {"maraxsis-diesel", "rocket-fuel"},
@@ -79,7 +75,6 @@ data:extend {{
         MARAXSIS_SURFACE_NAME = MARAXSIS_SURFACE_NAME,
         MARAXSIS_SURFACES = MARAXSIS_SURFACES,
         MARAXSIS_TRENCH_SURFACES = MARAXSIS_TRENCH_SURFACES,
-        MARAXSIS_SAND_EXTRACTORS = MARAXSIS_SAND_EXTRACTORS,
         SUBMARINE_FUEL_SOURCES = SUBMARINE_FUEL_SOURCES,
         DOME_DISABLEABLE_TYPES = DOME_DISABLEABLE_TYPES,
         DOME_EXCLUDED_FROM_DISABLE = DOME_EXCLUDED_FROM_DISABLE,
