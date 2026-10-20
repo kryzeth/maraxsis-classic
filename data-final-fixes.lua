@@ -51,7 +51,7 @@ end
 for extractor,extractor_data in pairs(PlanetsLib.constants.ground_diggers["maraxsis"].diggers) do
     local extractor_prototype = data.raw["mining-drill"][extractor]
     if not extractor_prototype then goto continue end
-    local mask = collision_mask_util.get_mask()
+    local mask = collision_mask_util.get_mask(data.raw["mining-drill"][extractor])
     mask.layers[maraxsis_dome_collision_mask] = true
 
     -- https://github.com/notnotmelon/maraxsis/issues/342
