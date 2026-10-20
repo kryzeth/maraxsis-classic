@@ -1,4 +1,27 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.15
+Date: October 19, 2026
+  Bugfixes:
+    - [1.39.23 backport] Blocked productivity on atmosphere barrelling recipes to prevent duplication of barrels and fluids.
+    - [1.40.1 backport] Fixed tile buildability collision bounds incorrectly clamping negative coordinates.
+    - [1.40.4 backport] Adjusted scaling of Conduit effectiveness to simplify estimations of overall effectiveness.
+    - [1.40.4 backport] Increased the max health of Conduit to 300. Increased the heating energy to 1 MW.
+    - [1.39.22 backport] K2SO: Fixed singularity research data recipe to return uncharged matter stabilizers and exclude them from productivity bonuses.
+      Don't expect too many K2SO related fixes; I grabbed this one out of convenience, but K2SO compat is not a priority for this mod.
+  Balancing:
+    - [1.40.8 backport] Cargo landing pads and cargo bays can now be placed inside pressure domes.
+    - [1.40.6 backport] Removed coal liquefaction from Project Seadragon technology prerequisites.
+  Features:
+    - [1.39.0 backport] Added a button and hotkey in remote view to quickly switch between Maraxsis and its trench.
+    - [1.33.2+ backport] Implemented startup setting to enable Geothermal generator power production copied from the v1.40.7 version of Modern Maraxsis.
+      This setting hides and disables the salt reactor related items, recipes, entities, and technologies, dropping as recyclable items.
+      The default setting preserves the current behavior, doing the same hide/disable/dismantle process to the geothermal generator instead.
+  Changes:
+    - [1.40.7 backport] Replaced custom sand extractor scripting with PlanetsLib's shared ground digger system, including migration support for existing extractors. Also fixed sand extractor migration incorrectly modifying ground digger recipes on non-Maraxsis surfaces.
+      Raised the minimum PlanetsLib version to 2.1.2 for ground digger compatibility fixes.
+  Compatibility:
+    - [1.40.7 backport] Added support for compatible modded mining drills to extract sand using PlanetsLib ground diggers.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.14
 Date: October 15, 2026
   Compatibility:
