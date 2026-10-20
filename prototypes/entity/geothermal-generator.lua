@@ -34,6 +34,8 @@ data:extend { {
     name = "maraxsis-geothermal-energy",
     icon = "__maraxsis-classic__/graphics/entity/geothermal-generator/technology.png",
     icon_size = 256,
+    hidden = true,  -- hidden/disabled by default, re-enabled only by power-system-changes
+    enabled = false,
     effects = {
         {
             type = "unlock-recipe",
@@ -170,7 +172,6 @@ data:extend { {
     dying_explosion = "big-explosion",
     circuit_connector = circuit_connector_definitions["maraxsis-hydro-plant"],
     circuit_wire_max_distance = _G.default_circuit_wire_max_distance,
-    localised_description = localised_description,
     heating_energy = "2000kW",
     module_slots = 5,
     icons_positioning = { {

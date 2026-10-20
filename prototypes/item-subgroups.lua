@@ -69,6 +69,7 @@ order_subgroup("item", "maraxsis-sonar", "d[radar]-b[sonar]-a[sonar]", data.raw.
 order_subgroup("lamp", "maraxsis-sonar-light-1", "d[radar]-b[sonar]-b[sonar-light-1]", data.raw.item.radar.subgroup)
 order_subgroup("lamp", "maraxsis-sonar-light-2", "d[radar]-b[sonar]-c[sonar-light-2]", data.raw.item.radar.subgroup)
 order_subgroup("item", "maraxsis-salt-reactor", "h[salt-reactor]-a[reactor]", "energy")
+order_subgroup("item", "maraxsis-geothermal-generator", "h[geothermal-generator]-a[geothermal-generator]", "energy")
 order_subgroup("item", "maraxsis-oversized-steam-turbine", "h[salt-reactor]-b[oversized-steam-turbine]", "energy")
 order_subgroup("recipe", "molten-salt", "a[melting]-d[molten-salt]", "vulcanus-processes")
 order_subgroup("item", "maraxsis-pressure-dome", "z-d-a[pressure-dome]", "environmental-protection")

@@ -30,6 +30,14 @@ data:extend {
         order = "d"
     },
     {
+        type = "string-setting",
+        name = "maraxsis-power-system",
+        setting_type = "startup",
+        default_value = "salt-reactor",
+        allowed_values = {"salt-reactor", "geothermal-generator"},
+        order = "e",
+    },
+    {
         type = "bool-setting",
         name = "maraxsis-runtime-entity-replacement",
         setting_type = "startup",

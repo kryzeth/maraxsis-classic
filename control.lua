@@ -23,6 +23,7 @@ require "scripts.fishing-tower"
 require "scripts.drowning"
 require "scripts.sonar"
 require "scripts.salt-reactor"
+require "scripts.power-system-migration"
 -- used for downgrading from modern/experimental versions of Maraxsis (v1.33.2+)
 -- handles items and entities that did not exist in v1.33.0
 require "scripts.downgrade"

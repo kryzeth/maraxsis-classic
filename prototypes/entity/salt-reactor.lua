@@ -38,6 +38,7 @@ data:extend {{
     icon = "__maraxsis-classic__/graphics/icons/salt-reactor.png",
     maraxsis_buildability_rules = {water = false, dome = true, coral = false, trench = true, trench_entrance = false, trench_lava = false},
     heating_energy = data.raw["generator"]["steam-turbine"].heating_energy,
+    target_temperature = 2000,
     icon_size = 64,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "maraxsis-salt-reactor"},
@@ -149,6 +150,26 @@ data.raw["fusion-reactor"]["maraxsis-salt-reactor"].output_fluid_box.filter = "m
 data.raw["fusion-reactor"]["maraxsis-salt-reactor"].output_fluid_box.pipe_covers = pipecoverspictures()
 for _, pipe_connection in pairs(data.raw["fusion-reactor"]["maraxsis-salt-reactor"].output_fluid_box.pipe_connections) do
     pipe_connection.connection_category = "maraxsis-salt-reactor"
+end
+
+for _, name in pairs{"duct-intake", "duct-exhaust"} do
+    local pump = data.raw.pump[name]
+
+    for _, connection in pairs(pump.fluid_box.pipe_connections) do
+        local categories = connection.connection_category
+
+        if categories == nil then
+            categories = {"default"}
+        elseif type(categories) == "string" then
+            categories = {categories}
+        end
+
+        if not table.find(categories, "maraxsis-salt-reactor") then
+            table.insert(categories, "maraxsis-salt-reactor")
+        end
+
+        connection.connection_category = categories
+    end
 end
 
 data:extend {{

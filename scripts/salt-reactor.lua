@@ -2,7 +2,6 @@ local table = require("lib.table")
 
 maraxsis.on_event(maraxsis.events.on_init(), function()
     storage.salt_reactors = storage.salt_reactors or {}
-    storage.oversized_steam_turbines = storage.oversized_steam_turbines or {}
     storage.duct_exhausts = storage.duct_exhausts or {}
     storage.fully_active_reactors = storage.fully_active_reactors or {}
     storage.not_fully_active_reactors = storage.not_fully_active_reactors or {}
@@ -35,6 +34,7 @@ local SUPERCRITICAL_STEAM_ALLOW_LIST = table.invert {
     "maraxsis-trench-duct-lower",
     "maraxsis-oversized-steam-turbine",
     "maraxsis-salt-reactor",
+    "maraxsis-geothermal-generator",
     "maraxsis-hydro-plant-extra-module-slots",
     "infinity-pipe",
 }
@@ -227,33 +227,6 @@ maraxsis.on_event(maraxsis.events.on_built(), function(event)
             animation,
             glow,
         }
-    elseif entity.name == "maraxsis-oversized-steam-turbine" then
-        local assembler = entity.surface.create_entity {
-            name = "maraxsis-oversized-steam-turbine-hidden-assembling-machine",
-            position = entity.position,
-            force = entity.force_index,
-            direction = entity.direction,
-            quality = entity.quality,
-            create_build_effect_smoke = false,
-        }
-        assembler.destructible = false
-        assembler.operable = false
-        assembler.minable_flag = false
-        assembler.add_fluid_box_linked_connection(0, entity, 0)
-        assembler.add_fluid_box_linked_connection(1, entity, 1)
-        storage.oversized_steam_turbines[entity.unit_number] = assembler
-    end
-end)
-
-maraxsis.on_event(defines.events.on_player_rotated_entity, function(event)
-    local entity = event.entity
-    if not entity.valid then return end
-
-    if entity.name == "maraxsis-oversized-steam-turbine" then
-        local assembler = storage.oversized_steam_turbines[entity.unit_number]
-        if not assembler or not assembler.valid then return end
-
-        assembler.direction = entity.direction
     end
 end)
 
@@ -261,10 +234,8 @@ maraxsis.on_event(maraxsis.events.on_destroyed(), function(event)
     local entity = event.entity
     if not entity.valid then return end
 
-    if entity.name == "maraxsis-oversized-steam-turbine" then
-        local assembler = storage.oversized_steam_turbines[entity.unit_number]
-        if assembler then assembler.destroy() end
-    elseif entity.name == "maraxsis-salt-reactor" then
+    if entity.name == "maraxsis-salt-reactor" then
         storage.not_fully_active_reactors[entity.unit_number] = nil
+        storage.fully_active_reactors[entity.unit_number] = nil
     end
 end)

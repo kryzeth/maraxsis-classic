@@ -18,11 +18,13 @@ require "prototypes.entity.bubbles"
 require "prototypes.entity.coral"
 require "prototypes.entity.offshore-pump"
 require "prototypes.entity.salt-reactor"
+require "prototypes.entity.geothermal-generator"
 require "prototypes.entity.hydro-plant"
 require "prototypes.entity.sonar"
 require "prototypes.recipe.sand-extraction"
 require "prototypes.entity.conduit"
 require "prototypes.entity.oversized-steam-turbine"
+require "prototypes.fluid.supercritical-steam"
 
 require "prototypes.technology.abyssal-diving-gear"
 require "prototypes.technology.technology"
@@ -38,8 +40,10 @@ require "prototypes.technology.hydraulic-science-pack"
 require "prototypes.technology.promethium-productivity"
 require "prototypes.technology.stone-centrifuging"
 require "prototypes.technology.deepsea-research"
--- prototype migration scripts for downgrading from future versions of old Maraxsis
-require "prototypes.migration.geothermal-generator"
+
+-- added power system changes to enable playable geothermal generator
+require "prototypes.entity.power-system-changes"
+require "prototypes.technology.power-system-changes"
 
 require "prototypes.circuit-connector-definitions"
 require "prototypes.tiles"

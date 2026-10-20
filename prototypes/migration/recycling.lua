@@ -1,24 +1,33 @@
--- early exit script if migration mode is not enabled
-if not settings.startup["maraxsis-migration-mode"].value then return end
-
 -- list of items to recycle and their constituent ingredients to recycle into
-local recycling_items = {
-    ["maraxsis-geothermal-generator"] = data.raw.recipe["maraxsis-geothermal-generator"].ingredients,
-    ["maraxsis-empty-research-vessel"] = {
+local recycling_items = {}
+-- add research vessels to this list if enabled by migration mode
+if settings.startup["maraxsis-migration-mode"].value then
+    recycling_items["maraxsis-empty-research-vessel"] = {
         {type = "item", name = "maraxsis-glass-panes", amount = 10},
         {type = "item", name = "steel-plate", amount = 10},
-    },
-}
-
--- add filled vessel variants to the list
-for name in pairs(data.raw.item) do
-    local science = name:match("^maraxsis%-(.+)%-research%-vessel$")
-    if science and data.raw.item[science] then
-        recycling_items[name] = {
-            {type = "item", name = science, amount = 100},
-            {type = "item", name = "maraxsis-empty-research-vessel", amount = 1},
-        }
+    }
+    -- include all types of filled vessels
+    for name in pairs(data.raw.item) do
+        local science = name:match("^maraxsis%-(.+)%-research%-vessel$")
+        if science and data.raw.item[science] then
+            recycling_items[name] = {
+                {type = "item", name = science, amount = 100},
+                {type = "item", name = "maraxsis-empty-research-vessel", amount = 1},
+            }
+        end
     end
+end
+
+-- add salt reactor or geothermal generato to this list, based on the setting
+if settings.startup["maraxsis-power-system"].value == "geothermal-generator" then
+    recycling_items["maraxsis-salt-reactor"] = data.raw.recipe["maraxsis-salt-reactor"].ingredients
+    recycling_items["msr-fuel-cell"] = {
+        {type = "item", name = "maraxsis-glass-panes", amount = 10},
+        {type = "item", name = "uranium-238", amount = 1},
+        {type = "item", name = "salt", amount = 500},   -- original recipe uses molten salt, 1:1 with solid salt
+    }
+else
+    recycling_items["maraxsis-geothermal-generator"] = data.raw.recipe["maraxsis-geothermal-generator"].ingredients
 end
 
 -- creates perfectly efficient recycling recipe based on ingredients
