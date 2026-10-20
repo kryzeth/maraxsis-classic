@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.16
+Date: October 20, 2026
+  Bugfixes:
+    - Fixed Science Group compat script still referencing removed research vessels.
+    - [1.40.20 backport] Fixed potential startup crash when another mod removes a mining drill registered as a sand extractor.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.15
 Date: October 19, 2026
   Bugfixes:
