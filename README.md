@@ -1,6 +1,24 @@
-[![](https://img.shields.io/badge/dynamic/json?color=orange&label=Factorio&query=downloads_count&suffix=%20downloads&url=https%3A%2F%2Fmods.factorio.com%2Fapi%2Fmods%2Fmaraxsis&style=for-the-badge)](https://mods.factorio.com/mod/maraxsis) [![](https://img.shields.io/badge/Discord-Community-blue?style=for-the-badge)](https://discord.gg/xRYEZYz5WR) [![](https://img.shields.io/github/issues/notnotmelon/maraxsis?label=Bug%20Reports&style=for-the-badge)](https://github.com/notnotmelon/maraxsis/issues) [![](https://img.shields.io/github/issues-pr/notnotmelon/maraxsis?label=Pull%20Requests&style=for-the-badge)](https://github.com/notnotmelon/maraxsis/pulls) [![Ko-Fi](https://img.shields.io/badge/Ko--fi-support%20me-ff5e5b?logo=kofi&logoColor=white&style=for-the-badge)](https://ko-fi.com/notnotmelon)
+[![foundrygg.com](https://img.shields.io/badge/foundrygg-4a1402?style=for-the-badge&logo=vercel&logoColor=white)](https://foundrygg.com) [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/VuVhYUBbWE) [![](https://img.shields.io/github/issues/kryzeth/maraxsis-classic?label=Bug%20Reports&style=for-the-badge)](https://github.com/kryzeth/maraxsis-classic/issues) [![](https://img.shields.io/github/issues-pr/kryzeth/maraxsis-classic?label=Pull%20Requests&style=for-the-badge)](https://github.com/kryzeth/maraxsis-classic/pulls)
 
-![](https://assets-mod.factorio.com/assets/3fe1f0f687b4d734c9d03546d0f15ce8005729cb.png)
+*Proud member of the Foundry Discord, for (almost) all your planetary discussion needs*
+
+---
+
+### Preface
+
+This was originally intended to be a preservation effort, but has since pivoted to become the long-term stable version of *classic* Maraxsis, where *Quality* is optional.
+
+The [original mod](https://mods.factorio.com/mod/maraxsis) is now maintained by friends of the original dev, and long-standing members of the community: [FluidNatalie](https://mods.factorio.com/user/FluidNatalie) and [MeteorSwarm](https://mods.factorio.com/user/MeteorSwarm), alongside several other contributors (including yours truly!)
+
+They will continue to release* major features* and *experimental updates* (with the risk of potentially breaking changes) as they expand upon the *modern* version of Maraxsis, moving in the direction its original dev might have taken it (primarily by incorporating *Quality* mechanics into its recipe chains).
+
+*Classic Maraxsis* will receive any and all applicable bugfixes, balance tweaks, and other useful features backported from *Modern Maraxsis*, after they have been thoroughly tested, to maintain stability. No base-breaking changes between updates is the ideal.
+
+### Compatibility
+Allows for both upgrading and downgrading from any and all versions of the original Maraxsis mod, from 2.0 or 2.1; using storage table migration features from base game v2.1.18 to perfectly preserve existing infrastructure.
+
+*Informatic by [Powerscooter](https://mods.factorio.com/user/Powerscooter):*
+![Imgur](https://i.imgur.com/clEzMzf.png)
 
 ---
 
