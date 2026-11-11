@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.17
+Date: November 1, 2026
+  Optimizations:
+    - [1.41.1 backport] Filter on_entity_damaged events to pressure dome colliders.
+  Bugfixes:
+    - [1.39.17 backport] Fixed potential crash when updating player breath with a nil value.
+    - [1.40.1 backport] Fixed incorrect error message when pressure dome placement is blocked by terrain instead of an entity.
+  Compatibility:
+    - [1.34.48 backport] Added compatibility with Muluna's big rocket silo.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.16
 Date: October 20, 2026
   Bugfixes:
