@@ -58,7 +58,10 @@ maraxsis.finalize_events = function()
 				
 				}
 				--error(serpent.block(filter))
-			end
+			elseif tonumber(event) == defines.events.on_entity_damaged then
+				-- backported damage filter from ec6dab
+                filter = {{filter = "name", name = "maraxsis-pressure-dome-collision"}}
+            end
 			
 			script.on_event(tonumber(event) or event, f,filter)
 		end
