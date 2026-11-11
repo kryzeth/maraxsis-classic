@@ -132,4 +132,6 @@ for surface in pairs(maraxsis_constants.MARAXSIS_SURFACES) do
         "maraxsis-runtime-entity-replacement",
         "rocket-silo"
     )
+    -- https://github.com/notnotmelon/maraxsis/issues/417
+    PlanetsLib.assign_rocket_part_recipe(surface, maraxsis_rocket_part.name)
 end
