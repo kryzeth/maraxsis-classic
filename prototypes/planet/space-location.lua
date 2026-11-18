@@ -24,7 +24,6 @@ PlanetsLib:extend {
     order = "e-z[maraxsis]",
     solar_power_in_space = 150,
     map_gen_settings = planet_map_gen.maraxsis(),
-    draw_orbit = false,
     is_satellite = false,
     orbit = {
         distance = 17.5,
