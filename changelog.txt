@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.18
+Date: November 18, 2026
+  Bugfixes:
+    - Re-enabled draw_orbit field on Maraxsis, since it no longer shares an orbit with Nauvis.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.17
 Date: November 1, 2026
   Optimizations:
