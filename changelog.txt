@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.19
+Date: November 23, 2026
+  Locale:
+    - Updated German locale, courtesy of Schlumpf8.
+  Bugfixes:
+    - Fixed accidentally hidden geothermal sulfur recipe when Classic salt reactor setting was enabled.
+    - Fixed geothermal sulfur recipe ingredients and crafting category when Modern geothermal generator setting was enabled.
+    - Fixed geothermal sulfur recipe having the wrong pressure conditions, due to previous pressure value increase.
+      Now uses maraxsis.trench_surface_conditions() instead of hardcoded values.
+    - Fixed a similar issue with the Krastorio 2 Quantum Computer placement conditions.
+---------------------------------------------------------------------------------------------------
 Version: 1.33.18
 Date: November 18, 2026
   Bugfixes:
