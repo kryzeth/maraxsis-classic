@@ -139,11 +139,7 @@ data.raw.recipe["kr-quantum-computer"].ingredients = {
     {type = "item", name = "maraxsis-glass-panes", amount = 200},
 }
 
-data.raw["assembling-machine"]["kr-quantum-computer"].surface_conditions = {{
-    property = "pressure",
-    min = 400000,
-    max = 400000,
-}}
+data.raw["assembling-machine"]["kr-quantum-computer"].surface_conditions = maraxsis.trench_surface_conditions()
 
 data:extend {{
     type = "item",
