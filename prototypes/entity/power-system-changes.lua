@@ -44,7 +44,6 @@ else
     hide_and_disable(data.raw.recipe["maraxsis-geothermal-generator"])
     hide_and_disable(data.raw.recipe["maraxsis-supercritical-steam"])
     hide_and_disable(data.raw.recipe["maraxsis-supercritical-steam-cooling"])
-    hide_and_disable(data.raw.recipe["maraxsis-geothermal-sulfur"])
 end
 
 -- below changes are only needed with geothermal enabled
@@ -76,7 +75,16 @@ turbine.fluid_box.pipe_connections = {
     {flow_direction = "input-output", direction = defines.direction.west, position = {-1, -1.5}, connection_category = "ducts"},
 }
 
--- Modern's additional southern water output
+-- use Modern's geothermal sulfur recipe when geothermal power is selected
+local sulfur = data.raw.recipe["maraxsis-geothermal-sulfur"]
+sulfur.ingredients = {
+    {type = "fluid", name = "maraxsis-supercritical-steam", amount = 100},
+    {type = "fluid", name = "lava", amount = 100},
+}
+sulfur.categories = {"maraxsis-geothermal-generator"}
+sulfur.energy_required = 3
+
+-- add Modern's extra water output
 table.insert(turbine.output_fluid_box.pipe_connections, {
     flow_direction = "input-output",
     direction = defines.direction.south,

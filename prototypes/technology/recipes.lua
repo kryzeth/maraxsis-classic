@@ -11,11 +11,7 @@ data:extend {{
     energy_required = 2,
     enabled = false,
     categories = {"maraxsis-hydro-plant"},
-    surface_conditions = {{
-        property = "pressure",
-        min = 400000,
-        max = 400000,
-    }},
+    surface_conditions = maraxsis.trench_surface_conditions(),
     icon = "__maraxsis-classic__/graphics/icons/geothermal-sulfur.png",
     icon_size = 64,
     allow_productivity = true,
