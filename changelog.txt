@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.33.20
+Date: November 23, 2026
+  Compatibility:
+    - Improved compatibility with Krastorio 2 Steel Pipes (both full and standalone).
+---------------------------------------------------------------------------------------------------
 Version: 1.33.19
 Date: November 23, 2026
   Locale:
