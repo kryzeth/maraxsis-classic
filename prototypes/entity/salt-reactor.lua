@@ -168,6 +168,12 @@ for _, name in pairs{"duct-intake", "duct-exhaust"} do
             table.insert(categories, "maraxsis-salt-reactor")
         end
 
+        -- K2 steel pipe compat, add category when detected
+        -- works with standalone steel pipes as well
+        if data.raw.pipe["kr-steel-pipe"] and table.find(categories, "default") then
+            table.insert(categories, "kr-steel-pipe")
+        end
+
         connection.connection_category = categories
     end
 end
