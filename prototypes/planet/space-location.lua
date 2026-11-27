@@ -6,14 +6,23 @@ local planet_map_gen = require "map-gen"
 
 -- create custom asteroid_spawn_definitions for Maraxsis, based on Aquilo
 -- vanilla Aquilo uses ``asteroid_util.fulgora_aquilo, 0.9``
+-- re-using fulgora_aquilo preserves appropriate departure values for the Fulgora-Maraxsis connection 
 local maraxsis_asteroids = table.deepcopy(asteroid_util.fulgora_aquilo)
--- replace Aquilo's ice-heavy ratios with a more metallic/carbonic-focused distribution
+-- replace Aquilo's ice-heavy ratios with metallic/carbonic-focused distribution
 -- the 3,2,1,0 distribution is borrowed from vanilla Nauvis asteroid ratio
+maraxsis_asteroids.type_ratios[2].ratios = {3, 2, 1, 0}
 maraxsis_asteroids.type_ratios[3].ratios = {3, 2, 1, 0}
 -- reduce spawn_probabilities to compensate for the ratio changes,
 -- preserving the same total asteroid density as Aquilo
 maraxsis_asteroids.probability_on_range_chunk[2].probability = asteroid_util.aquilo_chunks * 0.575
 maraxsis_asteroids.probability_on_range_big[2].probability = asteroid_util.aquilo_big * 0.575
+-- adapt the departure values for the Vulcanus-Maraxsis connection
+-- preserving the custom Maraxsis destination values, which
+-- prevents the connection from using the Aquilo ice-heavy ratio
+local vulcanus_maraxsis_asteroids = table.deepcopy(maraxsis_asteroids)
+vulcanus_maraxsis_asteroids.type_ratios[1].ratios = asteroid_util.vulcanus_ratio
+vulcanus_maraxsis_asteroids.probability_on_range_chunk[1].probability = asteroid_util.vulcanus_chunks
+vulcanus_maraxsis_asteroids.probability_on_range_medium[1].probability = asteroid_util.vulcanus_medium
 
 local surface_properties = {
     ["day-night-cycle"] = 5 * minute,
@@ -145,7 +154,7 @@ data:extend { {
     to = "maraxsis",
     order = "f",
     length = 20000,
-    asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.gleba_aquilo)
+    asteroid_spawn_definitions = asteroid_util.spawn_definitions(vulcanus_maraxsis_asteroids)
 } }
 
 data:extend { {
@@ -156,7 +165,7 @@ data:extend { {
     to = "maraxsis",
     order = "f",
     length = 20000,
-    asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.gleba_aquilo)
+    asteroid_spawn_definitions = asteroid_util.spawn_definitions(maraxsis_asteroids)
 } }
 
 if data.raw["planet"]["tenebris"] then
