@@ -4,6 +4,17 @@ require "trench-noise-expressions"
 local asteroid_util = require "__space-age__.prototypes.planet.asteroid-spawn-definitions"
 local planet_map_gen = require "map-gen"
 
+-- create custom asteroid_spawn_definitions for Maraxsis, based on Aquilo
+-- vanilla Aquilo uses ``asteroid_util.fulgora_aquilo, 0.9``
+local maraxsis_asteroids = table.deepcopy(asteroid_util.fulgora_aquilo)
+-- replace Aquilo's ice-heavy ratios with a more metallic/carbonic-focused distribution
+-- the 3,2,1,0 distribution is borrowed from vanilla Nauvis asteroid ratio
+maraxsis_asteroids.type_ratios[3].ratios = {3, 2, 1, 0}
+-- reduce spawn_probabilities to compensate for the ratio changes,
+-- preserving the same total asteroid density as Aquilo
+maraxsis_asteroids.probability_on_range_chunk[2].probability = asteroid_util.aquilo_chunks * 0.575
+maraxsis_asteroids.probability_on_range_big[2].probability = asteroid_util.aquilo_big * 0.575
+
 local surface_properties = {
     ["day-night-cycle"] = 5 * minute,
     ["magnetic-field"] = 25,
@@ -29,6 +40,8 @@ PlanetsLib:extend {
     icon = "__maraxsis__/graphics/planets/maraxsis.png",
     icon_size = 256,
     solar_power_in_space = 150,
+    asteroid_spawn_influence = 1,
+    asteroid_spawn_definitions = asteroid_util.spawn_definitions(maraxsis_asteroids, 0.9),
     map_gen_settings = planet_map_gen.maraxsis(),
     draw_orbit = false,
     subgroup = "planets",
@@ -102,6 +115,7 @@ PlanetsLib:extend {
 surface_properties["pressure"] = 800000
 surface_properties["solar-power"] = 0
 
+---@diagnostic disable-next-line: assign-type-mismatch
 data:extend { maraxsis.merge(data.raw.planet.gleba, {
     name = "maraxsis-trench",
     starting_area = 1,
