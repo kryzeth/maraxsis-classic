@@ -124,7 +124,6 @@ PlanetsLib:extend {
 surface_properties["pressure"] = 800000
 surface_properties["solar-power"] = 0
 
----@diagnostic disable-next-line: assign-type-mismatch
 data:extend { maraxsis.merge(data.raw.planet.gleba, {
     name = "maraxsis-trench",
     starting_area = 1,
